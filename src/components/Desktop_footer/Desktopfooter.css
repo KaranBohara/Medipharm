@@ -1,0 +1,111 @@
+.desktop-footer-container {
+  width: 92.5%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 6rem;
+}
+.items-position {
+  display: flex;
+  flex-direction: column;
+}
+.items-position .fa-chevron-down,
+.items-position .fa-chevron-up {
+  display: none;
+}
+.items-position li {
+  height: fit-content;
+  padding: 0.4rem 0rem;
+  font-size: 1rem;
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-flow: row wrap;
+  white-space: pre;
+}
+.subscription-box {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: center;
+}
+.subscription-box h6 {
+  width: 100%;
+  color: black;
+  font-weight: 600;
+}
+.subscription-box p {
+  width: 100%;
+}
+.subscription-box input[type="text"] {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(207, 207, 207);
+}
+.subscription-box input[type="submit"] {
+  outline: none;
+  border: none;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: #33aeb1;
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 992px) {
+  .desktop-footer-container {
+    width: 92.5%;
+    flex-direction: column;
+  }
+  .subscription-box {
+    width: 100%;
+    margin-top: 1rem;
+    align-items: flex-start;
+  }
+  .items-position .fa-chevron-down {
+    display: flex;
+    transform: rotate(0deg);
+    transition: transform .4s linear;
+  }
+  .items-position .fa-chevron-down.rotate
+  {
+    display: flex;
+    transform: rotate(180deg);
+    transition: transform .4s linear;
+  }
+  .items-position li {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .subscription-box h6 {
+    margin-top: 1rem;
+  }
+/* @-webkit-keyframes slide-down {
+      0% { opacity: 0; -webkit-transform: translateY(-100%); }   
+    100% { opacity: 1; -webkit-transform: translateY(0); }
+}
+@-moz-keyframes slide-down {
+      0% { opacity: 0; -moz-transform: translateY(-100%); }   
+    100% { opacity: 1; -moz-transform: translateY(0); } */
+/* } */
+}
+@media screen and (max-width: 592px) {
+  .desktop-footer-container {
+    flex-direction: column;
+  }
+  .items-position {
+    align-items: center;
+  }
+  .subscription-box {
+    align-items: center;
+    width: 95%;
+    margin: auto;
+    margin-top: 1.5rem;
+  }
+}

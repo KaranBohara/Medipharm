@@ -1,0 +1,42 @@
+.home-headings
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+.row-style
+{
+    display: flex;
+    width: 95%;
+}
+.category-box-spacing
+{
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.shop-by-category-wrapper
+{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    box-shadow:.5px .5px 5px #cecece;
+    border: 1px solid #cecece;
+    border-radius: .5rem;
+}
+.shop-by-category-imagebox
+{
+    display: flex;
+    justify-content: center;
+    margin:1rem 0rem;
+}
+.shop-by-category-titlebox
+{
+    display: flex;
+    justify-content: center;
+    font-weight:normal;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}

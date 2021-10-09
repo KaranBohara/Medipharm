@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Desktopfooter from './components/Desktop_footer/Desktopfooter';
+import Homemultislider from './components/Home_multiCarousel/Homemultislider';
+import Homecarousel from './components/Home_slider/Homecarousel';
+import Navbartop from './components/Navbar/Navbartop';
+import Mobilefooter from './components/Phone_footer_fixed/Mobilefooter';
+import Shopbycategory from './components/Shop_by_category_products/Shopbycategory';
+// https://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames?page=4&pagesize=100
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <Navbartop/>
+  <Homecarousel/>
+  <Shopbycategory/>
+  <Homemultislider/>
+  <Desktopfooter/>
+  <Mobilefooter/>
     </div>
   );
 }
