@@ -37,6 +37,25 @@
     display: flex;
     justify-content: center;
     font-weight:normal;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     font-size: 1.1rem;
+}
+@media screen and (max-width:592px)
+{
+ .shop-by-category-wrapper
+{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    box-shadow:none;
+    border: none;
+}
+.category-box-spacing
+{
+    margin-top: .5rem;
+}
+.home-headings
+{
+    margin-top: 2rem;
+}
 }

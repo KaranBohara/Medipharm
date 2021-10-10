@@ -1,34 +1,43 @@
 [
     {
         "navImage": "https://www.netmeds.com/images/category/3055/thumb/covid-essentials_0.jpg",
-        "navTitle": "Covid Essentials"
+        "navTitle": "Covid Essentials",
+        "mobilenavIcons":"https://www.linkpicture.com/q/covidessentials.png"
+        
     },
     {
         "navImage": "https://www.netmeds.com/images/category/3052/thumb/eyewear_0.jpg",
-        "navTitle": "Eyewear"
+        "navTitle": "Eyewear",
+        "mobilenavIcons":"https://www.linkpicture.com/q/sunglasses_1.png "
     },
     {
         "navImage": "https://www.netmeds.com/images/category/481/thumb/ayush_0.jpg ",
-        "navTitle": "Ayush"
+        "navTitle": "Ayush",
+        "mobilenavIcons":"https://www.linkpicture.com/q/aayush.png"
     },
     {
         "navImage": "https://www.netmeds.com/images/category/500/thumb/fitness_0.jpg",
-        "navTitle": "Fitness"
+        "navTitle": "Fitness",
+        "mobilenavIcons":"https://www.linkpicture.com/q/fitness.png"
     },
     {
         "navImage": "https://www.netmeds.com/images/category/3085/thumb/Mom_baby_1.jpg ",
-        "navTitle": "Mom & Baby"
+        "navTitle": "Mom & Baby",
+        "mobilenavIcons":"https://www.linkpicture.com/q/mother.png"
     },
     {
         "navImage": "https://www.netmeds.com/images/category/665/thumb/devices_0.jpg",
-        "navTitle": "Devices"
+        "navTitle": "Devices",
+        "mobilenavIcons":"https://www.linkpicture.com/q/thermometers.png"
     },
     {
         "navImage": "https://www.netmeds.com/images/category/3081/thumb/surgical_0.jpg",
-        "navTitle": "Surgicals"
+        "navTitle": "Surgicals",
+        "mobilenavIcons":"https://www.linkpicture.com/q/surgical-instrument.png "
     },
     {
         "navImage": "https://www.netmeds.com/images/category/624/thumb/treatments_0.jpg",
-        "navTitle": "Treatment"
+        "navTitle": "Treatment",
+        "mobilenavIcons":"https://www.linkpicture.com/q/beauty-treatment.png"
     }
 ]

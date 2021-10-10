@@ -4,10 +4,13 @@ div{
 .navbartop-container {
   display: flex;
   height: 5rem;
+  width: 100%;
+  top:0;
   background-color: #33aeb1;
   align-items: center;
+  position: fixed;
+  z-index: 100000;
 }
-
 .brand-name {
   display: flex;
   font-size: 1.4rem;
@@ -106,6 +109,7 @@ justify-content: flex-end;
   width:3.5rem;
   align-items: center;
 }
+
 .cart .fa-cart-plus,
 .userlogin .fa-user,
 .rxupload .fa-upload,

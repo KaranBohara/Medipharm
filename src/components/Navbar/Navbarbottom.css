@@ -5,6 +5,8 @@
     border-top: 1px solid rgb(212, 212, 212);
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin-top: 5rem;
   }
   .navbar-box
   {
@@ -21,7 +23,7 @@ display: flex;
 .navbarbottom-items
 {
     display: flex;
-    color:white;
+    color:#ffffff;
     height:3.5rem;
     width:fit-content;
     padding: 0rem 1.8rem;
@@ -32,8 +34,12 @@ display: flex;
 }
 .hamburger-icon .fa-bars,.hamburger-icon .fa-times
 {
-  color: white;
+  color: #ffffff;
   font-size: 1.9rem;
+}
+.navIcons
+{
+  display: none;
 }
 @media screen and (max-width: 992px) {
   .navbarbottom-container {
@@ -50,11 +56,11 @@ display: flex;
    width:3rem;
    justify-content: center;
   }
-  .navbarbottom-container #hidden
+   #hidden
   {
-   position: absolute;
+   position: fixed;
    left: 0;
-   top: 5.09rem;
+   top: 5rem;
    width: 100%;
    display: flex;
    flex-direction: column;
@@ -62,6 +68,28 @@ display: flex;
    background-color: #33aeb1;
    height:auto;
    z-index: 1000;
+   -moz-transition:all 300ms ease-in-out;
+   -webkit-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   transition:all 300ms ease-in-out;
+   border-top: 1px solid white;
+  }
+  #open 
+  {
+    position: fixed;
+    left:-100%;
+    top: 5rem;
+    width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    height:auto;
+    z-index: 1000;
+    -moz-transition:all 300ms ease-in-out;
+   -webkit-transition:all 300ms ease-in-out;
+   -o-transition:all 300ms ease-in-out;
+   transition:all 300ms ease-in-out;
   }
   .navbarbottom-items
 {
@@ -73,6 +101,30 @@ display: flex;
     justify-content: flex-start;
     font-size: 1.1rem;
     padding-left: .3rem;
+}
+.navbarbottom-items
+{
+  justify-content: space-between;
+}
+.navMenus
+{
+  display: flex;
+  width: 70%;
+  height: 100%;
+  align-items:flex-end ;
+}
+.navIcons
+{
+  display: flex;
+  width:30%;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-end;
+}
+.navIcons img 
+{
+  width:2.3rem;
+  height:2.2rem;
 }
 }
 @media screen and (max-width: 592px) {

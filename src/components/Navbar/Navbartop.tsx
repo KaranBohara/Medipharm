@@ -31,9 +31,12 @@ const Navbartop = () => {
             </div>
         </div>
             <div className="navbarbottom-container">
-                <div className="navbar-box" id={showNavbar ? "hidden" : ""}>
-                    {productsCategorydata.map((data:{navTitle:string,navImage:string},key:number) => {
-                        return (<div className="navbarbottom-items" key={key}>{data.navTitle}</div>)
+                <div className="navbar-box" id={showNavbar ? "hidden" : "open"}>
+                    {productsCategorydata.map((data:{navTitle:string,navImage:string,mobilenavIcons:string},key:number) => {
+                        return (<div className="navbarbottom-items" key={key}>
+                            <div className="navMenus">{data.navTitle}</div>
+                            <div className="navIcons"><img src={data.mobilenavIcons}></img></div>
+                            </div>);
                     })}
                 </div>
             </div>
