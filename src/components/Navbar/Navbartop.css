@@ -19,6 +19,9 @@ div{
   width:30%;
   color: white;
 }
+.navbartop-container a{
+  text-decoration: none;
+}
 .brand-image
 {
 display: flex;
@@ -41,7 +44,6 @@ justify-content: flex-end;
 }
 .brand-heading
 {
-  /* font-weight: bold; */
   width: 95%;
   text-align: left;
   display: flex;

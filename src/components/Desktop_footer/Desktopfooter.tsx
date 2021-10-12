@@ -83,7 +83,6 @@ const Desktopfooter = () => {
                     }}>{item.mainHeading}
                         <i className={showFooter || selectedIndex === index  ? "fas fa-chevron-down rotate" : "fas fa-chevron-down"}></i></li>
                     <li style={showFooter || selectedIndex === index ? { display: "flex",lineHeight:"2rem"} : { display: "none" }} >{item.subHeading.join('\n')}</li>
-                    {/* <li className={showFooter || selectedIndex === index ? "close-box" : "open-box"} >{item.subHeading.join('\n')}</li> */}
                 </div>);
             })}
             <div className="col-lg-3 col-md-12 col-sm-12 d-flex justify-content-center ">

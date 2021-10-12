@@ -1,0 +1,118 @@
+.products-container
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width:100% ;
+}
+.product-box
+{
+    display:flex;
+    height:auto;
+    flex-direction: column;
+    align-items: center;
+    width:24%;
+    margin-bottom: 2rem;
+    background-color: white;
+}
+.discount-tab
+{
+    display:flex;
+    width:95%;
+    font-size: .7rem;
+    color: white;
+    margin-top: .3rem;
+}
+.product-image-box{
+display: flex;
+justify-content: center;
+width: 100%;
+}
+.product-image-box img
+{
+    width: 8rem;
+}
+.product-name
+{
+    display:flex;
+    font-size: .8rem;
+    height: 3rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: .3rem;
+    width:95%;
+}
+.product-manufacturer
+{
+    display:flex;
+    font-size: .8rem;
+    margin-top: .3rem;
+    width:95%;
+}
+.product-bestprice
+{
+    display:flex;
+    font-weight: bold;
+    font-size: .8rem;
+    color: hotpink;
+    margin-top: .3rem;
+    width:95%;
+}
+.product-price
+{
+    display:flex;
+    font-size: .8rem;
+    margin-top: .3rem;
+    text-decoration:line-through;
+    width:95%;
+}
+.cart-button
+{
+    display:flex;
+    margin-bottom: 1rem;
+    margin-top: .3rem;
+    width:95%;
+}
+.cart-button button
+{
+    outline: none;
+    border: none;
+    background-color: #33aeb1;
+    color: white;
+    width: 100%;
+    border-radius: .3rem;
+    padding: .5rem;
+}
+@media screen and (max-width:1296px)
+{
+.product-box
+{
+    width: 25%;
+}
+}
+@media screen and (max-width:992px)
+{
+.product-box
+{
+    width: 48%;
+}
+}
+@media screen and (max-width:784px)
+{
+.product-box
+{
+    width: 48%;
+}
+}
+@media screen and (max-width:592px)
+{
+    .products-container
+    {
+        justify-content: center;
+    }
+.product-box
+{
+    width: 95%;
+}
+}

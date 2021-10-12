@@ -112,6 +112,11 @@ display: flex;
   width: 70%;
   height: 100%;
   align-items:flex-end ;
+
+}
+.navbarbottom-items:last-child
+{
+  margin-bottom: 1rem;
 }
 .navIcons
 {

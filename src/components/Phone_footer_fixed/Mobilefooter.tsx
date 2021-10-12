@@ -1,5 +1,8 @@
 import React from "react";
 import "./Mobilefooter.css";
+import {
+    Link
+  } from "react-router-dom";
 const footerData=[
     {
         footerName:"Home",
@@ -22,7 +25,7 @@ const footerData=[
     ,
     {
         footerName:"Account",
-        footerIcon:<i className="fas fa-user-circle" style={{color:"#33aeb1",fontSize:"1.5rem"}}></i>,
+        footerIcon:<Link to="/login"><i className="fas fa-user-circle" style={{color:"#33aeb1",fontSize:"1.5rem"}}></i></Link>,
     }
 ]
 const Mobilefooter=()=>

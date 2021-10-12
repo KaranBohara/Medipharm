@@ -1,43 +1,100 @@
 [
-    {
-        "navImage": "https://www.netmeds.com/images/category/3055/thumb/covid-essentials_0.jpg",
-        "navTitle": "Covid Essentials",
-        "mobilenavIcons":"https://www.linkpicture.com/q/covidessentials.png"
-        
-    },
-    {
-        "navImage": "https://www.netmeds.com/images/category/3052/thumb/eyewear_0.jpg",
-        "navTitle": "Eyewear",
-        "mobilenavIcons":"https://www.linkpicture.com/q/sunglasses_1.png "
-    },
-    {
-        "navImage": "https://www.netmeds.com/images/category/481/thumb/ayush_0.jpg ",
-        "navTitle": "Ayush",
-        "mobilenavIcons":"https://www.linkpicture.com/q/aayush.png"
-    },
-    {
-        "navImage": "https://www.netmeds.com/images/category/500/thumb/fitness_0.jpg",
-        "navTitle": "Fitness",
-        "mobilenavIcons":"https://www.linkpicture.com/q/fitness.png"
-    },
-    {
-        "navImage": "https://www.netmeds.com/images/category/3085/thumb/Mom_baby_1.jpg ",
-        "navTitle": "Mom & Baby",
-        "mobilenavIcons":"https://www.linkpicture.com/q/mother.png"
-    },
-    {
-        "navImage": "https://www.netmeds.com/images/category/665/thumb/devices_0.jpg",
-        "navTitle": "Devices",
-        "mobilenavIcons":"https://www.linkpicture.com/q/thermometers.png"
-    },
-    {
-        "navImage": "https://www.netmeds.com/images/category/3081/thumb/surgical_0.jpg",
-        "navTitle": "Surgicals",
-        "mobilenavIcons":"https://www.linkpicture.com/q/surgical-instrument.png "
-    },
-    {
-        "navImage": "https://www.netmeds.com/images/category/624/thumb/treatments_0.jpg",
-        "navTitle": "Treatment",
-        "mobilenavIcons":"https://www.linkpicture.com/q/beauty-treatment.png"
-    }
+  {
+    "navImage": "https://www.netmeds.com/images/category/3055/thumb/covid-essentials_0.jpg",
+    "navTitle": "Covid Essentials",
+    "subCategories": [
+      "Personal & Home Essentials",
+      "Mask, Gloves & Protective Equipment",
+      "Immunity Booster",
+      "Business Essentials",
+      "Travel Essentials",
+      "Oxygen Can"
+    ],
+    "path": "/covidessentials",
+    "mobilenavIcons": "https://www.linkpicture.com/q/covidessentials.png"
+  },
+  {
+    "navImage": "https://www.netmeds.com/images/category/3052/thumb/eyewear_0.jpg",
+    "navTitle": "Eyewear",
+    "subCategories": [
+      "Contact Lenses (EW)",
+      "Eye Glasses",
+      "Reading Glasses",
+      "Sunglasses",
+      "Computer Glasses"
+    ],
+    "path": "/eyewear",
+    "mobilenavIcons": "https://www.linkpicture.com/q/sunglasses_1.png "
+  },
+  {
+    "navImage": "https://www.netmeds.com/images/category/481/thumb/ayush_0.jpg ",
+    "navTitle": "Ayush",
+    "subCategories": [
+      "Homeopathy",
+      "Ayurvedic",
+      "Unani",
+      "Siddha",
+      "Best Sellers"
+    ],
+    "path": "/ayush",
+    "mobilenavIcons": "https://www.linkpicture.com/q/aayush.png"
+  },
+  {
+    "navImage": "https://www.netmeds.com/images/category/500/thumb/fitness_0.jpg",
+    "navTitle": "Fitness",
+    "subCategories": [
+      "Vitamins And Supplements",
+      "Ayurvedic Supplements",
+      "Sports Supplements",
+      "Smoking Cessation",
+      "Weight Management",
+      "Family Nutrition",
+      " Health Food And Drinks"
+    ],
+    "path": "/fitness",
+    "mobilenavIcons": "https://www.linkpicture.com/q/fitness.png"
+  },
+  {
+    "navImage": "https://www.netmeds.com/images/category/3085/thumb/Mom_baby_1.jpg ",
+    "navTitle": "Mom & Baby",
+    "subCategories": ["Baby Care", "Feminine Hygiene", "Maternity Care"],
+    "path": "/mom&baby",
+    "mobilenavIcons": "https://www.linkpicture.com/q/mother.png"
+  },
+  {
+    "navImage": "https://www.netmeds.com/images/category/665/thumb/devices_0.jpg",
+    "navTitle": "Devices",
+    "subCategories": ["Orthopaedics", "Breathe Easy", "Measurements"],
+    "path": "/devices",
+    "mobilenavIcons": "https://www.linkpicture.com/q/thermometers.png"
+  },
+  {
+    "navImage": "https://www.netmeds.com/images/category/3081/thumb/surgical_0.jpg",
+    "navTitle": "Surgicals",
+    "subCategories": [
+      "Dressing",
+      "Respiratory Supplies",
+      "Surgical Consumables",
+      "Surgical Instrument"
+    ],
+    "path": "/surgicals",
+    "mobilenavIcons": "https://www.linkpicture.com/q/surgical-instrument.png "
+  },
+  {
+    "navImage": "https://www.netmeds.com/images/category/624/thumb/treatments_0.jpg",
+    "navTitle": "Treatment",
+    "subCategories": [
+      "Diabetes Care",
+      "First Aid",
+      "Pain Relief",
+      " Skin Treatment",
+      " Usual Symptoms",
+      " General Discomfort",
+      " Cough & Cold",
+      " General Health Supplements",
+      " Smoking Cessation (T)"
+    ],
+    "path": "/treatment",
+    "mobilenavIcons": "https://www.linkpicture.com/q/beauty-treatment.png"
+  }
 ]
