@@ -1,4 +1,34 @@
-.hi
+.product-page-wrapper
 {
-    background-color: rgb(228, 228, 228);
+    margin-top: 2rem;
+    background-color: rgb(243, 243, 243);
+}
+.show-component
+{
+    display: flex;
+}
+.hide-component
+{
+    display: none;
+}
+@media screen and (max-width:992px){
+    .product-page-wrapper
+{
+    margin-top: 0rem;
+    margin-bottom: 3.5rem;
+}
+.hide-component
+{
+    display: flex;
+}
+.show-component
+{
+    display: none;
+}
+.filter-position
+{
+    position: sticky;
+    bottom: 4.5rem;
+    z-index: 10;
+} 
 }

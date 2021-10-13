@@ -1,0 +1,36 @@
+.mobile-multicategory-slider
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.category-heading
+{
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+}
+.category-slider-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: .3rem;
+}
+.category-slider-container .image-box
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.category-slider-container .text-box
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+}

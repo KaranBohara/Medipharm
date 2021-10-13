@@ -15,6 +15,11 @@
     display: flex;
     justify-content:center;
 }
+.multislider-wrapper
+{
+    width: 100%;
+    display: flex;
+}
 .multi-slider-container img
 {
     border-radius: .3rem;

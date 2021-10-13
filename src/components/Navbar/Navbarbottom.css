@@ -67,7 +67,7 @@ display: flex;
    align-items: center;
    background-color: #33aeb1;
    height:auto;
-   z-index: 1000;
+   z-index: 10000000;
    -moz-transition:all 300ms ease-in-out;
    -webkit-transition:all 300ms ease-in-out;
    -o-transition:all 300ms ease-in-out;

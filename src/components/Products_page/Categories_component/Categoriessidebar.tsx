@@ -3,7 +3,7 @@ import productsCategorydata from "../../Navbar/product.json";
 import "../Filter_component/Filtertaskbar.css";
 const Filterproducts = () => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  return (<div className="categories-container" style={{ marginBottom: "3rem" }}>
+  return (<div className="categories-container" style={{marginTop:"1rem", marginBottom: "1rem" }}>
     <div className="wrapper-container">
     <div className="filter-header">
       Categories

@@ -1,0 +1,40 @@
+.mobile-filter-box {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  .mobile-filter-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .filter-modal {
+    width: 95%;
+    height: 15rem;
+  }
+  .filter-header-modal {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding-left: .7rem;
+  }
+  .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(206, 206, 206);
+    padding: 0.5rem 0rem;
+    width: 16%;
+    cursor: pointer;
+  }
+  .mobile-filter-box .icon-box .fa-sort-amount-up-alt,
+  .mobile-filter-box .icon-box .fa-filter {
+    color: #000000;
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 592px) {
+  .icon-box {
+    width: 30%;
+  }
+}

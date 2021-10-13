@@ -12,11 +12,9 @@ const onSubmit = async (values: any) => {
 }
 const Categoriestaskbar = () => {
     return (
-        <div className="categories-container">
+        <div className="filter-container">
             <div className="wrapper-container">
-            <div className="filter-header">
-                Filters
-            </div>
+            <div className="filter-header">Filters</div>
             <Form onSubmit={onSubmit}
                 render={({ handleSubmit, form, submitting, pristine, values }) => (
                     <form onSubmit={handleSubmit}>

@@ -72,9 +72,9 @@ const Homecarousel=()=>
     }
     const size = useWindowSize();
     
-    return(<div className="slider-container">
+    return(
         <div className="carousel-wrapper">
-        {size.width>900?<Carousel>
+        {size.width>900?<Carousel indicators={false} controls={false}>
             {carouselDataDesktop.map((item)=>
             {
                 return(<Carousel.Item interval={3000}>
@@ -87,7 +87,7 @@ const Homecarousel=()=>
               );
             })}
             </Carousel>
-:<Carousel controls={false}>
+:<Carousel indicators={false} controls={false}>
 {carouselDataResponsive.map((item)=>
 {
     return(<Carousel.Item interval={3000}>
@@ -102,6 +102,7 @@ const Homecarousel=()=>
 </Carousel>
 }
        </div>
-    </div>);
+    );
 }
 export default Homecarousel;
+export {carouselDataDesktop,carouselDataResponsive};

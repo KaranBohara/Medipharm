@@ -1,0 +1,13 @@
+.slider-wrapper
+{
+    width:100%;
+    cursor: pointer;
+}
+.slider-box
+{
+    margin: auto;
+}
+.slider-box img{
+    display: flex;
+    width: 100%;
+}

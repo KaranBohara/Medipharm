@@ -1,19 +1,13 @@
-.slider-container
-{
-    width:100%;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-}
+
 .carousel-wrapper
 {
-    width:93%;
+    width:100%;
     cursor: pointer;
 }
 @media screen and (max-width: 900px) {
     .carousel-wrapper
     {
-        width:95%;
+        width:100%;
         cursor: pointer;
     }
 }

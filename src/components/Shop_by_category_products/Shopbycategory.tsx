@@ -5,7 +5,7 @@ import productsCategorydata from "../Navbar/product.json"
 const Shopbycategory=()=>
 {
     return(<>
-     <div className="home-headings"><h5 style={{width:"92.5%",fontWeight:"bold",textAlign:"left"}}>Shop By Category</h5></div>
+     <div className="home-headings"><h5 style={{width:"93%",fontWeight:"bold",textAlign:"left"}}>Shop By Category</h5></div>
        <div className="container-fluid d-flex justify-content-center">
        <div className="row row-style">
         {productsCategorydata.map((item:any)=>{

@@ -19,9 +19,9 @@ const Navbartop = () => {
             <div className="hamburger-icon" onClick={() => { setShowNavbar(!showNavbar) }}>
                 <i className={showNavbar ? "fas fa-times" : "fas fa-bars"}></i></div>
             <div className="brand-name" >
-                <div className="brand-image"><Link to="/"><img src={MediLogo} alt="brandlogo"></img></Link></div>
+                <div className="brand-image"><Link to="/" onClick={() => { setShowNavbar(false) }}><img src={MediLogo} alt="brandlogo"></img></Link></div>
                 <div className="brand-content">
-                    <div className="brand-heading"><Link to="/" className="link-decoration">MediPharm</Link></div>
+                    <div className="brand-heading"><Link to="/" onClick={() => { setShowNavbar(false) }} className="link-decoration">MediPharm</Link></div>
                 </div>
             </div>
             
@@ -42,7 +42,7 @@ const Navbartop = () => {
                 <div className="navbar-box" id={showNavbar ? "hidden" : "open"}>
                     {productsCategorydata.map((data:{navTitle:string,navImage:string,path:string,mobilenavIcons:string},key:number) => {
                         return (<div className="navbarbottom-items" key={key}>
-                            <div className="navMenus"><Link to={data.path} className="link-decoration">{data.navTitle}</Link></div>
+                            <div className="navMenus"><Link to={data.path} onClick={() => { setShowNavbar(false) }}className="link-decoration">{data.navTitle}</Link></div>
                             <div className="navIcons"><img src={data.mobilenavIcons}></img></div>
                             </div>);
                     })}
