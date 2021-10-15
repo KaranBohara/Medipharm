@@ -49,6 +49,10 @@ return(
         </form>
       )}
     />
+    <div className="social-media-icon-box">
+      <div className="social-media-box"><img src="https://www.linkpicture.com/q/google.png" alt="facebook"/>Google</div>
+      <div className="social-media-box"><img src="https://www.linkpicture.com/q/facebook.png" alt="google"/>Facebook</div>
+    </div>
         </div>
     </div>
 </div>

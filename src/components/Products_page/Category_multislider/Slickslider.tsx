@@ -12,7 +12,7 @@ const Slickslider=(props:Carouseldata)=>
         <Slider {...props.settings}>
 {props.images.map((item:any,index:number)=>
 {
-  return(<div className="slider-box"><img src={item.carouselHomeImage} alt="carousel"/></div>);
+  return(<div className="slider-box"><img key={index} src={item.carouselHomeImage} alt="carousel"/></div>);
 })}
         </Slider>
       </div>

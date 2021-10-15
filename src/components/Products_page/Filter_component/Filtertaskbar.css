@@ -43,6 +43,7 @@
 .filter-checkboxes {
   display: flex;
   align-items: center;
+  margin-top: .5rem;
 }
 .categories-menus {
   display: flex;

@@ -1,6 +1,10 @@
 .mobile-filter-box {
   display: none;
 }
+.filter-modal
+{
+  display: none;
+}
 @media screen and (max-width: 992px) {
   .mobile-filter-box {
     width: 100%;

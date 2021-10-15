@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
 } from "react-router-dom";
 import './App.css';
@@ -11,6 +10,7 @@ import Mobilefooter from './components/Phone_footer_fixed/Mobilefooter';
 import Login from "./components/Login/Login";
 import Productspage from './pages/Products_pages/Productspage';
 import Homepage from './pages/Homepage/Homepage';
+import Searchpage from './components/Search_space/Searchpage';
 // https://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames?page=4&pagesize=100
 
 function App() {
@@ -27,6 +27,9 @@ function App() {
         </Route>
         <Route path="/covidessentials">
           <Productspage />
+        </Route>
+        <Route path="/search">
+          <Searchpage/>
         </Route>
       </div>
       <Mobilefooter />
