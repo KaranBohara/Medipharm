@@ -8,8 +8,6 @@ import Sortproducts from "../Products_page/SortBy_component/Sortproduct";
 const Mobilefilter = () => {
     const [showfilter, setShowfilter] = useState(false);
     const [showsortoptions,setShowsortoptions]=useState(false);
-    const handleClosefilter = () => setShowfilter(false);
-    const handleClosesort = () => setShowsortoptions(false);
     return (<div className="row d-flex justify-content-center">
         <div className="mobile-filter-box">
             <div className="icon-box" onClick={() => setShowsortoptions(true)} style={{ borderRight: "1px solid rgb(230, 230, 230)" }}><i className="fas fa-sort-amount-up-alt"></i><span style={{ fontSize: ".8rem" }}>Sort</span></div>
@@ -17,7 +15,6 @@ const Mobilefilter = () => {
             <Modal
                 show={showfilter}
                 onHide={() => setShowfilter(false)}
-                dialogClassName="filter-modal"
                 aria-labelledby="filter-products"
                 centered
             >
@@ -31,19 +28,10 @@ const Mobilefilter = () => {
                 <Modal.Body>
                     <Filtertaskbar />
                 </Modal.Body>
-                <Modal.Footer>
-          <Button variant="secondary" onClick={handleClosefilter}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClosefilter}>
-            Save
-          </Button>
-        </Modal.Footer>
             </Modal>
             <Modal
                 show={showsortoptions}
                 onHide={() => setShowsortoptions(false)}
-                dialogClassName="filter-modal"
                 aria-labelledby="sort-options"
                 centered
             >
@@ -57,14 +45,6 @@ const Mobilefilter = () => {
                 <Modal.Body>
                     <Sortproducts/>
                 </Modal.Body>
-                <Modal.Footer>
-          <Button variant="secondary" onClick={handleClosesort}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClosesort}>
-            Save
-          </Button>
-        </Modal.Footer>
             </Modal>
         </div>
 

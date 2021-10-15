@@ -53,7 +53,7 @@ const Productspage = () => {
         </div>
         <div className="row filter-position">
             <div className="col-lg-12">
-                <Mobilefilter />
+                <Mobilefilter/>
             </div>
         </div>
     </div>);

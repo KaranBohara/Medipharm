@@ -22,20 +22,21 @@
 .filter-heading-box {
   display: flex;
   font-weight: 600;
-  height: 2rem;
+  height: 1.5rem;
   align-items: center;
+  font-size: .9rem;
 }
 .filter-content-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   height: 3rem;
   overflow-y: auto;
 }
 .filter-content-box input[type="search"] {
   background-color: rgb(238, 238, 238);
-  height: 2rem;
+  height: 1.8rem;
   width: 95%;
   border-radius: .3rem;
   padding-left: .5rem;
@@ -43,14 +44,14 @@
 .filter-checkboxes {
   display: flex;
   align-items: center;
-  margin-top: .5rem;
+  margin-top: .2rem;
 }
 .categories-menus {
   display: flex;
   align-items: center;
   cursor: pointer;
   margin-top: 1rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .categories-menus .fa-chevron-right {
   display: flex;
@@ -80,7 +81,7 @@
   .filter-container
   {
     height: 20rem;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   .filter-header
   {

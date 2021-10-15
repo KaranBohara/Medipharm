@@ -22,7 +22,7 @@ const Categoriestaskbar = () => {
                         <div className="filter-content-box">
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                         </div>
                         <div className="filter-heading-box">Categories</div>
@@ -32,19 +32,19 @@ const Categoriestaskbar = () => {
                         <div className="filter-content-box">
                             <div className="filter-checkboxes">
                                 <Field name="category" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                         </div>
                         <div className="filter-heading-box">Manufacturers</div>
@@ -54,19 +54,19 @@ const Categoriestaskbar = () => {
                         <div className="filter-content-box">
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                         </div>
                         <div className="filter-heading-box">Brand</div>
@@ -76,19 +76,19 @@ const Categoriestaskbar = () => {
                         <div className="filter-content-box">
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                             <div className="filter-checkboxes">
                                 <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".9rem" }}>Exclude out of stock</label>
+                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
                             </div>
                         </div>
                         <div className="filter-heading-box">Price</div>
