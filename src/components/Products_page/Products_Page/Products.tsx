@@ -1,11 +1,25 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
-import Medicines from "../Filter_component/medicines.json";
+// import Medicines from "../Filter_component/medicines.json";
 let bestPrice = 0;
 const Products = () => {
+    const [medicines, setMedicines] = useState([]);
+    const getMedicines = () => {
+        axios.get('https://apimedpharm.herokuapp.com/medicines')
+.then(response => {
+console.log(response.data);
+const myMed:any=response.data;
+setMedicines(myMed);
+});
+    };
+
+    useEffect(() => {
+        getMedicines();
+    }, []);
     return (<div className="products-container">
-                {Medicines.map((item, index) => {
+                {medicines.map((item:any, index) => {
                     bestPrice = item.Price - ((item.Discount * item.Price) / 100);
                     return (                   
                             <div className="product-box" key={index}>

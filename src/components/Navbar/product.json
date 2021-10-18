@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "navImage": "https://www.netmeds.com/images/category/3055/thumb/covid-essentials_0.jpg",
     "navTitle": "Covid Essentials",
     "subCategories": [
@@ -14,6 +15,7 @@
     "mobilenavIcons": "https://www.linkpicture.com/q/covidessentials.png"
   },
   {
+    "id": 2,
     "navImage": "https://www.netmeds.com/images/category/3052/thumb/eyewear_0.jpg",
     "navTitle": "Eyewear",
     "subCategories": [
@@ -27,6 +29,7 @@
     "mobilenavIcons": "https://www.linkpicture.com/q/sunglasses_1.png "
   },
   {
+    "id": 3,
     "navImage": "https://www.netmeds.com/images/category/481/thumb/ayush_0.jpg ",
     "navTitle": "Ayush",
     "subCategories": [
@@ -40,6 +43,7 @@
     "mobilenavIcons": "https://www.linkpicture.com/q/aayush.png"
   },
   {
+    "id": 4,
     "navImage": "https://www.netmeds.com/images/category/500/thumb/fitness_0.jpg",
     "navTitle": "Fitness",
     "subCategories": [
@@ -55,6 +59,7 @@
     "mobilenavIcons": "https://www.linkpicture.com/q/fitness.png"
   },
   {
+    "id": 5,
     "navImage": "https://www.netmeds.com/images/category/3085/thumb/Mom_baby_1.jpg ",
     "navTitle": "Mom & Baby",
     "subCategories": ["Baby Care", "Feminine Hygiene", "Maternity Care"],
@@ -62,6 +67,7 @@
     "mobilenavIcons": "https://www.linkpicture.com/q/mother.png"
   },
   {
+    "id": 6,
     "navImage": "https://www.netmeds.com/images/category/665/thumb/devices_0.jpg",
     "navTitle": "Devices",
     "subCategories": ["Orthopaedics", "Breathe Easy", "Measurements"],
@@ -69,6 +75,7 @@
     "mobilenavIcons": "https://www.linkpicture.com/q/thermometers.png"
   },
   {
+    "id": 7,
     "navImage": "https://www.netmeds.com/images/category/3081/thumb/surgical_0.jpg",
     "navTitle": "Surgicals",
     "subCategories": [
@@ -81,6 +88,7 @@
     "mobilenavIcons": "https://www.linkpicture.com/q/surgical-instrument.png "
   },
   {
+    "id": 8,
     "navImage": "https://www.netmeds.com/images/category/624/thumb/treatments_0.jpg",
     "navTitle": "Treatment",
     "subCategories": [

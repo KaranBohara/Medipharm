@@ -14,7 +14,7 @@ import Searchpage from "../Search_space/Searchpage";
 const Navbartop = () => {
     const [showNavbar, setShowNavbar] = useState(false);
     const [search,setSearch]=useState('');
-    const [mobileSearch,setmobileSearch]=useState(false);
+    // const [mobileSearch,setmobileSearch]=useState(false);
 
     return (
         
@@ -46,8 +46,8 @@ const Navbartop = () => {
         </div>
             <div className="navbarbottom-container">
                 <div className="navbar-box" id={showNavbar ? "hidden" : "open"}>
-                    {productsCategorydata.map((data:{navTitle:string,navImage:string,path:string,mobilenavIcons:string},key:number) => {
-                        return (<div className="navbarbottom-items" key={key}>
+                    {productsCategorydata.map((data:{navTitle:string,navImage:string,path:string,mobilenavIcons:string},index:number) => {
+                        return (<div className="navbarbottom-items" key={index}>
                             <div className="navMenus"><Link to={data.path} onClick={() => { setShowNavbar(false) }}className="link-decoration">{data.navTitle}</Link></div>
                             <div className="navIcons"><img src={data.mobilenavIcons}></img></div>
                             </div>);

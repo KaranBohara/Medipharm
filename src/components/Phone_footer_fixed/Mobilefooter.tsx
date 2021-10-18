@@ -6,7 +6,7 @@ import {
 const footerData=[
     {
         footerName:"Home",
-        footerIcon:<i className="fas fa-home" style={{color:"black",fontSize:"1.5rem"}}></i>,
+        footerIcon:<Link to="/"><i className="fas fa-home" style={{color:"black",fontSize:"1.5rem"}}></i></Link>,
     },
     {
         footerName:"Orders",

@@ -17,6 +17,25 @@
   color: white;
   text-decoration: none;
 }
+.link-decoration-body{
+  color:rgb(7, 7, 7);
+  text-decoration: none;
+}
+.link-decoration-body:hover
+{
+  color:rgb(7, 7, 7);
+  text-decoration: none;
+}
+.link-decoration-body:visited
+{
+  color:rgb(7, 7, 7);
+  text-decoration: none;
+}
+.link-decoration-body:active
+{
+  color:rgb(7, 7, 7);
+  text-decoration: none;
+}
 .App {
   text-align: center;
   text-decoration: none;
