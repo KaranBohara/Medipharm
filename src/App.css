@@ -36,6 +36,26 @@
   color:rgb(7, 7, 7);
   text-decoration: none;
 }
+.link-decoration-login
+{
+  color: #ff2323;
+  text-decoration: none;
+}
+.link-decoration-login:hover
+{
+  color: #ff2323;
+  text-decoration: none;
+}
+.link-decoration-login:visited
+{
+  color: #ff2323;
+  text-decoration: none;
+}
+.link-decoration-login:active
+{
+  color: #ff2323;
+  text-decoration: none;
+}
 .App {
   text-align: center;
   text-decoration: none;
