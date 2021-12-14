@@ -31,15 +31,14 @@ const Login = () => {
                 
                     <Field name="Phonenumber"
                             validate={required}
-                            placeholder="Phone Number"
                             >
-                     {({ input,meta,placeholder}) => (
+                     {({ input,meta}) => (
                          <div className="mobile-label">
                          <p>Phone Number</p>
                              <div className="name-tab">
                              <div className="prefix-number">+91</div> 
                              <div className="number-box">
-                             <input {...input} type="tel" placeholder={placeholder} id="mobile" minLength={10} maxLength={10} pattern="[0-9]{10}"/>
+                             <input {...input} type="tel" id="mobile" minLength={10} maxLength={10} pattern="[0-9]{10}"/>
                              {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
                                      </div>
                                      </div>

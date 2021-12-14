@@ -44,23 +44,23 @@ const Signup = () => {
                       render={({handleSubmit,submitting})=>
                       (
                         <form onSubmit={handleSubmit}>   
-                            <Field name="firstname" placeholder="First Name">
-                            {({input,meta,placeholder})=>
+                            <Field name="firstname" >
+                            {({input,meta})=>
                             <div className="mobile-label">
                               <p>First Name</p>
                               <div className="name-tab">
-                              <input {...input} placeholder={placeholder}/>
+                              <input {...input} />
                               {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
                               </div>  
                             </div>
                             }
                             </Field>
-                            <Field name="Phonenumber" placeholder="Phone Number">
-                     {({ input,meta,placeholder}) => (
+                            <Field name="Phonenumber" >
+                     {({ input,meta}) => (
                          <div className="mobile-label">
                          <p>Phone Number</p>
                              <div className="name-tab"> 
-                             <input {...input} type="tel" placeholder={placeholder} id="mobile" minLength={10} maxLength={10} pattern="[0-9]{10}"/>
+                             <input {...input} type="tel" id="mobile" minLength={10} maxLength={10} pattern="[0-9]{10}"/>
                              {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
                                      </div>
                                      </div>
@@ -70,7 +70,7 @@ const Signup = () => {
                      {({ input,meta}) => (
                          <div className="mobile-label">
                           <p>Password</p>
-                          <div className="name-tab"><input {...input} type="password" placeholder="Password"/> 
+                          <div className="name-tab"><input {...input} type="password" /> 
                           {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>} 
                          </div>
                          </div>
@@ -80,7 +80,7 @@ const Signup = () => {
                      {({ input,meta}) => (
                          <div className="mobile-label">
                           <p>Confirm Password</p>
-                          <div className="name-tab"><input {...input} type="password" placeholder="Confirm Password"/>
+                          <div className="name-tab"><input {...input} type="password" />
                           {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
                          </div>
                          </div>
