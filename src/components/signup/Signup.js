@@ -1,5 +1,6 @@
 import "./Signup.css";
 import { Form, Field } from 'react-final-form';
+import axios from "axios";
 import {
     BrowserRouter as Router,
     Switch,
@@ -11,6 +12,8 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const onSubmit = async (values) => {
   await sleep(300);
+axios.post("http://localhost:5000/api/users/signup",values)
+.then(response=>console.log(response.data))
  console.log(values);
 };
 const Signup = () => {
@@ -25,8 +28,8 @@ const Signup = () => {
                     <Form onSubmit={onSubmit} 
                     validate={values => {
         const errors = {}
-        if (!values.firstname) {
-          errors.firstname = 'Required'
+        if (!values.Name) {
+          errors.Name = 'Required'
         }
         if (!values.Phonenumber) {
           errors.Phonenumber = 'Required'
@@ -44,10 +47,10 @@ const Signup = () => {
                       render={({handleSubmit,submitting})=>
                       (
                         <form onSubmit={handleSubmit}>   
-                            <Field name="firstname" >
+                            <Field name="Name" >
                             {({input,meta})=>
                             <div className="mobile-label">
-                              <p>First Name</p>
+                              <p>Name</p>
                               <div className="name-tab">
                               <input {...input} />
                               {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
