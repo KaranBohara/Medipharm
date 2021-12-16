@@ -11,10 +11,36 @@ import React from "react";
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const onSubmit = async (values) => {
-  await sleep(300);
-axios.post("http://localhost:5000/api/users/signup",values)
-.then(response=>console.log(response.data))
- console.log(values);
+  fetch("https://medpharma-api.herokuapp.com/users/signup", {
+    method:"POST",
+    headers:{
+    "content-type":"application/json",
+    },
+    body: JSON.stringify(values)
+
+  }).then((res)=>res.json())
+    .then((data)=>{
+       console.log(data);
+  }).catch(e=>{
+    console.log(e)
+  })
+
+  // fetch("http://localhost:5000/users/signup", {
+  //   method:"POST",
+  //   headers:{
+  //   "content-type":"application/json",
+  //   },
+  //   body: JSON.stringify(values)
+
+  // }).then((res)=>res.json())
+  //   .then((data)=>{
+  //      console.log(data);
+  // }).catch(e=>{
+  //   console.log(e)
+  // })
+
+  
+
 };
 const Signup = () => {
     return (
