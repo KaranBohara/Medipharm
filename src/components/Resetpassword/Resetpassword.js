@@ -10,21 +10,7 @@ import React from "react";
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const onSubmit = async (values) => {
-  // fetch("https://medpharma-api.herokuapp.com/users/signup", {
-  //   method:"POST",
-  //   headers:{
-  //   "content-type":"application/json",
-  //   },
-  //   body: JSON.stringify(values)
-
-  // }).then((res)=>res.json())
-  //   .then((data)=>{
-  //      console.log(data);
-  // }).catch(e=>{
-  //   console.log(e)
-  // })
-
-  fetch("http://localhost:5000/users/signup", {
+  fetch("https://medpharma-api.herokuapp.com/users/reset", {
     method:"POST",
     headers:{
     "content-type":"application/json",
@@ -37,6 +23,20 @@ const onSubmit = async (values) => {
   }).catch(e=>{
     console.log(e)
   })
+
+  // fetch("http://localhost:5000/users/reset", {
+  //   method:"POST",
+  //   headers:{
+  //   "content-type":"application/json",
+  //   },
+  //   body: JSON.stringify(values)
+
+  // }).then((res)=>res.json())
+  //   .then((data)=>{
+  //      console.log(data);
+  // }).catch(e=>{
+  //   console.log(e)
+  // })
 
   
 
@@ -66,7 +66,7 @@ const Resetpassword = () => {
                       render={({handleSubmit,submitting})=>
                       (
                         <form onSubmit={handleSubmit}>   
-                     <Field name="Password">
+                     <Field name="password">
                      {({ input,meta}) => (
                          <div className="mobile-label">
                           <p>New Password</p>

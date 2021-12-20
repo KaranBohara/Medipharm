@@ -14,22 +14,8 @@ const Activate = () => {
     const history=useHistory();
     const onSubmit = async (values) => {
         console.log(values);
-        // fetch("https://medpharma-api.herokuapp.com/users/signup", {
-        //   method:"POST",
-        //   headers:{
-        //   "content-type":"application/json",
-        //   },
-        //   body: JSON.stringify(values)
-      
-        // }).then((res)=>res.json())
-        //   .then((data)=>{
-        //      console.log(data);
-        // }).catch(e=>{
-        //   console.log(e)
-        // })
-      
-        fetch("http://localhost:5000/users/activate", {
-          method:"PATCH",
+        fetch("https://medpharma-api.herokuapp.com/users/signup", {
+          method:"POST",
           headers:{
           "content-type":"application/json",
           },
@@ -38,10 +24,24 @@ const Activate = () => {
         }).then((res)=>res.json())
           .then((data)=>{
              console.log(data);
-             history.push("/login");
         }).catch(e=>{
           console.log(e)
         })
+      
+        // fetch("http://localhost:5000/users/activate", {
+        //   method:"PATCH",
+        //   headers:{
+        //   "content-type":"application/json",
+        //   },
+        //   body: JSON.stringify(values)
+      
+        // }).then((res)=>res.json())
+        //   .then((data)=>{
+        //      console.log(data);
+        //      history.push("/login");
+        // }).catch(e=>{
+        //   console.log(e)
+        // })
       };
     return (
         <div className="login-container">

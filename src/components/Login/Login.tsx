@@ -17,21 +17,7 @@ import {
 const required=(value:any)=>(value?undefined:"Required");
 const onSubmitlogin = async (values:any) => {
   console.log(values);
-  // fetch("https://medpharma-api.herokuapp.com/users/signup", {
-  //   method:"POST",
-  //   headers:{
-  //   "content-type":"application/json",
-  //   },
-  //   body: JSON.stringify(values)
-
-  // }).then((res)=>res.json())
-  //   .then((data)=>{
-  //      console.log(data);
-  // }).catch(e=>{
-  //   console.log(e)
-  // })
-
-  fetch("http://localhost:5000/users/login", {
+  fetch("https://medpharma-api.herokuapp.com/users/signup", {
     method:"POST",
     headers:{
     "content-type":"application/json",
@@ -44,6 +30,20 @@ const onSubmitlogin = async (values:any) => {
   }).catch(e=>{
     console.log(e)
   })
+
+  // fetch("http://localhost:5000/users/login", {
+  //   method:"POST",
+  //   headers:{
+  //   "content-type":"application/json",
+  //   },
+  //   body: JSON.stringify(values)
+
+  // }).then((res)=>res.json())
+  //   .then((data)=>{
+  //      console.log(data);
+  // }).catch(e=>{
+  //   console.log(e)
+  // })
 
   
 
