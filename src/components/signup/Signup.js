@@ -23,6 +23,7 @@ const Signup = () => {
     }).then((res)=>res.json())
       .then((data)=>{
          console.log(data);
+         history.push("/activate");
     }).catch(e=>{
       console.log(e)
     })

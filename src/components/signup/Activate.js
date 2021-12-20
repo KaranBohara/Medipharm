@@ -24,6 +24,7 @@ const Activate = () => {
         }).then((res)=>res.json())
           .then((data)=>{
              console.log(data);
+             history.push("/login");
         }).catch(e=>{
           console.log(e)
         })
