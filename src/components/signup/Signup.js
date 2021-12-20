@@ -1,48 +1,50 @@
-import "./Signup.css";
 import { Form, Field } from 'react-final-form';
-import axios from "axios";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
 } from "react-router-dom";
-import React from "react";
+import { useHistory } from 'react-router-dom'; 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const onSubmit = async (values) => {
-  fetch("https://medpharma-api.herokuapp.com/users/signup", {
-    method:"POST",
-    headers:{
-    "content-type":"application/json",
-    },
-    body: JSON.stringify(values)
 
-  }).then((res)=>res.json())
-    .then((data)=>{
-       console.log(data);
-  }).catch(e=>{
-    console.log(e)
-  })
-
-  // fetch("http://localhost:5000/users/signup", {
-  //   method:"POST",
-  //   headers:{
-  //   "content-type":"application/json",
-  //   },
-  //   body: JSON.stringify(values)
-
-  // }).then((res)=>res.json())
-  //   .then((data)=>{
-  //      console.log(data);
-  // }).catch(e=>{
-  //   console.log(e)
-  // })
-
-  
-
-};
 const Signup = () => {
+  const history=useHistory();
+  const onSubmit = async (values) => {
+    console.log(values);
+    // fetch("https://medpharma-api.herokuapp.com/users/signup", {
+    //   method:"POST",
+    //   headers:{
+    //   "content-type":"application/json",
+    //   },
+    //   body: JSON.stringify(values)
+  
+    // }).then((res)=>res.json())
+    //   .then((data)=>{
+    //      console.log(data);
+    // }).catch(e=>{
+    //   console.log(e)
+    // })
+  
+    fetch("http://localhost:5000/users/signup", {
+      method:"POST",
+      headers:{
+      "content-type":"application/json",
+      },
+      body: JSON.stringify(values)
+  
+    }).then((res)=>res.json())
+      .then((data)=>{
+         console.log(data);
+         history.push("/activate");
+    }).catch(e=>{
+      console.log(e);
+    })
+  
+    
+  
+  };
     return (
         <div className="login-container">
             <div className="image-box"><img src="https://www.netmeds.com/images/cms/wysiwyg/cms/1588773798_sign-in-banner-new.png" alt="login"></img></div>
@@ -54,18 +56,18 @@ const Signup = () => {
                     <Form onSubmit={onSubmit} 
                     validate={values => {
         const errors = {}
-        if (!values.Name) {
-          errors.Name = 'Required'
+        if (!values.name) {
+          errors.name = 'Required'
         }
-        if (!values.Phonenumber) {
-          errors.Phonenumber = 'Required'
+        if (!values.email) {
+          errors.email = 'Required'
         }
-        if (!values.Password) {
-          errors.Password = 'Required'
+        if (!values.password) {
+          errors.password = 'Required'
         }
         if (!values.confirmPassword) {
           errors.confirmPassword = 'Required'
-        } else if (values.Password !== values.confirmPassword) {
+        } else if (values.password !== values.confirmPassword) {
           errors.confirmPassword = 'Password must match'
         }
         return errors
@@ -73,7 +75,7 @@ const Signup = () => {
                       render={({handleSubmit,submitting})=>
                       (
                         <form onSubmit={handleSubmit}>   
-                            <Field name="Name" >
+                            <Field name="name" >
                             {({input,meta})=>
                             <div className="mobile-label">
                               <p>Name</p>
@@ -84,18 +86,18 @@ const Signup = () => {
                             </div>
                             }
                             </Field>
-                            <Field name="Phonenumber" >
+                            <Field name="email" >
                      {({ input,meta}) => (
                          <div className="mobile-label">
-                         <p>Phone Number</p>
+                         <p>E-mail</p>
                              <div className="name-tab"> 
-                             <input {...input} type="tel" id="mobile" minLength={10} maxLength={10} pattern="[0-9]{10}"/>
+                             <input {...input} type="email" id="email" />
                              {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
                                      </div>
                                      </div>
                      )}
                      </Field>
-                     <Field name="Password">
+                     <Field name="password">
                      {({ input,meta}) => (
                          <div className="mobile-label">
                           <p>Password</p>

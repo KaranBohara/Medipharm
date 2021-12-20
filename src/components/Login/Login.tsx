@@ -8,13 +8,46 @@ import {
   Route,
   Link
 } from "react-router-dom";
-const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))
-const onSubmit = async (values: any) => {
-  await sleep(300)
-  console.log(values);
+// const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))
+// const onSubmit = async (values: any) => {
+//   await sleep(300)
+//   console.log(values);
 
-}
-const required=(value:any)=>(value?undefined:"Required")
+// }
+const required=(value:any)=>(value?undefined:"Required");
+const onSubmitlogin = async (values:any) => {
+  console.log(values);
+  // fetch("https://medpharma-api.herokuapp.com/users/signup", {
+  //   method:"POST",
+  //   headers:{
+  //   "content-type":"application/json",
+  //   },
+  //   body: JSON.stringify(values)
+
+  // }).then((res)=>res.json())
+  //   .then((data)=>{
+  //      console.log(data);
+  // }).catch(e=>{
+  //   console.log(e)
+  // })
+
+  fetch("http://localhost:5000/users/login", {
+    method:"POST",
+    headers:{
+    "content-type":"application/json",
+    },
+    body: JSON.stringify(values)
+
+  }).then((res)=>res.json())
+    .then((data)=>{
+       console.log(data);
+  }).catch(e=>{
+    console.log(e)
+  })
+
+  
+
+};
 const Login = () => {
   return (
     <div className="login-container">
@@ -25,24 +58,31 @@ const Login = () => {
         </div>
         <div className="login-content-body">
           <Form
-            onSubmit={onSubmit}
+            onSubmit={onSubmitlogin}
             render={({ handleSubmit, form, submitting, pristine, values }) => (
               <form onSubmit={handleSubmit} className="box">
                 
-                    <Field name="Phonenumber"
+                    <Field name="email"
                             validate={required}
                             >
                      {({ input,meta}) => (
                          <div className="mobile-label">
-                         <p>Phone Number</p>
+                         <p>E-mail</p>
                              <div className="name-tab">
-                             <div className="prefix-number">+91</div> 
-                             <div className="number-box">
-                             <input {...input} type="tel" id="mobile" minLength={10} maxLength={10} pattern="[0-9]{10}"/>
+                             <input {...input} type="email" />
                              {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
                                      </div>
                                      </div>
-                                     </div>
+                     )}
+                     </Field>
+                     <Field name="password" validate={required}>
+                     {({ input,meta}) => (
+                         <div className="mobile-label">
+                          <p>Password</p>
+                          <div className="name-tab"><input {...input} type="password" /> 
+                          {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>} 
+                         </div>
+                         </div>
                      )}
                      </Field>
                 <div className="button-login">
@@ -53,11 +93,12 @@ const Login = () => {
               </form>
             )}
           />
-          <div className="alternate-login">Or Connect using</div>
-          <div className="social-media-icon-box">
+          <div className="forgotpasswordbox"><Link to="/activate" className="link-decoration-body">Activate account</Link></div>
+          <div className="forgotpasswordbox"><Link to="/forgotpassword" className="link-decoration-body">Forgot Password ?</Link></div>
+          {/* <div className="social-media-icon-box">
             <div className="social-media-box"><img src="https://www.linkpicture.com/q/google.png" alt="facebook" />Google</div>
             <div className="social-media-box"><img src="https://www.linkpicture.com/q/facebook.png" alt="google" />Facebook</div>
-          </div>
+          </div> */}
           <div className="new-user">
             <div className="newuser-sub1"><Link to="/signup" className="link-decoration-login">Create a new account</Link></div>
             <div className="newuser-sub2"><Link to="/signup" className="link-decoration-login"><i className="fas fa-long-arrow-alt-right"></i></Link></div>
