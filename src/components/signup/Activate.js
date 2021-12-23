@@ -14,7 +14,7 @@ const Activate = () => {
     const history=useHistory();
     const onSubmit = async (values) => {
         console.log(values);
-        fetch("https://medpharma-api.herokuapp.com/users/signup", {
+        fetch("https://medpharma-api.herokuapp.com/users/activate", {
           method:"POST",
           headers:{
           "content-type":"application/json",

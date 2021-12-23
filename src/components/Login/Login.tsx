@@ -8,16 +8,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
-// const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))
-// const onSubmit = async (values: any) => {
-//   await sleep(300)
-//   console.log(values);
-
-// }
 const required=(value:any)=>(value?undefined:"Required");
 const onSubmitlogin = async (values:any) => {
   console.log(values);
-  fetch("https://medpharma-api.herokuapp.com/users/signup", {
+  fetch("https://medpharma-api.herokuapp.com/users/login", {
     method:"POST",
     headers:{
     "content-type":"application/json",

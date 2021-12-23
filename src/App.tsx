@@ -51,9 +51,6 @@ function App() {
         <Route path="/search">
           <Searchpage/>
         </Route>
-        <Route path="/" exact>
-        <Login/>
-        </Route>
       <Mobilefooter />
       </div>
     </Router>
