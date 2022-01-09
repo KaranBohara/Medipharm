@@ -42,7 +42,7 @@ function App() {
         <Route path="/signup">
           <Signup />
         </Route>
-        <Route path="/activate">
+        <Route path="/user/activated">
           <Activate />
         </Route>
         <Route path="/covidessentials">

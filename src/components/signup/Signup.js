@@ -1,14 +1,6 @@
 import { Form, Field } from 'react-final-form';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useHistory } from 'react-router-dom'; 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-
 const Signup = () => {
   const history=useHistory();
   const onSubmit = async (values) => {
@@ -17,6 +9,7 @@ const Signup = () => {
       method:"POST",
       headers:{
       "content-type":"application/json",
+      "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify(values)
   
@@ -81,8 +74,8 @@ const Signup = () => {
                             <div className="mobile-label">
                               <p>Name</p>
                               <div className="name-tab">
-                              <input {...input} />
-                              {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
+                                <input {...input} type="text" className='input-tab' />
+                                {meta.error && meta.touched && <span className='required-error'>{meta.error}</span>}      
                               </div>  
                             </div>
                             }
@@ -92,8 +85,8 @@ const Signup = () => {
                          <div className="mobile-label">
                          <p>E-mail</p>
                              <div className="name-tab"> 
-                             <input {...input} type="email" id="email" />
-                             {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
+                             <input {...input} type="email" id="email" className='input-tab'/>
+                             {meta.error && meta.touched && <span className='required-error'>{meta.error}</span>}
                                      </div>
                                      </div>
                      )}
@@ -102,8 +95,8 @@ const Signup = () => {
                      {({ input,meta}) => (
                          <div className="mobile-label">
                           <p>Password</p>
-                          <div className="name-tab"><input {...input} type="password" /> 
-                          {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>} 
+                          <div className="name-tab"><input {...input} className='input-tab' type="password" /> 
+                          {meta.error && meta.touched && <span className='required-error'>{meta.error}</span>} 
                          </div>
                          </div>
                      )}
@@ -112,8 +105,8 @@ const Signup = () => {
                      {({ input,meta}) => (
                          <div className="mobile-label">
                           <p>Confirm Password</p>
-                          <div className="name-tab"><input {...input} type="password" />
-                          {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
+                          <div className="name-tab"><input {...input} className='input-tab' type="password" />
+                          {meta.error && meta.touched && <span className='required-error'>{meta.error}</span>}
                          </div>
                          </div>
                      

@@ -67,8 +67,18 @@
     width:100%;
     display: flex;
     margin-top: -1rem;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.input-tab
+{
     border-bottom: 1px solid rgb(240, 240, 240);
-    justify-content: space-between;
+    width: 100%;
+}
+.required-error
+{
+    color:rgb(224, 1, 1);
+    font-size: .8rem;
 }
 .number-box
 {
@@ -178,6 +188,13 @@
 {
     width:1.2rem;
     height: 1.2rem;
+}
+.user-verified-container
+{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 @media screen and (max-width:1600px)
 {
