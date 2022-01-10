@@ -1,40 +1,52 @@
 import "./Login.css";
 import { Form, Field } from "react-final-form";
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-const required = (value: any) => (value ? undefined : "Required");
+
+const Login = () => {
+  const [errorMessage,getErrorMessage]=useState("");
+  const required = (value: any) => (value ? undefined : "Required");
 const onSubmitlogin = async (values: any) => {
   console.log(values);
-  fetch("https://medpharma-api.herokuapp.com/users/login", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(values),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-
-  // fetch("http://localhost:5000/users/login", {
-  //   method:"POST",
-  //   headers:{
-  //   "content-type":"application/json",
+  // fetch("https://medpharma-api.herokuapp.com/users/login", {
+  //   method: "POST",
+  //   headers: {
+  //     "content-type": "application/json",
   //   },
-  //   body: JSON.stringify(values)
-
-  // }).then((res)=>res.json())
-  //   .then((data)=>{
-  //      console.log(data);
-  // }).catch(e=>{
-  //   console.log(e)
+  //   body: JSON.stringify(values),
   // })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //   })
+  //   .catch((e) => {
+  //     console.log(e);
+  //   });
+
+  fetch("http://localhost:5000/users/login", {
+    method:"POST",
+    headers:{
+    "content-type":"application/json",
+    },
+    body: JSON.stringify(values)
+
+  }).then((res)=>res.json())
+    .then((data)=>{
+       if(data.message)
+       { 
+        getErrorMessage(data.message);
+       }
+  }).catch(e=>{
+    console.log(e)
+  })
+  setTimeout(()=>
+        {
+         getErrorMessage("");
+        },3000)
 };
-const Login = () => {
+
+
   return (
     <div className="login-container">
       <div className="image-box">
@@ -44,6 +56,7 @@ const Login = () => {
         ></img>
       </div>
       <div className="login-box">
+        <div className={errorMessage==="" ? "":"error-container"}>{errorMessage}</div>
         <div className="login-heading">
           <h4>SignIn/Signup</h4>
           <p>

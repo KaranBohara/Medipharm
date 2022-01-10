@@ -5,26 +5,11 @@ const Signup = () => {
   const history=useHistory();
   const onSubmit = async (values) => {
     console.log(values);
-    fetch("https://medpharma-api.herokuapp.com/users/signup", {
-      method:"POST",
-      headers:{
-      "content-type":"application/json",
-      "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(values)
-  
-    }).then((res)=>res.json())
-      .then((data)=>{
-         console.log(data);
-         history.push("/activate");
-    }).catch(e=>{
-      console.log(e)
-    })
-  
-    // fetch("http://localhost:5000/users/signup", {
+    // fetch("https://medpharma-api.herokuapp.com/users/signup", {
     //   method:"POST",
     //   headers:{
     //   "content-type":"application/json",
+    //   "Access-Control-Allow-Origin": "*",
     //   },
     //   body: JSON.stringify(values)
   
@@ -33,8 +18,23 @@ const Signup = () => {
     //      console.log(data);
     //      history.push("/activate");
     // }).catch(e=>{
-    //   console.log(e);
+    //   console.log(e)
     // })
+  
+    fetch("http://localhost:5000/users/signup", {
+      method:"POST",
+      headers:{
+      "content-type":"application/json",
+      },
+      body: JSON.stringify(values)
+  
+    }).then((res)=>res.json())
+      .then((data)=>{
+         console.log(data);
+         history.push("/login");
+    }).catch(e=>{
+      console.log(e);
+    })
   
     
   

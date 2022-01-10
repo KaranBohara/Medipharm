@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Categoriessidebar from "../../components/Products_page/Categories_component/Categoriessidebar";
 import Products from "../../components/Products_page/Products_Page/Products";
@@ -6,7 +6,7 @@ import Filtertaskbar from "../../components/Products_page/Filter_component/Filte
 import "./Productspage.css";
 import Mobilefilter from "../../components/MobileFilter/Mobilefilter";
 import Categoryslider from "../../components/Products_page/Category_multislider/Categoryslider";
-import {carouselDataDesktop, carouselDataResponsive } from "../../components/Home_slider/Homecarousel";
+import {carouselDataDesktop} from "../../components/Home_slider/Homecarousel";
 import Slickslider from "../../components/Products_page/Category_multislider/Slickslider";
 var settings = {
     dots: false,

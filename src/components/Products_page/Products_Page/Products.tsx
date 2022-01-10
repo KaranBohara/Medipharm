@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import { useState,useEffect } from "react";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
@@ -24,7 +24,7 @@ setMedicines(myMed);
                     return (                   
                             <div className="product-box" key={index}>
                                 <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.Discount}%OFF</span></div>
-                                <div className="product-image-box"><img src={item.src}></img></div>
+                                <div className="product-image-box"><img alt="noloading" src={item.src}></img></div>
                                 <div className="product-name">{item.MedicineName}</div>
                                 <div className="product-manufacturer">{item.Manufacturers}</div>
                                 <div className="product-bestprice">Rs.{bestPrice}</div>
