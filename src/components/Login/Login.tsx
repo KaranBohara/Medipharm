@@ -2,53 +2,64 @@ import "./Login.css";
 import { Form, Field } from "react-final-form";
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Login = () => {
-  const [errorMessage,getErrorMessage]=useState("");
-  const required = (value: any) => (value ? undefined : "Required");
-const onSubmitlogin = async (values: any) => {
-  console.log(values);
-  // fetch("https://medpharma-api.herokuapp.com/users/login", {
-  //   method: "POST",
-  //   headers: {
-  //     "content-type": "application/json",
-  //   },
-  //   body: JSON.stringify(values),
-  // })
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  //   .catch((e) => {
-  //     console.log(e);
-  //   });
-
-  fetch("http://localhost:5000/users/login", {
-    method:"POST",
-    headers:{
-    "content-type":"application/json",
-    },
-    body: JSON.stringify(values)
-
-  }).then((res)=>res.json())
-    .then((data)=>{
-       if(data.message)
-       { 
-        getErrorMessage(data.message);
-       }
-  }).catch(e=>{
-    console.log(e)
-  })
+  const search = useLocation().search;
+  const name:any = new URLSearchParams(search).get("message");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [toastmsg, setToastmsg]=useState(name);
   setTimeout(()=>
-        {
-         getErrorMessage("");
-        },3000)
-};
+  {
+    setToastmsg("");
+  },3000)
+  const required = (value: any) => (value ? undefined : "Required");
+  const onSubmitlogin = async (values: any) => {
+    fetch("https://medpharma-api.herokuapp.com/users/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    setTimeout(() => {
+      setErrorMessage("");
+    }, 3000);
 
+    // fetch("http://localhost:5000/users/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(values),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.message) {
+    //       setErrorMessage(data.message);
+    //     }
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
+    // setTimeout(() => {
+    //   setErrorMessage("");
+    // }, 3000);
+  };
 
   return (
-    <div className="login-container">
+    <div className="login-wrapper">
+      <div className={toastmsg?"toastify-container":""}>
+      <i className={toastmsg?"far fa-check-circle":""}></i><span style={{marginLeft:".5rem"}}>{toastmsg}</span>
+      </div>
+      <div className="login-container">
       <div className="image-box">
         <img
           src="https://www.netmeds.com/images/cms/wysiwyg/cms/1588773798_sign-in-banner-new.png"
@@ -56,7 +67,9 @@ const onSubmitlogin = async (values: any) => {
         ></img>
       </div>
       <div className="login-box">
-        <div className={errorMessage==="" ? "":"error-container"}>{errorMessage}</div>
+        <div className={errorMessage === "" ? "" : "error-container"}>
+          {errorMessage}
+        </div>
         <div className="login-heading">
           <h4>SignIn/Signup</h4>
           <p>
@@ -128,6 +141,7 @@ const onSubmitlogin = async (values: any) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

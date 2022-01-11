@@ -1,9 +1,32 @@
+.login-wrapper
+{
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+}
+.toastify-container
+{
+  display: flex;
+  width: 40%;
+  margin-top: 2rem;
+  background-color: #337D32;
+  color: white;
+  font-size: .9rem;
+  border-radius: .3rem;
+  padding: .4rem .5rem;
+}
+.toastify-container .fa-check-circle
+{
+  padding-top: .1rem;
+}
 .login-container {
   display: flex;
   width: 60%;
   height: auto;
   margin: auto;
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 5rem;
 }
 .image-box {
