@@ -218,6 +218,10 @@
     align-items: center;
     margin-top: 0.5rem;
   }
+  .toastify-container
+  {
+    width: 80%;
+  }
   .image-box {
     width: 100%;
     justify-content: center;
