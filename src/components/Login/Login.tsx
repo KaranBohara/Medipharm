@@ -131,12 +131,12 @@ const Login = () => {
           </div> */}
           <div className="new-user">
             <div className="newuser-sub1">
-              <Link to="/signup" className="link-decoration-login">
+              <Link to="/signupclient" className="link-decoration-login">
                 Create a new account
               </Link>
             </div>
             <div className="newuser-sub2">
-              <Link to="/signup" className="link-decoration-login">
+              <Link to="/signupclient" className="link-decoration-login">
                 <i className="fas fa-long-arrow-alt-right"></i>
               </Link>
             </div>

@@ -39,7 +39,7 @@ const Navbartop = () => {
             </div>
             <div className="icons-right">
                 <div className="search-icon"><Link to="/search"><i className="fas fa-search"></i></Link></div>
-                <Link to="/login"> <div className="userlogin"><i className="fas fa-user"></i></div></Link>
+                <Link to="/loginclient"> <div className="userlogin"><i className="fas fa-user"></i></div></Link>
                 <div className="cart"><i className="fas fa-cart-plus"></i></div>
                 <div className="rxupload"><i className="fas fa-upload"></i></div>
             </div>

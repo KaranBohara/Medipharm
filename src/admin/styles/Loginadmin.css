@@ -1,0 +1,120 @@
+.Login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #4b9db6, #1968c2);
+  background-size: 400% 400%;
+  height: 100vh;
+  font-family: 'Sora', sans-serif;
+}
+.admin-login-container {
+  width: 60%;
+  height: 70%;
+  box-shadow: 1px 1px 5px grey;
+  display: flex;
+  border-radius: 0.3rem;
+}
+.admin-login-form {
+  width: 40%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin-logo-login {
+  display: flex;
+  width: 80%;
+  justify-content: flex-start;
+  margin-top: 5rem;
+  align-items: center;
+  font-size: .9rem;
+}
+.admin-login-design {
+  width: 60%;
+  background: url("../assets/wall1.jpg");
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+.admin-login-design h2 {
+  font-size: 1.8rem;
+  margin-top: 14rem;
+}
+.admin-login-design p {
+  font-size: 0.9rem;
+  margin-top: .5rem;
+}
+.admin-login-content {
+  margin-top: 3rem;
+  width: 85%;
+}
+.admin-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.admin-mobile-label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: .5rem;
+}
+.admin-mobile-label p {
+  width: 100%;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #009da0;
+  margin-bottom: 1.5rem;
+}
+.admin-name-tab {
+  width: 100%;
+  display: flex;
+  margin-top: -1rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.admin-name-tab input {
+  outline: none;
+  border: none;
+  height: 2.5rem;
+  width: 100%;
+  font-size: 1rem;
+}
+.admin-required-error {
+  color: rgb(224, 1, 1);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+.admin-button-login {
+  display: flex;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+.admin-button-login input[type="submit"] {
+  border: none;
+  width: 100%;
+  height: 2.8rem;
+  outline: none;
+  background-color: #33aeb1;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+.input-logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #006d6e;
+  margin-bottom: .2rem;
+}
+.input-logo input
+{
+  padding-left: .5rem;
+}
+.login-icon {
+  color: #33aeb1;
+}

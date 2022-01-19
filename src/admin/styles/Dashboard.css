@@ -1,0 +1,63 @@
+.admin-dashboard
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.list-item
+{
+    height: 100vh;
+    background-color: #1D2732;
+}
+.drawer
+{
+    background-color: #1D2732;
+}
+.list-box
+{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+.dashboard-icons
+{
+    color: white;
+    transform: scale(1.1);
+}
+.logo-wrapper
+{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.logo{
+display: flex;
+}
+.logo-title
+{
+display: flex;
+margin-left: .3rem;
+}
+.admin-menu-bar
+{
+width: 100%;
+}
+.admin-wrapper
+{
+    width: 100%;
+    display: flex;
+}
+.admin-sidebar
+{
+width: 30%;
+height: 100vh;
+}
+.admin-dashboard-page
+{
+    width:70%;
+    height: 100vh;
+}
