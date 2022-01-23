@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {Table} from "react-bootstrap";
 import "../styles/Products.css";
 const Addproducts=()=> {
-  const[products,setProducts]=useState("");
+  const[products,setProducts]=useState([]);
   useEffect(() => {
     const url = "https://medpharma-api.herokuapp.com/admin/productslist";
     const fetchData = async () => {
@@ -38,21 +38,21 @@ const Addproducts=()=> {
              </tr>
            </thead>
            <tbody>
-          {products.map((val,index)=>
+           {products.map((val,index)=>
             {
-              return(
-                <tr key={index}>
-                <td>{val.productId}</td>
-                <td><img src={val.imageURL} alt={val.name} width="60px" height="60px"/></td>
-                <td>{val.name}</td>
-                <td>{val.stock}</td>
-                <td>{val.category}</td>
-                <td>{val.manufacturer}</td>
-                <td>Rs.{val.price}</td>
-                <td>Rs.{val.discount}</td>
-                </tr>
-              )
-            })}
+            return(
+              <tr key={index}>
+              <td>{val.productId}</td>
+              <td><img src={val.imageURL} alt={val.name} width="60px" height="60px"/></td>
+              <td>{val.name}</td>
+              <td>{val.stock}</td>
+              <td>{val.category}</td>
+              <td>{val.manufacturer}</td>
+              <td>Rs.{val.price}</td>
+              <td>Rs.{val.discount}</td>
+              </tr>)
+            }
+    )}
            </tbody>
            </Table>
         </div>
