@@ -4,17 +4,21 @@ import "../styles/Products.css";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
-import {Modal} from "react-bootstrap"
-import Medilogo from "../assets/medicine.png";
 import CloseIcon from '@mui/icons-material/Close';
 import AddProductDetails from './AddProductDetails';
+import EditProduct from './EditProduct';
+import {Modal} from "react-bootstrap"
+import Medilogo from "../assets/medicine.png";
 
 const ProductsList=()=> {
   const [loading, setLoading] = useState(true);
   const[products,setProducts]=useState([]);
   const [show,setShow] = useState(false);
+  const [editModal,setEditModal]=useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () =>  setShow(true);
+  const handleEdit=()=>setEditModal(true);
+  const handleEditClose=()=>setEditModal(false);
   useEffect(() => {
     const url = "https://medpharma-api.herokuapp.com/admin/productslist";
     const fetchData = async () => {
@@ -27,7 +31,6 @@ const ProductsList=()=> {
                   });
         const product = await response.json();
         setProducts(product);
-        console.log(product);
       } catch (error) {
         console.log("error", error);
       }
@@ -64,9 +67,30 @@ Loading...
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddProductDetails/>
+        <AddProductDetails/>
         </Modal.Body>
       </Modal>
+      <Modal
+      show={editModal}
+      size="lg"
+      onHide={handleEditClose}
+      backdrop="static"
+      keyboard={false}
+      dialogClassName="my-modal"
+    >
+      <Modal.Header>
+        <Modal.Title>
+        <div className='modal-title'>
+        <img src={Medilogo} alt='medilogo' width="30px" height="30px"/>
+        <span style={{marginLeft:".5rem",fontSize:"1.2rem",color:"#006692"}}>Edit Product Details</span>
+        <CloseIcon className='close-icon' onClick={handleEditClose}/>
+        </div>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <EditProduct/>
+      </Modal.Body>
+    </Modal>
         <div className='add-product' onClick={handleShow}>
         <AddIcon className='add-icon' />
         <span style={{marginLeft:".5rem"}}>Add a product</span>
@@ -102,9 +126,9 @@ Loading...
               <td>{val.category}</td>
               <td>{val.manufacturer}</td>
               <td>Rs.{val.price}</td>
-              <td>Rs.{val.discount}</td>
+              <td>{val.discount}%</td>
               <td><DeleteForeverIcon className='delete-icon'/></td>
-              <td><EditIcon className='edit-icon'/></td>
+              <td><EditIcon onClick={handleEdit} className='edit-icon'/></td>
               </tr>)
             }
     )}

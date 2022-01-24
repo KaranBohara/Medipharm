@@ -3,13 +3,11 @@ import { Form, Field } from 'react-final-form';
 import "../styles/AddProductDetails.css";
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast, Zoom } from "react-toastify";
-import ImageUploader from 'react-images-upload';
-
 
 const AddProductDetails = () => {
     const history=useHistory();
     const onSubmit = async values => {
-        await fetch("https://medpharma-api.herokuapp.com/admin/addproducts", {
+        await fetch("http://localhost:5000/admin/addproducts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
