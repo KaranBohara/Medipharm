@@ -2,7 +2,6 @@ import React,{useContext,useEffect} from "react";
 import { BrowserRouter as Route, Switch } from "react-router-dom";
 import "../styles/Dashboard.css";
 import HomeAdmin from "./HomeAdmin";
-import Addproducts from "./Addproducts";
 import { Link,useHistory} from "react-router-dom";
 import Medilogo from "../assets/medicine.png";
 import {
@@ -20,6 +19,7 @@ import Orders from "./Orders";
 import Reviews from "./Reviews";
 import AccountSettings from "./AccountSettings";
 import { UserContext } from "../../App";
+import ProductsList from "./ProductsList";
 
 const Dashboard = () => {
   const {state,dispatch}=useContext(UserContext);
@@ -101,7 +101,7 @@ const Dashboard = () => {
         <Switch>
         <Route path="/admin/dashboard" exact><HomeAdmin/></Route>
         <Route path="/admin/dashboard/home" exact><HomeAdmin/></Route>
-        <Route path="/admin/dashboard/products" exact><Addproducts/></Route>
+        <Route path="/admin/dashboard/products" exact><ProductsList/></Route>
         <Route path="/admin/dashboard/customers" exact><Customers/></Route>
         <Route path="/admin/dashboard/orders" exact><Orders/></Route>
         <Route path="/admin/dashboard/reviews" exact><Reviews/></Route>

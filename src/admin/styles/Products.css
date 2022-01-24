@@ -10,3 +10,69 @@
     max-width: 13rem;
     vertical-align: middle;
 }
+.delete-icon
+{
+    color:#A42E28;
+    cursor: pointer;
+}
+.edit-icon
+{
+    color: #48B3E1;
+    cursor: pointer;
+}
+.add-product
+{
+    width: 15%;
+    display: flex;
+    color: #006692;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.add-icon
+{
+    transform: scale(1.3);
+    font-weight: bolder;
+}
+.modal-title
+{ 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close-icon
+{
+    color: #b40900;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+.search-products
+{
+    width: 50%;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+}
+.search-products input
+{
+    width:80%;
+    outline: none;
+    border: 1px solid grey;
+    height: 2.8rem;
+    padding-left: .5rem;
+    border-radius: .3rem;
+}
+.search-products button
+{
+    outline: none;
+    border: none;
+    background-color: #EB553D;
+    color: white;
+    width: 12%;
+    margin-left: 2rem;
+    border-radius: .3rem;
+    height: 2.7rem;
+}
