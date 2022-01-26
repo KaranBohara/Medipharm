@@ -12,12 +12,18 @@ import Medilogo from "../assets/medicine.png";
 
 const ProductsList=()=> {
   const [loading, setLoading] = useState(true);
+  const [currentId,setCurrentId]=useState(0);
   const[products,setProducts]=useState([]);
   const [show,setShow] = useState(false);
   const [editModal,setEditModal]=useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () =>  setShow(true);
-  const handleEdit=()=>setEditModal(true);
+  const handleEdit=(id)=>
+  {
+  console.log(id);
+  setEditModal(true);
+  setCurrentId(id)
+  }
   const handleEditClose=()=>setEditModal(false);
   useEffect(() => {
     const url = "https://medpharma-api.herokuapp.com/admin/productslist";
@@ -43,10 +49,10 @@ useEffect(() => {
   }
 }, [products]);
 
-if (loading) return <div className="spinner"><button className="btn btn-lg" type="button">
+if (loading) return (<div className="spinner"><button className="btn btn-lg" type="button">
 <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 Loading...
-</button></div>
+</button></div>)
     return (
         <div className='products-admin-page'>
         <Modal
@@ -88,7 +94,7 @@ Loading...
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      <EditProduct/>
+      <EditProduct currentId={currentId}/>
       </Modal.Body>
     </Modal>
         <div className='add-product' onClick={handleShow}>
@@ -115,10 +121,10 @@ Loading...
              </tr>
            </thead>
            <tbody>
-           {products.map((val,index)=>
+           {products.map((val)=>
             {
             return(
-              <tr key={index}>
+              <tr key={val.productId}>
               <td>{val.productId}</td>
               <td><img src={val.imageURL} alt={val.name} width="60px" height="60px"/></td>
               <td>{val.name}</td>
@@ -128,7 +134,7 @@ Loading...
               <td>Rs.{val.price}</td>
               <td>{val.discount}%</td>
               <td><DeleteForeverIcon className='delete-icon'/></td>
-              <td><EditIcon onClick={handleEdit} className='edit-icon'/></td>
+              <td><EditIcon onClick={()=>handleEdit(val.productId)} className='edit-icon'/></td>
               </tr>)
             }
     )}

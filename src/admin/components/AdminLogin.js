@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React,{useState,useContext} from "react";
 import "../styles/Loginadmin.css";
 import Medilogo from "../assets/medicine.png";
 import { Form, Field } from "react-final-form";
@@ -11,9 +11,11 @@ import { UserContext } from "../../App";
 
 const AdminLogin = () => {
   const {state,dispatch}=useContext(UserContext);
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const required = (value) => (value ? undefined : "*Required");
   const onSubmitlogin = async (values) => {
+    setLoading(true)
      await fetch("https://medpharma-api.herokuapp.com/admin/login", {
       method: "POST",
       headers: {
@@ -29,6 +31,7 @@ const AdminLogin = () => {
         localStorage.setItem('userInfo',JSON.stringify(data));
         toast.success(data.message)
         history.push('/admin/dashboard')
+        setLoading(false)
         }
         else
         {
@@ -42,6 +45,10 @@ const AdminLogin = () => {
   };
   return (
     <div className="Login-page">
+     {loading?<button className="btn btn-warning add-class" type="button">
+     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+     Signing in to your Account...
+   </button>:""}
       <ToastContainer draggable={false} position="top-center" transition={Zoom} autoClose={3000} />
       <div className="admin-login-container">
         <div className="admin-login-form">

@@ -1,13 +1,26 @@
-import React from 'react';
-import { Form, Field } from 'react-final-form';
+import React,{useState,useEffect} from 'react';
 import "../styles/AddProductDetails.css";
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast, Zoom } from "react-toastify";
 
 
-const EditProduct = () => {
+const EditProduct = (props) => {
     const history=useHistory();
-    const onSubmit = async values => {
+    const [data,setData]=useState([]);
+    useEffect(() => {
+        fetch(`https://medpharma-api.herokuapp.com/admin/product/${props.currentId}`,
+    {
+      method:'Get',
+      headers:
+      {
+        'Content-Type':'application/json'
+      }
+    })
+        .then(response => response.json())
+        .then((val)=>{
+          setData(val)
+        })})
+    // const onSubmit = async values => {
         // await fetch("https://medpharma-api.herokuapp.com/admin/addproducts", {
         //     method: "POST",
         //     headers: {
@@ -30,27 +43,20 @@ const EditProduct = () => {
         //     .catch((e) => {
         //       console.log(e);
         //     });
-        };
+        // };
     return (
         <div className='add-product-form'>
         <ToastContainer draggable={false} position="top-center" transition={Zoom} autoClose={3000} />
-        <Form
-        onSubmit={onSubmit}
-        render={({ handleSubmit, form, submitting, pristine, values }) => (
-          <form onSubmit={handleSubmit}>
+          <form>
           <div className='input-wrapper'>
             <div className='sub-input'>
             <label>Product Name</label>
-              <Field
-                name="name"
-                component="input"
-                type="text"
-              />
+              <input name="name" type="text" value={data.name}/>
             </div>
             <div className='sub-input'>
             <label>Category</label>
-              <Field name="category" component="select">
-                <option>Category</option>
+              <select name="category" id='category'>
+                <option selected value={data.category}>{data.category}</option>
                 <option value="Aayush">Aayush</option>
                 <option value="Covid Essentials">Covid Essentials</option>
                 <option value="Eyewear">Eyewear</option>
@@ -59,43 +65,40 @@ const EditProduct = () => {
                 <option value="Devices">Devices</option>
                 <option value="Surgicals">Surgicals</option>
                 <option value="Treatment">Treatment</option>
-              </Field>
+              </select>
             </div>
             </div>
             <div className='input-wrapper'>
             <div className='sub-input'>
             <label>Manufacturer</label>
-              <Field
-                name="manufacturer"
-                component="input"
-                type="text"
-              />
+              <input name="manufacturer" type="text" value={data.manufacturer}/>
             </div>
             <div className='sub-input'>
             <label>Price (Rs.)</label>
-              <Field name="price" component="input" type="text" />
+              <input name="price" type="text" value={data.price}/>
             </div>
             </div>
             <div className='input-wrapper'>
             <div className='sub-input'>
             <label>Discount(%)</label>
-              <Field name="discount" component="input" type="text"  />
+              <input name="discount" type="text" value={data.discount} />
             </div>
             <div className='sub-input'>
             <label>Availability</label>
-              <Field name="stock" component="select">
+              <select name="stock" id="stock">
+              <option selected value={data.stock}>{data.stock}</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
-              </Field>
+              </select>
             </div>
             </div>
             <div>
             <label>Description</label>
-              <Field name="description" component="textarea" />
+              <input name="description" value={data.description} type="textarea" />
             </div>
             <div>
             <label>Image URL</label>
-              <Field name="imageURL" component="input" type="text"  />
+              <input name="imageURL" value={data.imageURL} type="text"  />
             </div>
             <div className="product-buttons">
               <button className='add-product-button'>
@@ -103,15 +106,13 @@ const EditProduct = () => {
               </button>
               <button
                 type="button"
-                onClick={form.reset}
+                onClick="reset"
                 className='reset-product-button'
               >
                 Reset
               </button>
             </div>
           </form>
-        )}
-      />
       </div>);
 };
 
