@@ -1,7 +1,7 @@
 import React from "react";
 import {Route,Switch} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Categoriessidebar from "../../components/Products_page/Categories_component/Categoriessidebar";
+// import Categoriessidebar from "../../components/Products_page/Categories_component/Categoriessidebar";
 import Filtertaskbar from "../../components/Products_page/Filter_component/Filtertaskbar";
 import "./Productspage.css";
 import Mobilefilter from "../../components/MobileFilter/Mobilefilter";
@@ -27,11 +27,11 @@ const ProductsRoutes = () => {
         <div className="container-fluid filter-position">
         <Mobilefilter/>  
         </div>
-        <div className="container-fluid d-flex justify-content-center">
+        <div className="container-fluid d-flex">
         <div className="side-section">
-                    <div className=" show-component">
+                    {/* <div className=" show-component">
                         <Categoriessidebar />
-                    </div>
+                    </div> */}
                     <div className=" show-component">
                         <Filtertaskbar />
                     </div>

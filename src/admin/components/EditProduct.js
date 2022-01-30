@@ -69,7 +69,7 @@ const EditProduct = (props) => {
           <div className="sub-input">
             <label>Category</label>
             <select name="category" id="category">
-              <option selected value={data.category}>
+              <option value={data.category}>
                 {data.category}
               </option>
               <option value="Aayush">Aayush</option>
