@@ -69,6 +69,7 @@ const Desktopfooter = () => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
     return (
+        <div className="footer-container">
         <div className="desktop-footer-container">
             {footerMenu.map((item, index: number) => {
                 return (<div key={index} className="col-lg-3 col-md-12 col-sm-12 items-position">
@@ -92,6 +93,7 @@ const Desktopfooter = () => {
                     <input type="text" placeholder="Enter your Email Id"></input>
                     <input type="submit" value="Proceed"></input>
                 </div>
+            </div>
             </div>
         </div>);
 }

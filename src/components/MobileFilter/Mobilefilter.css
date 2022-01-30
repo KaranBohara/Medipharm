@@ -9,7 +9,8 @@
   .mobile-filter-box {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-top: 2rem;
   }
   .filter-header-modal {
     display: flex;
@@ -24,7 +25,7 @@
     justify-content: space-evenly;
     background-color: rgb(206, 206, 206);
     padding: 0.5rem 0rem;
-    width: 16%;
+    width: 20%;
     cursor: pointer;
   }
   .mobile-filter-box .icon-box .fa-sort-amount-up-alt,

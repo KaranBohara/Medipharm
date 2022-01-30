@@ -1,19 +1,89 @@
-
-.carousel-wrapper
+.carousel-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #fdfdfd;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.carousel-body {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+}
+.carousel-main-heading
 {
-    width:100%;
+    width: 70%;
+    height: 100%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+    line-height: 2.8rem;
+}
+.carousel-sub-heading
+{
+    width: 70%;
+    height: 100%;
+    font-size: .9rem;
+    margin-top: .6rem;
+    text-align: left;
+}
+.carousel-button
+{
+    width: 70%;
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+.carousel-button button
+{
+    border: none;
+    outline: none;
+    background-color: #4457CE;
+    color: white;
+    padding: .6rem 1rem;
+    width: fit-content;
+    border-radius: .2rem;
+    margin-top: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
 }
-@media screen and (max-width: 900px) {
-    .carousel-wrapper
-    {
-        width:100%;
-        cursor: pointer;
-    }
+.carousel-image {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-@media screen and (max-width: 592px) {
-    .slider-container
+@media screen and (max-width: 992px){
+.carousel-main-heading
 {
-    margin-top: .2rem;
+  line-height: 2.3rem;
+  font-size: 1.6rem;
 }
 }
+@media screen and (max-width: 592px){
+  .carousel-wrapper
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+  .carousel-body
+  {
+  width: 85%;
+  order:2;
+  }
+  .carousel-image
+  {
+    width: 100%;
+    order: 1;
+  }
+  .carousel-main-heading,.carousel-sub-heading
+  {
+    width: 100%;
+  }
+  }
+  

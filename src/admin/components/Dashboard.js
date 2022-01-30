@@ -22,7 +22,7 @@ import { UserContext } from "../../App";
 import ProductsList from "./ProductsList";
 
 const Dashboard = () => {
-  const {state,dispatch}=useContext(UserContext);
+  const {dispatch}=useContext(UserContext);
     let user=JSON.parse(localStorage.getItem('userInfo'));
     useEffect(() => {
       toast.success(user.message)

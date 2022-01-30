@@ -1,8 +1,5 @@
 import React, { useState} from "react";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
   } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -49,7 +46,7 @@ const Navbartop = () => {
                     {productsCategorydata.map((data:{navTitle:string,navImage:string,path:string,mobilenavIcons:string},index:number) => {
                         return (<div className="navbarbottom-items" key={index}>
                             <div className="navMenus"><Link to={data.path} onClick={() => { setShowNavbar(false) }}className="link-decoration">{data.navTitle}</Link></div>
-                            <div className="navIcons"><img src={data.mobilenavIcons}></img></div>
+                            <div className="navIcons"><img alt="icon" src={data.mobilenavIcons}></img></div>
                             </div>);
                     })}
                 </div>

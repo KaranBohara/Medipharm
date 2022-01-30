@@ -1,21 +1,5 @@
-.home-headings
-{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-}
-.multi-slider-container
-{
-    width: 90%;
-    height:auto;
-    margin: auto;
-    margin-top: 2.5rem;
-    margin-bottom: 3rem;
-    display: flex;
-    justify-content:center;
-}
-.multislider-wrapper
+
+/* .multislider-wrapper
 {
     width: 100%;
     display: flex;
@@ -37,4 +21,16 @@
 {
     width:95%;
 }
+} */
+.multi-slider-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.multi-slider-wrap
+{
+    width:92%
 }

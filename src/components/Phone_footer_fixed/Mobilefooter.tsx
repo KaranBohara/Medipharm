@@ -31,9 +31,9 @@ const footerData=[
 const Mobilefooter=()=>
 {
     return(<div className="mobile-footer-container">
-        {footerData.map((item)=>
+        {footerData.map((item,index)=>
         {
-            return(<div className="footer-content-box">
+            return(<div className="footer-content-box" key={index}>
             <div className="footer-content-icon">{item.footerIcon}</div>
             <div className="footer-content-heading">{item.footerName}</div>
             </div>)

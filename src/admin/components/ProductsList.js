@@ -9,11 +9,21 @@ import AddProductDetails from './AddProductDetails';
 import EditProduct from './EditProduct';
 import {Modal} from "react-bootstrap"
 import Medilogo from "../assets/medicine.png";
+import LoadingImage from "../assets/loading.gif";
+
+const handleDelete=(id)=>
+   {
+    fetch(`http://localhost:5000/admin/product/${id}`, {
+      method: 'DELETE',
+    })
+      .then(res => res.json())
+      .then(window.location.reload(true))
+   }
 
 const ProductsList=()=> {
   const [loading, setLoading] = useState(true);
   const [currentId,setCurrentId]=useState(0);
-  const[products,setProducts]=useState([]);
+  const [products,setProducts]=useState([]);
   const [show,setShow] = useState(false);
   const [editModal,setEditModal]=useState(false);
   const handleClose = () => setShow(false);
@@ -26,7 +36,7 @@ const ProductsList=()=> {
   }
   const handleEditClose=()=>setEditModal(false);
   useEffect(() => {
-    const url = "https://medpharma-api.herokuapp.com/admin/productslist";
+    const url = "http://localhost:5000/admin/product";
     const fetchData = async () => {
       try {
         const response = await fetch(url,{
@@ -48,11 +58,6 @@ useEffect(() => {
     setLoading(false);
   }
 }, [products]);
-
-if (loading) return (<div className="spinner"><button className="btn btn-lg" type="button">
-<span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-Loading...
-</button></div>)
     return (
         <div className='products-admin-page'>
         <Modal
@@ -133,13 +138,14 @@ Loading...
               <td>{val.manufacturer}</td>
               <td>Rs.{val.price}</td>
               <td>{val.discount}%</td>
-              <td><DeleteForeverIcon className='delete-icon'/></td>
+              <td><DeleteForeverIcon onClick={()=>handleDelete(val.productId)} className='delete-icon'/></td>
               <td><EditIcon onClick={()=>handleEdit(val.productId)} className='edit-icon'/></td>
               </tr>)
             }
     )}
            </tbody>
            </Table>
+           {loading?<div style={{width:"100%",marginTop:"5rem"}}><img src={LoadingImage} width="65rem" height="65rem" alt="loading"/></div>:""}
         </div>
     )
 }

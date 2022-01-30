@@ -2,9 +2,6 @@ import React from "react";
 import "../Login/Login.css";
 import { Form, Field } from 'react-final-form';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
   } from "react-router-dom";
   const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))

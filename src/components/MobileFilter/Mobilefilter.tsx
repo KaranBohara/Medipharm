@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import "./Mobilefilter.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import Filtertaskbar from "../Products_page/Filter_component/Filtertaskbar";
 import Sortproducts from "../Products_page/SortBy_component/Sortproduct";
 const Mobilefilter = () => {
     const [showfilter, setShowfilter] = useState(false);
     const [showsortoptions,setShowsortoptions]=useState(false);
-    return (<div className="row d-flex justify-content-center">
+    return (
         <div className="mobile-filter-box">
             <div className="icon-box" onClick={() => setShowsortoptions(true)} style={{ borderRight: "1px solid rgb(230, 230, 230)" }}><i className="fas fa-sort-amount-up-alt"></i><span style={{ fontSize: ".8rem" }}>Sort</span></div>
             <div className="icon-box" onClick={() => setShowfilter(true)}><i className="fas fa-filter"></i><span style={{ fontSize: ".8rem" }}>Filter</span></div>
@@ -47,7 +46,6 @@ const Mobilefilter = () => {
                 </Modal.Body>
             </Modal>
         </div>
-
-    </div>);
+);
 }
 export default Mobilefilter;

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Field } from 'react-final-form';
 import "./Filtertaskbar.css";
-import categoryDataFilter from "./medicines.json";
-import productsCategorydata from "../../Navbar/product.json"
+// import categoryDataFilter from "./medicines.json";
+// import productsCategorydata from "../../Navbar/product.json"
 const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))
 
 const onSubmit = async (values: any) => {

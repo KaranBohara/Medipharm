@@ -54,11 +54,11 @@
 .add-class
 {
   position: absolute;
-  top:14%;
-  left: 33%;
+  top:65%;
+  left: 27%;
   color: white;
-  width:30rem;
-  height: 4rem;
+  width:10rem;
+  height: 10rem;
 }
 .admin-box {
   width: 100%;

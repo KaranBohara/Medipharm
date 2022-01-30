@@ -3,6 +3,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    margin-top: 1rem;
 }
 .category-heading
 {
@@ -12,7 +14,7 @@
 }
 .category-slider-container
 {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,3 +36,10 @@
     align-items: center;
     font-size: .8rem;
 }
+@media screen and (max-width: 992px) {
+    .category-heading
+    {
+        display: none;
+    }
+  }
+  

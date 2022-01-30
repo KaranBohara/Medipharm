@@ -7,7 +7,7 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 const AddProductDetails = () => {
     const history=useHistory();
     const onSubmit = async values => {
-        await fetch("http://localhost:5000/admin/addproducts", {
+        await fetch("http://localhost:5000/admin/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",

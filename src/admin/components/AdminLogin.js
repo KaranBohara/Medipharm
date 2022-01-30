@@ -8,9 +8,10 @@ import { useHistory } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UserContext } from "../../App";
+import LoadingImage from "../assets/loading.gif";
 
 const AdminLogin = () => {
-  const {state,dispatch}=useContext(UserContext);
+  const {dispatch}=useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   const required = (value) => (value ? undefined : "*Required");
@@ -35,6 +36,7 @@ const AdminLogin = () => {
         }
         else
         {
+          setLoading(false)
           toast.error(data.message)
           history.push('/admin/login')
         }
@@ -45,10 +47,7 @@ const AdminLogin = () => {
   };
   return (
     <div className="Login-page">
-     {loading?<button className="btn btn-warning add-class" type="button">
-     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-     Signing in to your Account...
-   </button>:""}
+     {loading?<div className="add-class"><img src={LoadingImage} width="35%" height="35%" alt="loading"/></div>:""}
       <ToastContainer draggable={false} position="top-center" transition={Zoom} autoClose={3000} />
       <div className="admin-login-container">
         <div className="admin-login-form">

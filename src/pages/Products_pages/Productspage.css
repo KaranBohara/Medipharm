@@ -1,21 +1,48 @@
 .product-page-wrapper
 {
-    margin-top: 2rem;
     background-color: rgb(243, 243, 243);
+    display: flex;
+    width: 100%;
 }
 .show-component
 {
-    display: flex;
+   display: flex;
 }
 .hide-component
 {
     display: none;
+}
+.products-wrap
+{
+    display: grid;
+    width:100%;
+}
+.side-section
+{
+    width: 30%;
+}
+@media screen and (max-width:1296px)
+{
+.side-section
+{
+    width: 40%;
+}
 }
 @media screen and (max-width:992px){
     .product-page-wrapper
 {
     margin-top: 0rem;
     margin-bottom: 3.5rem;
+    flex-direction: column;
+    width: 100%;
+}
+.side-section
+{
+    display: none;
+}
+.products-wrap
+{
+    width: 100%;
 }
 .hide-component
 {
@@ -27,8 +54,6 @@
 }
 .filter-position
 {
-    position: sticky;
-    bottom: 4.5rem;
-    z-index: 10;
+ width: 100%;
 } 
 }

@@ -1,13 +1,5 @@
 import { Form, Field } from 'react-final-form';
-import axios from "axios";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
 import React from "react";
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const onSubmit = async (values) => {
   fetch("https://medpharma-api.herokuapp.com/users/reset", {

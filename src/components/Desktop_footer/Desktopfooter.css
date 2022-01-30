@@ -1,5 +1,10 @@
+.footer-container
+{
+  width: 100%;
+  display: flex;
+}
 .desktop-footer-container {
-  width: 90%;
+  width: 91%;
   display: flex;
   margin:auto;
   justify-content: center;

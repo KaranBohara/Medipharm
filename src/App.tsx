@@ -2,8 +2,7 @@ import React,{createContext,useReducer} from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Desktopfooter from "./components/Desktop_footer/Desktopfooter";
-// import Mobilefooter from "./components/Phone_footer_fixed/Mobilefooter";
-import Productspage from "./pages/Products_pages/Productspage";
+import Mobilefooter from "./components/Phone_footer_fixed/Mobilefooter";
 import Homepage from "./pages/Homepage/Homepage";
 import Searchpage from "./components/Search_space/Searchpage";
 import Forgotpassword from "./components/Forgotpassword/Forgotpassword";
@@ -15,6 +14,7 @@ import AdminLogin from "./admin/components/AdminLogin";
 import Dashboard from "./admin/components/Dashboard";
 import ProtectedDashboardRoute from "./admin/ProtectedRoutes/ProtectedDashboardRoute";
 import { reducer,initialState } from "./reducers/UseReducer";
+import ProductsRoutes from "./pages/Products_pages/ProductsRoutes";
 interface contextType
 {
   state:boolean,
@@ -33,16 +33,16 @@ const [state,dispatch]=useReducer(reducer,initialState)
           <Homepage />
           <Desktopfooter />
         </Route>
+        <Route path="/product" component={ProductsRoutes}/>
         <Route exact path="/loginclient" component={Loginpage}/>
         <Route exact path="/forgotpassword" component={Forgotpassword}/>
         <Route exact path="/OTPgenerate" component={GenerateOTP}/>
         <Route exact path="/resetpassword" component={Resetpassword}/>
         <Route exact path="/signupclient" component={Signuppage}/>
-        <Route exact path="/covidessentials" component={Productspage}/>
         <Route exact path="/search" component={Searchpage}/>
         <ProtectedDashboardRoute path="/admin/dashboard" state={state} component={Dashboard}/>
         <Route exact path="/admin/login"component={AdminLogin}/>
-        {/* <Mobilefooter /> */}
+        <Mobilefooter />
       </Router>
       </UserContext.Provider>
     </div>
