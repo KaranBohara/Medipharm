@@ -30,7 +30,7 @@
   white-space: pre;
 }
 .subscription-box {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -63,11 +63,10 @@
 }
 @media screen and (max-width: 992px) {
   .desktop-footer-container {
-    width: 92.5%;
+    width: 95%;
     flex-direction: column;
   }
   .subscription-box {
-    width: 100%;
     margin-top: 1rem;
     align-items: flex-start;
   }
@@ -102,7 +101,6 @@
   }
   .subscription-box {
     align-items: center;
-    width: 95%;
     margin: auto;
     margin-top: 1.5rem;
   }

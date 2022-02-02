@@ -1,6 +1,5 @@
 import React from "react";
 import {Route,Switch} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 // import Categoriessidebar from "../../components/Products_page/Categories_component/Categoriessidebar";
 import Filtertaskbar from "../../components/Products_page/Filter_component/Filtertaskbar";
 import "./Productspage.css";

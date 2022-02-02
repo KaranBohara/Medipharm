@@ -16,7 +16,7 @@ const Signup = () => {
     }).then((res)=>res.json())
       .then((data)=>{
          console.log(data);
-         history.push("/login");
+         history.push("/loginclient");
     }).catch(e=>{
       console.log(e)
     })
@@ -111,8 +111,10 @@ const Signup = () => {
                      )}
                      </Field>
                             <div className="button-login">
-                         <button type="submit" disabled={submitting}>
+                         <button type="submit">
+                             <span>
                              Create Account
+                             </span>
                          </button>
                      </div>
                          
@@ -121,8 +123,8 @@ const Signup = () => {
                       )}
                       />
                     <div className="new-user">
-                        <div className="newuser-sub1"><Link to="/login" className="link-decoration-login">Registered member! <span style={{ fontWeight: "bold" }}> SignIn</span></Link></div>
-                        <div className="newuser-sub2"><Link to="/login" className="link-decoration-login"><i className="fas fa-long-arrow-alt-right"></i></Link></div>
+                        <div className="newuser-sub1"><Link to="/loginclient" className="link-decoration-login">Registered member! <span style={{ fontWeight: "bold" }}> SignIn</span></Link></div>
+                        <div className="newuser-sub2"><Link to="/loginclient" className="link-decoration-login"><i className="fas fa-long-arrow-alt-right"></i></Link></div>
                     </div>
                 </div>
             </div>

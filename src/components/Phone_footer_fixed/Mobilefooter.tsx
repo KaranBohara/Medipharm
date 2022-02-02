@@ -25,7 +25,7 @@ const footerData=[
     ,
     {
         footerName:"Account",
-        footerIcon:<Link to="/login"><i className="fas fa-user-circle" style={{color:"#33aeb1",fontSize:"1.5rem"}}></i></Link>,
+        footerIcon:<Link to="/loginclient"><i className="fas fa-user-circle" style={{color:"#33aeb1",fontSize:"1.5rem"}}></i></Link>,
     }
 ]
 const Mobilefooter=()=>

@@ -2,7 +2,6 @@ import React, { useState} from "react";
 import {
     Link
   } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Navbartop.css";
 import "./Navbarbottom.css";
 import MediLogo from "../../assets/medicine.png";
@@ -36,9 +35,9 @@ const Navbartop = () => {
             </div>
             <div className="icons-right">
                 <div className="search-icon"><Link to="/search"><i className="fas fa-search"></i></Link></div>
-                <Link to="/loginclient"> <div className="userlogin"><i className="fas fa-user"></i></div></Link>
-                <div className="cart"><i className="fas fa-cart-plus"></i></div>
-                <div className="rxupload"><i className="fas fa-upload"></i></div>
+                <Link to="/loginclient"><div className="userlogin"><i className="fas fa-user"></i></div></Link>
+                <Link to="/cart"><div className="cart"><i className="fas fa-cart-plus"></i></div></Link>
+                <Link to="/rxupload"><div className="rxupload"><i className="fas fa-upload"></i></div></Link>
             </div>
         </div>
             <div className="navbarbottom-container">

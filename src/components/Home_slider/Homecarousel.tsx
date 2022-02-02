@@ -1,6 +1,5 @@
 import "./Homecarousel.css";
 import "bootstrap/dist/css/bootstrap.css";
-import 'animate.css';
 
 const Homecarousel=(props:any)=>
 {

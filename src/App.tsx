@@ -15,6 +15,7 @@ import Dashboard from "./admin/components/Dashboard";
 import ProtectedDashboardRoute from "./admin/ProtectedRoutes/ProtectedDashboardRoute";
 import { reducer,initialState } from "./reducers/UseReducer";
 import ProductsRoutes from "./pages/Products_pages/ProductsRoutes";
+import MedipharmCart from "./components/MedipharmCart/MedipharmCart";
 interface contextType
 {
   state:boolean,
@@ -35,6 +36,7 @@ const [state,dispatch]=useReducer(reducer,initialState)
         </Route>
         <Route path="/product" component={ProductsRoutes}/>
         <Route exact path="/loginclient" component={Loginpage}/>
+        <Route exact path='/cart' component={MedipharmCart}/>
         <Route exact path="/forgotpassword" component={Forgotpassword}/>
         <Route exact path="/OTPgenerate" component={GenerateOTP}/>
         <Route exact path="/resetpassword" component={Resetpassword}/>

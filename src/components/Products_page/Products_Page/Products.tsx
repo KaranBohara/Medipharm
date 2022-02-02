@@ -2,7 +2,6 @@ import { useState,useEffect } from "react";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
-import 'animate.css';
 // import Medicines from "../Filter_component/medicines.json";
 let bestPrice = 0;
 const Products = () => {

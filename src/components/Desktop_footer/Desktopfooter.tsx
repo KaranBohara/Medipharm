@@ -86,7 +86,7 @@ const Desktopfooter = () => {
                     <li style={showFooter || selectedIndex === index ? { display: "flex",lineHeight:"2rem"} : { display: "none" }} >{item.subHeading.join('\n')}</li>
                 </div>);
             })}
-            <div className="col-lg-3 col-md-12 col-sm-12 d-flex justify-content-center ">
+            <div className="col-lg-3 col-md-12 col-sm-12">
                 <div className="subscription-box">
                     <h6>Subscribe to Our NewsLetter</h6>
                     <p>Get a free subscription to our health and fitness tip and stay tuned to our latest offers</p>
