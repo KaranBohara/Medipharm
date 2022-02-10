@@ -11,7 +11,7 @@ const Shopbycategory=()=>
      <div className="home-headings">Shop By Category</div>
        <div className="container-fluid d-flex justify-content-center">
        <div className="row row-style">
-        {productsCategorydata.map((item:{navTitle:string,navImage:string,path:string,mobilenavIcons:string},index:number)=>{
+        {productsCategorydata.map((item,index)=>{
             return(<div className="col-lg-3 col-md-4 col-sm-6 category-box-spacing" key={index}>
                 <div className="shop-by-category-wrapper" key={index}>
             <div className="shop-by-category-imagebox"><img src={item.navImage} width="40%" alt="Category"></img></div>

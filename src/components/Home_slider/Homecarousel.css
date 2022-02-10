@@ -59,14 +59,15 @@
   justify-content: flex-start;
   align-items: center;
 }
-.carousel-image img{
-  --animate-duration: 1.5s;
-}
 @media screen and (max-width: 992px){
 .carousel-main-heading
 {
   line-height: 2.3rem;
   font-size: 1.6rem;
+}
+.carousel-main-heading,.carousel-button,.carousel-sub-heading
+{
+  width: 80%;
 }
 }
 @media screen and (max-width: 592px){

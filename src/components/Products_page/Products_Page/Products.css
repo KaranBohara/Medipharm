@@ -32,7 +32,8 @@ width: 100%;
 }
 .product-image-box img
 {
-    width: 8rem;
+    width: 50%;
+    height: auto;
 }
 .product-name
 {

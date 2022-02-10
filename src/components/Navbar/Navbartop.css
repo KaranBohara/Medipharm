@@ -127,6 +127,11 @@ justify-content: flex-end;
   align-items: center;
   justify-content: flex-end;
 }
+.account-container
+{
+  width: 100%;
+  padding-right: .4rem;
+}
 .userlogin,
 .cart,
 .rxupload,
@@ -136,7 +141,94 @@ justify-content: flex-end;
   width:3.5rem;
   align-items: center;
 }
-
+.userlogin
+{
+  min-width: 3.5rem;
+  width:fit-content;
+  padding: 0rem .4rem;
+}
+.userlogin button{
+  background-color: #33aeb1 !important;
+  border: none !important;
+}
+.userlogin button:hover
+{
+  outline: 1px solid white !important;
+}
+.userlogin button:focus,.userlogin button:active
+{
+  outline: 1px solid white !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.account-wrap
+{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avtar
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: #F1A841;
+  margin-bottom: 1rem;
+}
+.avtar img
+{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.upload-container
+{
+  width:1.8rem;
+  height:1.8rem;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  position: absolute;
+  top:22%;
+  left:57%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upload-icon
+{
+  transform: scale(.9);
+  color: #030303;
+  cursor: pointer;
+}
+.account-tab
+{
+  font-size: .9rem;
+  margin-top: .1rem;
+  cursor: pointer;
+  width: 100%;
+  padding: .3rem 1rem;
+  box-sizing: border-box;
+}
+.account-tab:hover{
+  background-color: #33aeb1;
+  color: white;
+}
+.account-tab a:hover
+{
+  color: white;
+}
+.dropdown-menu
+{
+  width:15rem;
+  margin-top: .2rem;
+}
 .cart .fa-cart-plus,
 .userlogin .fa-user,
 .rxupload .fa-upload,
@@ -169,7 +261,13 @@ justify-content: flex-end;
 }
 .brand-name
 {
-  width: 65%;
+  width: 60%;
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+.icons-right
+{
+  width:30%;
 }
 .search-icon
 {

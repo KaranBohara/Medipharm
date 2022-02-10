@@ -4,10 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Homecarousel from "../../components/Home_slider/Homecarousel";
 import Shopbycategory from "../../components/Shop_by_category_products/Shopbycategory";
 import Navbartop from "../../components/Navbar/Navbartop";
+import Categoryslider from "../../components/Products_page/Category_multislider/Categoryslider";
 const carouseData=[
     {
         mainHeading:"FREE HOME DELIVERY",
-        subHeading:"Flat 25% off + 5% Medipharm + extra 5% savings on your orders.Save an additional 7% over & above all promotional offers, along with a higher maximum capping.",
+        subHeading:"Flat 25% off + 5% Medipharm + extra 5% savings on your orders.",
         imagePath:"https://i.ibb.co/kSZzZqN/kb1.png",
         width:"100%",
         height:"100%",
@@ -23,7 +24,7 @@ const carouseData=[
     },
     {
         mainHeading:"FREE HOME DELIVERY",
-        subHeading:"Flat 25% off + 5% Medipharm + extra 5% savings on your orders.Save an additional 7% over & above all promotional offers, along with a higher maximum capping.",
+        subHeading:"Flat 25% off + 5% Medipharm + extra 5% savings on your orders.",
         imagePath:"https://i.ibb.co/BLjNCzS/2.png",
         width:"100%",
         height:"100%",
@@ -37,6 +38,9 @@ const Homepage=()=>
     return(<div >
         <div>
             <Navbartop/>
+        </div>
+        <div className="container-fluid hide-component">
+        <Categoryslider/>
         </div>
         <div>
             <Homecarousel data={carouseData[0]}/>

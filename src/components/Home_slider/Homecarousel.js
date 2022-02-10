@@ -1,11 +1,11 @@
 import "./Homecarousel.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-const Homecarousel=(props:any)=>
+const Homecarousel=(props)=>
 {
  return (
      <div className='carousel-wrapper'>
-      <div className='carousel-body animate__animated animate__zoomInLeft'>
+      <div className='carousel-body '>
           <div className='carousel-main-heading'>
            {props.data.mainHeading}
           </div>
@@ -17,7 +17,7 @@ const Homecarousel=(props:any)=>
           </div>
       </div>
       <div className='carousel-image'>
-      <img className='animate__animated animate__fadeInRight' src={props.data.imagePath} width={props.data.width} height={props.data.height} alt=""/>
+      <img  src={props.data.imagePath} width={props.data.width} height={props.data.height} alt=""/>
       </div>
      </div>
     )

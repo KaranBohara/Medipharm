@@ -9,7 +9,7 @@ const responsive = {
     slidesToSlide: 1 
   }
 };
-const Categoryslider=(props:any)=>
+const Categoryslider=(props)=>
 {
     return(
       <div className="mobile-multicategory-slider">
@@ -31,9 +31,9 @@ const Categoryslider=(props:any)=>
   dotListClass="custom-dot-list-style"
   itemClass="carousel-item-padding-40-px"
 >
-{categoryData.map((item)=>
+{categoryData.map((item,index)=>
             {
-                return(<div className="category-slider-container">
+                return(<div className="category-slider-container" key={index}>
                 <div className="image-box"><img
                 src={item.navImage}
                 alt="Slides"

@@ -7,10 +7,10 @@ let bestPrice = 0;
 const Products = () => {
     const [medicines, setMedicines] = useState([]);
     const getMedicines = () => {
-        axios.get('http://localhost:5000/admin/product')
+        axios.get('http://localhost:5000/product')
 .then(response => {
 console.log(response.data);
-const myMed:any=response.data;
+const myMed=response.data;
 setMedicines(myMed);
 });
     };
@@ -19,12 +19,12 @@ setMedicines(myMed);
         getMedicines();
     }, []);
     return (<div className="products-container">
-                {medicines.map((item:any, index) => {
+                {medicines.map((item, index) => {
                     bestPrice = item.Price - ((item.Discount * item.Price) / 100);
                     return (                   
                             <div className="animate__animated animate__jackInTheBox product-box" key={index}>
                                 <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.Discount}%OFF</span></div>
-                                <div className="product-image-box"><img alt="noloading" src={item.src}></img></div>
+                                <div className="product-image-box"><img alt="noloading" src={item.imageURL}></img></div>
                                 <div className="product-name">{item.MedicineName}</div>
                                 <div className="product-manufacturer">{item.Manufacturers}</div>
                                 <div className="product-bestprice">Rs.{bestPrice}</div>

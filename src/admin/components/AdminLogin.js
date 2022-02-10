@@ -1,4 +1,4 @@
-import React,{useState,useContext} from "react";
+import React,{useState} from "react";
 import "../styles/Loginadmin.css";
 import Medilogo from "../assets/medicine.png";
 import { Form, Field } from "react-final-form";
@@ -7,11 +7,9 @@ import LockIcon from "@mui/icons-material/Lock";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { UserContext } from "../../App";
 import LoadingImage from "../assets/loading.gif";
 
 const AdminLogin = () => {
-  const {dispatch}=useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   const required = (value) => (value ? undefined : "*Required");
@@ -28,7 +26,6 @@ const AdminLogin = () => {
       .then((data) => {        
         if(data.success)
         {
-          dispatch({type:"LOGIN",payload:true})
         localStorage.setItem('userInfo',JSON.stringify(data));
         toast.success(data.message)
         history.push('/admin/dashboard')

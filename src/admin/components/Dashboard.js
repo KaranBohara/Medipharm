@@ -1,4 +1,4 @@
-import React,{useContext,useEffect} from "react";
+import React,{useEffect} from "react";
 import { BrowserRouter as Route, Switch } from "react-router-dom";
 import "../styles/Dashboard.css";
 import HomeAdmin from "./HomeAdmin";
@@ -18,19 +18,16 @@ import Customers from "./Customers";
 import Orders from "./Orders";
 import Reviews from "./Reviews";
 import AccountSettings from "./AccountSettings";
-import { UserContext } from "../../App";
 import ProductsList from "./ProductsList";
 
 const Dashboard = () => {
-  const {dispatch}=useContext(UserContext);
     let user=JSON.parse(localStorage.getItem('userInfo'));
     useEffect(() => {
       toast.success(user.message)
-    }, [])
+    }, [user])
     const history=useHistory();
   const logOut=()=>
   {
-    dispatch({type:"LOGIN",payload:false})
     history.push('/admin/login');
     localStorage.clear(user);
   }

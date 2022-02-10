@@ -4,13 +4,11 @@ import { Form, Field } from 'react-final-form';
 import {
     Link
   } from "react-router-dom";
-  const sleep = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))
-const onSubmit = async (values: any) => {
-  await sleep(300)
+const onSubmit = async (values) => {
   console.log(values);
 
 }
-const required=(value:any)=>(value?undefined:"Required")
+const required=(value)=>(value?undefined:"Required")
 const Forgotpassword=()=>
 {
     return (

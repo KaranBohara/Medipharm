@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbartop from "../../components/Navbar/Navbartop";
+import Navbartop from "../Navbar/Navbartop";
 import Emptycart from './Emptycart';
 import Cart from './Cart';
 

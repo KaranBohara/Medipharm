@@ -1,5 +1,4 @@
-import React,{createContext,useReducer} from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
 import "./App.css";
 import Desktopfooter from "./components/Desktop_footer/Desktopfooter";
 import Mobilefooter from "./components/Phone_footer_fixed/Mobilefooter";
@@ -12,24 +11,33 @@ import Loginpage from "./pages/LoginClient/Loginpage";
 import Signuppage from "./pages/Signupclient/Signuppage";
 import AdminLogin from "./admin/components/AdminLogin";
 import Dashboard from "./admin/components/Dashboard";
-import ProtectedDashboardRoute from "./admin/ProtectedRoutes/ProtectedDashboardRoute";
-import { reducer,initialState } from "./reducers/UseReducer";
 import ProductsRoutes from "./pages/Products_pages/ProductsRoutes";
 import MedipharmCart from "./components/MedipharmCart/MedipharmCart";
-interface contextType
-{
-  state:boolean,
-  dispatch:React.Dispatch<{ type: string; value: unknown }>;
-}
-export const UserContext = createContext<contextType | null>(null);
+import React, { useEffect } from "react";
+import setAuthToken from "./utils/setAuthToken";
+import PrivateRoute from "./components/PrivateRoute";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { connect } from 'react-redux';
+import { setCurrentUser, logOutUser } from "./redux/actions/action";
+import Account from "./components/account/Account";
 // https://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames?page=4&pagesize=100
 
-const App=()=> {
-const [state,dispatch]=useReducer(reducer,initialState)
+const App=({
+  setCurrentUser,
+  logOutUser
+})=> {
+  useEffect(() => {
+    if (localStorage.User) {
+        const token = JSON.parse(localStorage.User).accessToken;
+        setAuthToken(token);
+        setCurrentUser(token);
+    }
+}, [setCurrentUser, logOutUser]);
   return (
     <div className="App">
-      <UserContext.Provider value={{state,dispatch}}>
       <Router>
+      <Switch>
         <Route path="/" exact>
           <Homepage />
           <Desktopfooter />
@@ -40,15 +48,26 @@ const [state,dispatch]=useReducer(reducer,initialState)
         <Route exact path="/forgotpassword" component={Forgotpassword}/>
         <Route exact path="/OTPgenerate" component={GenerateOTP}/>
         <Route exact path="/resetpassword" component={Resetpassword}/>
+        <PrivateRoute exact path="/account" component={Account} />
         <Route exact path="/signupclient" component={Signuppage}/>
         <Route exact path="/search" component={Searchpage}/>
-        <ProtectedDashboardRoute path="/admin/dashboard" state={state} component={Dashboard}/>
+        <Route path="/admin/dashboard" component={Dashboard}/>
         <Route exact path="/admin/login"component={AdminLogin}/>
+        </Switch>
+        <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+    />
         <Mobilefooter />
       </Router>
-      </UserContext.Provider>
     </div>
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  logOutUser: logOutUser,
+  setCurrentUser: setCurrentUser,
+};
+
+export default connect(null, mapDispatchToProps)(App);
