@@ -1,9 +1,8 @@
 import React from "react";
 import "../Login/Login.css";
 import { Form, Field } from 'react-final-form';
-import {
-    Link
-  } from "react-router-dom";
+import Medilogo from "../../assets/medicine.png";
+import {Link} from "react-router-dom";
 const onSubmit = async (values) => {
   console.log(values);
 
@@ -11,42 +10,55 @@ const onSubmit = async (values) => {
 const required=(value)=>(value?undefined:"Required")
 const Forgotpassword=()=>
 {
+  function handleSave(event) {
+    event.preventDefault();
+}
     return (
+      <div className="login-wrapper">
         <div className="login-container">
-          <div className="image-box"><img src="https://www.netmeds.com/images/cms/wysiwyg/cms/1588773798_sign-in-banner-new.png" alt="login"></img></div>
-          <div className="forgot-box">
-            <div className="login-heading" style={{marginTop:"3rem"}}><h4>Forgot Password</h4>
-            <p style={{marginTop:"1rem"}}>Enter your registered Email to reset your password</p>
-            </div>
-            <div className="login-content-body" style={{marginTop:".5rem"}}>
-              <Form
-                onSubmit={onSubmit}
-                render={({ handleSubmit, form, submitting, pristine, values }) => (
-                  <form onSubmit={handleSubmit} className="box">
-                    
-                        <Field name="Email"
-                                validate={required}
-                                >
-                         {({ input,meta}) => (
-                             <div className="mobile-label">
-                             <p>E-mail</p>
-                                 <div className="name-tab">
-                                 <input {...input} type="email" />
-                                 {meta.error && meta.touched && <span style={{color:"rgb(224, 1, 1)"}}>{meta.error}</span>}
-                                         </div>
-                                         </div>
-                         )}
-                         </Field>
-                         <div className="button-login" style={{marginTop:"2rem"}}>
+        <div className="image-box"> 
+        <div className="medlogo"><Link to="/" className="link-decoration"><img src={Medilogo} alt={Medilogo} width="30px" height="30px"/>
+        <span style={{marginLeft:".2rem"}}>
+        Medipharm
+        </span></Link></div>
+        </div>
+        <div className="login-wrap">
+          <div className="login-box">
+          <div className="mobile-logo">
+          <Link to="/" className="link-decoration-body"><img src={Medilogo} alt={Medilogo} width="30px" height="30px"/>
+          <span style={{marginLeft:".2rem"}}>
+          Medipharm
+          </span></Link>
+          </div>
+          <div className="login-heading">
+          <h2>Welcome to Medpharmacy</h2>
+            <h4>
+            Forgot Password
+            </h4>
+            <p>Enter your registered Email to reset your password</p>
+          </div>
+            <div className="login-content-body">
+            <form onSubmit={handleSave} className="box">
+            <div className="mobile-label">
+              <p>E-mail</p>
+              <div className="name-tab">
+                <input  type="email"
+                placeholder=""
+                name="email"
+                className="input-tab" />
+                  {/*{errors.email ? <span className="required-error">{errors.email}</span> : null}*/}
+              </div>
+              </div>
+                         <div className="button-login">
                       <button type="submit">
-                      <Link to="/OTPgenerate" className="link-decoration">Generate OTP</Link>
+                      <span>Generate OTP</span>
                       </button>
                       </div>
                   </form>
-                )}
-              />
             </div>
           </div>
+        </div>
+        </div>
         </div>
         );
 }

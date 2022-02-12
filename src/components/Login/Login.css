@@ -2,7 +2,7 @@
 {
   display: flex;
   width: 100%;
-  height: auto;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
 }
@@ -23,31 +23,59 @@
 }
 .login-container {
   display: flex;
-  width: 60%;
-  height: auto;
-  margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 5rem;
+  width: 100%;
+  height: 100%;
 }
 .image-box {
   display: flex;
+  justify-content: flex-start;
   width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #3b999b,
+    #51a1ec,
+    #006d8f
+  );
+}
+.medlogo
+{
+  display: flex;
+  justify-content: flex-start;
+  width: fit-content;
+  margin-top: 2rem;
+  color: white;
+  font-size: 1.3rem;
+  height: fit-content;
+  padding: 0rem 2rem;
+  cursor: pointer;
+}
+.login-wrap{
+width: 50%;
+display: flex;
+justify-content: center;
 }
 .login-box {
-  width: 50%;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 10rem;
 }
 .login-heading {
   width: 80%;
 }
-.login-heading h4 {
+.login-heading h2 {
+font-weight: bold;
+font-size: 2.8rem;
+color: #3b999b;
+}
+.login-heading h4,h2 {
   text-align: left;
+  margin-bottom: 1rem;
 }
 .login-heading p {
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 .box {
   width: 100%;
@@ -62,7 +90,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 0.5rem;
+  margin: 1rem 0rem;
 }
 .errors {
   display: flex;
@@ -73,9 +101,9 @@
 .mobile-label p {
   width: 100%;
   text-align: left;
-  font-size: 0.9rem;
-  color: #33aeb1;
-  font-weight: bold;
+  font-size: 1.1rem;
+  color: #696969;
+  margin-bottom: 1.5rem;
 }
 .name-tab,
 .number-tab {
@@ -86,8 +114,16 @@
   align-items: flex-start;
 }
 .input-tab {
-  border-bottom: 1px solid rgb(240, 240, 240);
+  border: 1px solid rgb(156, 156, 156);
   width: 100%;
+  height: 3rem;
+  border-radius: .3rem;
+  padding-left: .5rem;
+  font-size: 1.1rem;
+}
+.input-tab:focus
+{
+  outline: 2px solid #33aeb1;
 }
 .required-error {
   color: rgb(224, 1, 1);
@@ -118,8 +154,8 @@
 .forgotpasswordbox {
   display: flex;
   width: 100%;
-  margin-top: 1.5rem;
-  justify-content: center;
+  margin-top: 2rem;
+  justify-content: flex-start;
   font-weight: 500;
   color: black;
   font-size: 1rem;
@@ -133,7 +169,7 @@
 }
 .new-user {
   display: flex;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   width: 100%;
   justify-content: left;
   font-size: 1rem;
@@ -159,15 +195,17 @@
   font-size: 1rem;
 }
 .button-login button {
-  border: none;
+  border: 2px solid #353E5B;
   width: 100%;
-  height: 2.5rem;
+  height: 3.2rem;
   outline: none;
-  background-color: #33aeb1;
-  color: white;
-  font-size: 1rem;
+  background-color: white;
+  color: #353E5B;
+  font-size: 1.2rem;
   font-weight: 500;
-  transition: all 0.5s;
+  margin-top: 1.5rem;
+  transition: all 0.2s;
+  border-radius: .3rem;
 }
 .button-login button span {
   cursor: pointer;
@@ -179,9 +217,10 @@
   content: '\00bb';
   position: absolute;
   opacity: 0;
-  top: 0;
+  top: 8.5%;
   right: -20px;
   transition: 0.5s;
+  color: #353E5B;
 }
 .button-login button:hover span {
   padding-right: 20px;
@@ -192,6 +231,18 @@
   right: 0;
   font-size: 1rem;
   font-weight: bold;
+  color: white;
+}
+.button-login button:hover
+{
+  background: linear-gradient(
+    90deg,
+    #3b999b,
+    #51a1ec,
+    #006d8f
+  );
+  border: none;
+  color: white;
 }
 .social-media-icon-box {
   width: 90%;
@@ -230,9 +281,19 @@
   justify-content: center;
   align-items: center;
 }
+.mobile-logo
+  {
+    display: none;
+  }
 @media screen and (max-width: 1600px) {
   .login-container {
-    width: 95%;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .login-box {
+    width: 100%;
+    align-items: center;
   }
 }
 @media screen and (max-width: 992px) {
@@ -243,22 +304,35 @@
     align-items: center;
     margin-top: 0.5rem;
   }
+  .mobile-logo
+  {
+    display: flex;
+    font-size: 1.2rem;
+    width: 90%;
+  }
   .toastify-container
   {
     width: 80%;
   }
   .image-box {
-    width: 100%;
-    justify-content: center;
-    margin-top: 0rem;
+   display: none;
   }
-
+  .login-wrap
+  {
+    width: 100%;
+  }
   .login-box {
     align-items: center;
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top:1rem;
   }
-  .image-box img {
-    width: 50%;
+  .login-heading
+  {
+    width: 90%;
+    margin-top: 1rem;
   }
+.login-content-body
+{
+  width: 90%;
+}
 }

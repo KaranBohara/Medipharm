@@ -12,14 +12,13 @@ import { useHistory } from "react-router-dom";
 import LocalSeeOutlinedIcon from '@mui/icons-material/LocalSeeOutlined';
 var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
 
-var userInfo={};
 const Navbartop = ({
     logOutUser,
     isAuthenticated,
 }) => {
     const history=useHistory();
     const [search,setSearch]=useState('');
-    userInfo=JSON.parse(localStorage.getItem('User'));
+    const userInfo=JSON.parse(localStorage.getItem('User'));
     useEffect(() => {
     }, [isAuthenticated]);
     const handleClick= ()=> {
@@ -57,7 +56,7 @@ const Navbartop = ({
                   >
                     <div className="account-wrap">
                     <div className="avtar">
-                    <img alt={userInfo?userInfo.avtar:defaultAvtar} src={userInfo.avtar?userInfo.avtar:defaultAvtar} />
+                    <img alt={userInfo?userInfo.avtar?userInfo.avtar:defaultAvtar:''} src={userInfo?userInfo.avtar?userInfo.avtar:defaultAvtar:''} /> 
                     <div className="upload-container">
                     <LocalSeeOutlinedIcon className="upload-icon"/>
                     </div>
@@ -67,7 +66,7 @@ const Navbartop = ({
                     <div className="account-tab">My Wishlist</div>
                     <div className="account-tab">My Saved Addresses</div>
                     <div className="account-tab">Membership</div>
-                    <button onClick={handleClick}>Logout</button>
+                    <a href="" className="account-tab" onClick={handleClick}>Logout</a>
           
                     </div>
                   </DropdownButton>

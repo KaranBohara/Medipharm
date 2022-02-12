@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link,useHistory} from "react-router-dom";
-import { Form, Button } from 'react-bootstrap';
+import { Form} from 'react-bootstrap';
 import apiCollection from "../../api/api";
 import { toast } from "react-toastify";
+import Medilogo from "../../assets/medicine.png";
+
 const Signup = () => {
   const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmPassword: "" });
   const [errors, setErrors] = useState({});
@@ -47,12 +49,29 @@ const Signup = () => {
           })
         }
     return (
+        <div className="login-wrapper">
         <div className="login-container">
-            <div className="image-box"><img src="https://www.netmeds.com/images/cms/wysiwyg/cms/1588773798_sign-in-banner-new.png" alt="login"></img></div>
+        <div className="image-box"> 
+        <div className="medlogo"><Link to="/" className="link-decoration"><img src={Medilogo} alt={Medilogo} width="30px" height="30px"/>
+        <span style={{marginLeft:".2rem"}}>
+        Medipharm
+        </span></Link></div>
+        </div>
+        <div className="login-wrap">
             <div className="login-box">
-                <div className="login-heading"><h4>SignIn/Signup</h4>
-                    <p>Sign up or Sign in to access your orders, special offers, health tips and more!</p>
-                </div>
+            <div className="mobile-logo">
+      <Link to="/" className="link-decoration-body"><img src={Medilogo} alt={Medilogo} width="30px" height="30px"/>
+      <span style={{marginLeft:".2rem"}}>
+      Medipharm
+      </span></Link>
+      </div> 
+            <div className="login-heading">
+            <h2>Welcome to Medpharmacy</h2>
+              <p>
+                Sign up to access your orders, special offers, health
+                tips and more!
+              </p>
+            </div>
                 <div className="login-content-body">
                 <Form onSubmit={handleSave}>
                 <div className="mobile-label">
@@ -113,6 +132,8 @@ const Signup = () => {
                     </div>
                 </div>
             </div>
+            </div>
+        </div>
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import "./Login.css";
-import { Form, Button } from 'react-bootstrap';
 import React,{useState,useEffect} from "react";
 import { Link ,useHistory} from "react-router-dom";
 import { connect } from 'react-redux';
 import { loginUser } from "../../redux/actions/action";
+import Medilogo from "../../assets/medicine.png";
 
 const Login = ({ 
   loginUser, 
@@ -53,17 +53,24 @@ function handleSave(event) {
   return (
     <div className="login-wrapper">
       <div className="login-container">
-      <div className="image-box">
-        <img
-          src="https://www.netmeds.com/images/cms/wysiwyg/cms/1588773798_sign-in-banner-new.png"
-          alt="login"
-        ></img>
+      <div className="image-box"> 
+      <div className="medlogo"><Link to="/" className="link-decoration"><img src={Medilogo} alt={Medilogo} width="30px" height="30px"/>
+      <span style={{marginLeft:".2rem"}}>
+      Medipharm
+      </span></Link></div>
       </div>
+      <div className="login-wrap">
       <div className="login-box">
+      <div className="mobile-logo">
+      <Link to="/" className="link-decoration-body"><img src={Medilogo} alt={Medilogo} width="30px" height="30px"/>
+      <span style={{marginLeft:".2rem"}}>
+      Medipharm
+      </span></Link>
+      </div>
         <div className="login-heading">
-          <h4>SignIn/Signup</h4>
+        <h2>Welcome to Medpharmacy</h2>
           <p>
-            Sign up or Sign in to access your orders, special offers, health
+            Sign in to access your orders, special offers, health
             tips and more!
           </p>
         </div>
@@ -123,6 +130,7 @@ function handleSave(event) {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
     </div>
