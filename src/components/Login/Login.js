@@ -4,6 +4,7 @@ import { Link ,useHistory} from "react-router-dom";
 import { connect } from 'react-redux';
 import { loginUser } from "../../redux/actions/action";
 import Medilogo from "../../assets/medicine.png";
+import LoginImage from "../../assets/needs.png"
 
 const Login = ({ 
   loginUser, 
@@ -57,7 +58,11 @@ function handleSave(event) {
       <div className="medlogo"><Link to="/" className="link-decoration"><img src={Medilogo} alt={Medilogo} width="30px" height="30px"/>
       <span style={{marginLeft:".2rem"}}>
       Medipharm
-      </span></Link></div>
+      </span></Link>
+      </div>
+      <div className="login-image">
+      <img src={LoginImage} alt=''/>
+      </div>
       </div>
       <div className="login-wrap">
       <div className="login-box">
@@ -70,9 +75,9 @@ function handleSave(event) {
         <div className="login-heading">
         <h2>Welcome to Medpharmacy</h2>
           <p>
-            Sign in to access your orders, special offers, health
-            tips and more!
+          New user?<span> <Link to="/signupclient" className="link-decoration-login">Signup here.</Link></span>
           </p>
+          
         </div>
         <div className="login-content-body">
         <form onSubmit={handleSave} className="box">
@@ -117,18 +122,6 @@ function handleSave(event) {
             <div className="social-media-box"><img src="https://www.linkpicture.com/q/google.png" alt="facebook" />Google</div>
             <div className="social-media-box"><img src="https://www.linkpicture.com/q/facebook.png" alt="google" />Facebook</div>
           </div> */}
-          <div className="new-user">
-            <div className="newuser-sub1">
-              <Link to="/signupclient" className="link-decoration-login">
-                Create a new account
-              </Link>
-            </div>
-            <div className="newuser-sub2">
-              <Link to="/signupclient" className="link-decoration-login">
-                <i className="fas fa-long-arrow-alt-right"></i>
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
       </div>

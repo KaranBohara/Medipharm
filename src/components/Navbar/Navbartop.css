@@ -267,7 +267,7 @@ justify-content: flex-end;
 }
 .icons-right
 {
-  width:30%;
+  width:40%;
 }
 .search-icon
 {
@@ -288,5 +288,9 @@ justify-content: flex-end;
 .brand-name
 {
   justify-content: flex-start;
+}
+.icons-right
+{
+  width: 40%;
 }
 }

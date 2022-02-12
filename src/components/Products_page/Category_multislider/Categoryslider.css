@@ -41,5 +41,22 @@
     {
         display: none;
     }
+    .category-slider-container .image-box img
+{
+    width:50%;
+    height: auto;
+}
   }
+  @media screen and (max-width: 592px) {
+    .category-heading
+    {
+        display: none;
+    }
+    .category-slider-container .image-box img
+{
+    width:70%;
+    height: auto;
+}
+  }
+  
   

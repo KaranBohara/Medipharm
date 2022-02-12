@@ -4,7 +4,7 @@ import { Form} from 'react-bootstrap';
 import apiCollection from "../../api/api";
 import { toast } from "react-toastify";
 import Medilogo from "../../assets/medicine.png";
-
+import LoginImage from "../../assets/needs.png"
 const Signup = () => {
   const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmPassword: "" });
   const [errors, setErrors] = useState({});
@@ -56,6 +56,9 @@ const Signup = () => {
         <span style={{marginLeft:".2rem"}}>
         Medipharm
         </span></Link></div>
+        <div className="login-image">
+      <img src={LoginImage} alt=''></img>
+      </div>
         </div>
         <div className="login-wrap">
             <div className="login-box">
@@ -67,10 +70,9 @@ const Signup = () => {
       </div> 
             <div className="login-heading">
             <h2>Welcome to Medpharmacy</h2>
-              <p>
-                Sign up to access your orders, special offers, health
-                tips and more!
-              </p>
+            <p>
+            Registered Member.<span> <Link to="/loginclient" className="link-decoration-login">SignIn.</Link></span>
+            </p>
             </div>
                 <div className="login-content-body">
                 <Form onSubmit={handleSave}>
@@ -126,10 +128,6 @@ const Signup = () => {
                 </button>
             </div>
             </Form>
-                    <div className="new-user">
-                        <div className="newuser-sub1"><Link to="/loginclient" className="link-decoration-login">Registered member! <span style={{ fontWeight: "bold" }}> SignIn</span></Link></div>
-                        <div className="newuser-sub2"><Link to="/loginclient" className="link-decoration-login"><i className="fas fa-long-arrow-alt-right"></i></Link></div>
-                    </div>
                 </div>
             </div>
             </div>

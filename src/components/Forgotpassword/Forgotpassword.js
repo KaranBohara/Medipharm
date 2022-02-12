@@ -1,8 +1,8 @@
 import React from "react";
 import "../Login/Login.css";
-import { Form, Field } from 'react-final-form';
 import Medilogo from "../../assets/medicine.png";
 import {Link} from "react-router-dom";
+import LoginImage from "../../assets/needs.png"
 const onSubmit = async (values) => {
   console.log(values);
 
@@ -21,6 +21,9 @@ const Forgotpassword=()=>
         <span style={{marginLeft:".2rem"}}>
         Medipharm
         </span></Link></div>
+        <div className="login-image">
+      <img src={LoginImage} alt=''></img>
+      </div>
         </div>
         <div className="login-wrap">
           <div className="login-box">

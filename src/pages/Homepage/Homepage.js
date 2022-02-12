@@ -1,6 +1,8 @@
 import React from "react";
 import "./Homepage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel1 from '../../assets/kb1.png';
+import Carousel2 from '../../assets/kb2.png'
 import Homecarousel from "../../components/Home_slider/Homecarousel";
 import Shopbycategory from "../../components/Shop_by_category_products/Shopbycategory";
 import Navbartop from "../../components/Navbar/Navbartop";
@@ -9,7 +11,7 @@ const carouseData=[
     {
         mainHeading:"FREE HOME DELIVERY",
         subHeading:"Flat 25% off + 5% Medipharm + extra 5% savings on your orders.",
-        imagePath:"https://i.ibb.co/kSZzZqN/kb1.png",
+        imagePath:Carousel1,
         width:"100%",
         height:"100%",
         button:"Order Now"
@@ -17,7 +19,7 @@ const carouseData=[
     {
         mainHeading:"Book lab tests from home",
         subHeading:"Get flat 50% off on Medipharm popular health checkups.",
-        imagePath:"https://i.ibb.co/d4mtQ7B/kb2.png",
+        imagePath:Carousel2,
         width:"100%",
         height:"50%",
         button:"Book Now"
