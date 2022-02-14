@@ -14,7 +14,6 @@
   align-items: flex-end;
   justify-content: center;
   height: 100%;
-  --animate-duration: 2s;
 }
 .carousel-main-heading
 {
@@ -41,7 +40,6 @@
 }
 .carousel-button button
 {
-    border: none;
     outline: none;
     background-color: white;
     border:2px solid #2FA3FB;
@@ -53,6 +51,11 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
     transition: all .5s;
+}
+.carousel-button button a
+{
+  text-decoration: none;
+  color: #2FA3FB;
 }
 .carousel-button button:hover
 {

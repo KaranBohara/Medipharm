@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Homecarousel.css";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -13,7 +14,7 @@ const Homecarousel=(props)=>
           {props.data.subHeading}
           </div>
           <div className="carousel-button">
-              <button>{props.data.button}</button>
+              <button><Link to='/search'>{props.data.button}</Link></button>
           </div>
       </div>
       <div className='carousel-image'>

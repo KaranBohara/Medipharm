@@ -1,38 +1,38 @@
-import React,{useState} from "react";
-import {Link
-  } from "react-router-dom";
+import React,{useState,useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Searchpage.css";
-import Medicines from "../Products_page/Filter_component/medicines.json";
-let bestPrice = 0;
+
 const Searchpage=()=>
 {
-    const [mobileSearch,setmobileSearch]=useState('');
-    return(<div className="search-product-box">
-        <div className="mobile-search-tab" style={{backgroundColor:"#F3F7FB"}}>
-            <div className="col-1 d-flex justify-content-center align-items-center"><Link to="/"><i className="fal fa-long-arrow-left"></i></Link></div>
-            <div className="col-11"> <div className="search-box">
-                    <input type="search" onChange={(e)=>{
-                       setmobileSearch(e.target.value)
-                    }} placeholder="Search here..."></input>
-                </div></div>
-        </div>
-        <div className={mobileSearch!==''?"search-results-box":"search-box-hidden"}>
-        {Medicines.map((item,index)=>
-        {
-            bestPrice = item.Price - ((item.Discount * item.Price) / 100);
-        return(<div className="row" key={index} style={{border:"1px solid rgb(240, 240, 240)"}}>
-            <div className="col-3 d-flex align-items-center justify-content-center" style={{height:"9rem",borderRight:"1px solid rgb(240, 240, 240)"}}><img alt="" src={item.src}></img></div>
-            <div className="col-9">
-                <div className="row"><div className="product-name" style={{marginTop:"1rem",height:"2.5rem"}}>{item.MedicineName}</div></div>
-                <div className="row"><div className="product-manufacturer" style={{marginTop:".3rem",height:"1.3rem"}}>{item.Manufacturers}</div></div>
-                <div className="row"><div className="product-bestprice" style={{marginTop:".3rem",height:"1.3rem"}}>Rs.{bestPrice}</div></div>
-                <div className="row shopping-bag"><img src="https://www.linkpicture.com/q/add-to-basket.png" alt="im" ></img></div>
-            </div>
-        </div>);})
+    const [query,setQuery]=useState('');
+    const [items, setItems] = useState([]);
+    const fetchitems = async () => {
+        const req = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=216926853f1c4686b08202ddd84bb414`);
+        const items = await req.json();
+        setItems(items.articles);
+      }
+      const handleQuery=(e)=>
+{
+    setQuery(e.target.value)
 }
-</div>
-    </div>
+      useEffect(() => {
+  fetchitems()
+},[]);
+const filteredItems = items.filter(item => 
+    item.title.toLowerCase().includes(query.toLowerCase())||item.description.toLowerCase().includes(query.toLowerCase())
+);
+    return(<div>
+        <div><input type='search' style={{border:"2px solid red"}} onChange={handleQuery}/> </div>
+         {filteredItems ? filteredItems.map((item,index)=>
+            {
+                return(
+                    <div key={index}>
+                    <div><b>Title:</b>{item.title}</div>
+                    <div><b>Description:</b>{item.description}</div>
+                    </div>
+                )
+            }):"Loading"}
+        </div>
     );
 }
 export default Searchpage;

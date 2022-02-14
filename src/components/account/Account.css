@@ -1,0 +1,46 @@
+.myaccount-header
+{
+    display: flex;
+    width: fit-content;
+    padding:.1rem .5rem;
+    font-size: 1.2rem;
+    margin-left:2rem;
+    margin-top: 1rem;
+    border-radius: .3rem;
+    border:2px solid #2FA3FB;
+    color: #2FA3FB;
+    cursor: pointer;
+}
+.myaccount-header:hover
+{
+    background-color: #2FA3FB;
+    color: white;
+}
+.account-dashboard
+{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    margin-top: 2rem;
+}
+.account-dashboard .left-section
+{
+width:20%;
+border:1px solid rgb(197, 197, 197);
+height:20rem;
+}
+.first-list
+{
+    width: 100%;
+    height:2rem;
+    background-color: #2FA3FB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+.account-dashboard .right-section
+{
+    width:80%;
+}

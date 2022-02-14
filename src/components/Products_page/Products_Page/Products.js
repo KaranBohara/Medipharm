@@ -1,24 +1,30 @@
 import { useState,useEffect } from "react";
-import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
+import apiCollection from '../../../api/api';
+import LoadingImage from "../../../admin/assets/loading.gif";
 // import Medicines from "../Filter_component/medicines.json";
 let bestPrice = 0;
 const Products = () => {
     const [medicines, setMedicines] = useState([]);
-    const getMedicines = () => {
-        axios.get('http://localhost:5000/product')
-.then(response => {
-console.log(response.data);
-const myMed=response.data;
-setMedicines(myMed);
+    const [loading, setLoading] = useState(true);
+    const getMedicines=()=>
+    {
+     apiCollection.getProduct()
+    .then(response => {
+     console.log(response.data);
+     const myMed=response.data;
+     setMedicines(myMed);
 });
     };
-
     useEffect(() => {
         getMedicines();
-    }, []);
+        if (medicines.length > 0) {
+            setLoading(false);
+          }
+    }, [medicines]);
     return (<div className="products-container">
+    {loading?<div className="loading-container"><img src={LoadingImage} width="65rem" height="65rem" alt="loading"/></div>:""}
                 {medicines.map((item, index) => {
                     bestPrice = item.Price - ((item.Discount * item.Price) / 100);
                     return (                   
