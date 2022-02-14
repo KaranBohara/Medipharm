@@ -65,6 +65,12 @@ input
   border: none;
   outline: none;
 }
+.message-toast
+{
+  position: absolute !important;
+  height: fit-content !important;
+  top:10% !important;
+}
 ::-webkit-scrollbar {
   width: .3rem;
 }

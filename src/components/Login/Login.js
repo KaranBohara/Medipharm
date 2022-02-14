@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { loginUser } from "../../redux/actions/action";
 import Medilogo from "../../assets/medicine.png";
 import LoginImage from "../../assets/needs.png"
+import { toast } from "react-toastify";
 
 const Login = ({ 
   loginUser, 
@@ -18,6 +19,7 @@ const Login = ({
   const [errors, setErrors] = useState({});
   useEffect(() => {
     if (isAuthenticated) {
+       toast.success("Login Successful")
         history.push("/");
       }
 }, [isAuthenticated,history]);

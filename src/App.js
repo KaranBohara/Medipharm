@@ -36,6 +36,12 @@ const App=({
 }, [setCurrentUser, logOutUser]);
   return (
     <div className="App">
+    <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        className='message-toast'
+    />
       <Router>
       <Switch>
         <Route path="/" exact>
@@ -48,17 +54,12 @@ const App=({
         <Route exact path="/forgotpassword" component={Forgotpassword}/>
         <Route exact path="/OTPgenerate" component={GenerateOTP}/>
         <Route exact path="/resetpassword" component={Resetpassword}/>
-        <PrivateRoute exact path="/account" component={Account} />
+        <PrivateRoute exact path="/myaccount" component={Account} />
         <Route exact path="/signupclient" component={Signuppage}/>
         <Route exact path="/search" component={Searchpage}/>
         <Route path="/admin/dashboard" component={Dashboard}/>
         <Route exact path="/admin/login"component={AdminLogin}/>
         </Switch>
-        <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-    />
         <Mobilefooter />
       </Router>
     </div>

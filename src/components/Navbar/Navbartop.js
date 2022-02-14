@@ -1,15 +1,18 @@
 import React, { useState,useEffect} from "react";
 import { connect } from 'react-redux';
 import { logOutUser } from "../../redux/actions/action";
-import {NavLink,Link} from "react-router-dom";
+import {NavLink,Link,useHistory} from "react-router-dom";
 import "./Navbartop.css";
 import "./Navbarbottom.css";
 import MediLogo from "../../assets/medicine.png";
 import productsCategorydata from "./product.json";
 import Searchpage from "../Search_space/Searchpage";
 import { DropdownButton} from "react-bootstrap";
-import { useHistory } from "react-router-dom";
 import LocalSeeOutlinedIcon from '@mui/icons-material/LocalSeeOutlined';
+import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
 
 const Navbartop = ({
@@ -20,7 +23,7 @@ const Navbartop = ({
     const [search,setSearch]=useState('');
     const userInfo=JSON.parse(localStorage.getItem('User'));
     useEffect(() => {
-    }, [isAuthenticated]);
+    }, [isAuthenticated,history]);
     const handleClick= ()=> {
         logOutUser();
         history.push('/loginclient')
@@ -47,7 +50,7 @@ const Navbartop = ({
                 <div className="searchspace-container" style={search!==''?{display:"flex"}:{display:"none"}}><Searchpage/></div>
             </div>
             <div className="icons-right">
-                <div className="search-icon"><Link to="/search"><i className="fas fa-search"></i></Link></div>
+                <div className="med-search-icon"><Link to="/search"><SearchOutlinedIcon className="search-icon"/></Link></div>
                  <div className="userlogin">
                  {(isAuthenticated) ? (<DropdownButton
                     title={userInfo?userInfo.name:''}
@@ -61,21 +64,20 @@ const Navbartop = ({
                     <LocalSeeOutlinedIcon className="upload-icon"/>
                     </div>
                     </div>
-                    <div className="account-tab">My Account</div>
-                    <div className="account-tab">My Orders</div>
-                    <div className="account-tab">My Wishlist</div>
-                    <div className="account-tab">My Saved Addresses</div>
-                    <div className="account-tab">Membership</div>
+                    <div className="account-tab"><Link to='/myaccount' className="link-decoration-body">My Account</Link></div>
+                    
                     <a href="" className="account-tab" onClick={handleClick}>Logout</a>
           
                     </div>
                   </DropdownButton>
                  ):
-                 (<NavLink to="/loginclient"><i className="fas fa-user"></i></NavLink>)}
+                 (<NavLink to="/loginclient"><LockOpenOutlinedIcon className="userlogin-icon"/></NavLink>)}
                  </div>
                  
-                <Link to="/cart"><div className="cart"><i className="fas fa-cart-plus"></i></div></Link>
-                <Link to="/rxupload"><div className="rxupload"><i className="fas fa-upload"></i></div></Link>
+                 <div className="med-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/></Link>
+                 </div>
+                 <div className="med-icon"><Link to="/wishlist"><FavoriteBorderIcon className="wishlist-icon"/></Link>
+                 </div>
             </div>
         </div>
             <div className="navbarbottom-container">

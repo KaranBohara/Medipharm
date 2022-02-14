@@ -79,7 +79,7 @@ justify-content: center;
 }
 .login-heading h2 {
 font-weight: bold;
-font-size: 2.8rem;
+font-size: 2.5rem;
 color: #3b999b;
 }
 .login-heading h4,h2 {
@@ -345,8 +345,18 @@ color: #3b999b;
     width: 90%;
     margin-top: 1rem;
   }
+  .login-heading h2
+  {
+    font-size: 2rem;
+  }
 .login-content-body
 {
   width: 90%;
 }
+}
+@media screen and (max-width: 592px) {
+  .login-heading h2
+  {
+    font-size: 1.7rem;
+  }
 }

@@ -20,24 +20,14 @@ const ProductsRoutes = () => {
         <div>
         <Navbartop/>
         </div>
-        <div className="container-fluid hide-component">
-        <Categoryslider />
+        <div className="hide-component">
+        <Categoryslider/>
         </div>
-        <div className="container-fluid filter-position">
-        <Mobilefilter/>  
-        </div>
-        <div className="container-fluid d-flex">
-        <div className="side-section">
-                    {/* <div className=" show-component">
-                        <Categoriessidebar />
-                    </div> */}
-                    <div className=" show-component">
-                        <Filtertaskbar />
-                    </div>
-        </div>
-        <div>
+        <div className="product-filter">
+        <Filtertaskbar/>
+        <div className="product-section">
         <Switch>
-        <Route path="/product" exact><CovidEssentials/></Route>
+        <Route path="/product" exact component={CovidEssentials}/>
         <Route path="/product/eyewear" component={Eyewear}/>
         <Route path="/product/ayush" component={Ayush}/>
         <Route path="/product/fitness" component={Fitness}/>

@@ -1,13 +1,14 @@
 .categories-container,.filter-container {
-  width: 100%;
+  width: 20%;
   display: flex;
   background-color: white;
   justify-content: center;
   margin-top: 0rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .wrapper-container
 {
-  width:95%;
+  width:90%;
   display: flex;
   flex-direction: column;
   margin-bottom: .5rem;
@@ -75,10 +76,10 @@
  cursor: pointer;
 }
 @media screen and (max-width:992px) {
-  .categories-container {
-    margin-top: 0rem;
+  .categories-container,.filter-container {
+    display: none;
   }
-  .filter-container
+  /* .filter-container
   {
     height: 20rem;
     overflow-y: auto;
@@ -86,5 +87,5 @@
   .filter-header
   {
     display: none;
-  }
+  } */
 }

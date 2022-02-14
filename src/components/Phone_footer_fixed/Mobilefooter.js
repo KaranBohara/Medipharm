@@ -1,29 +1,58 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./Mobilefooter.css";
-import {Link} from "react-router-dom";
-const Mobilefooter=()=>
+import {Link,useHistory} from "react-router-dom";
+import { connect } from 'react-redux';
+import HomeIcon from '@mui/icons-material/Home';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+const Mobilefooter=({
+  isAuthenticated,
+})=>
 {
+  const history=useHistory();
+  useEffect(() => {
+  }, [isAuthenticated,history]);
     return(<div className="mobile-footer-container">
           <div className="footer-content-box" >
-            <div className="footer-content-icon"><Link to="/"><i className="fas fa-home" style={{color:"black",fontSize:"1.5rem"}}></i></Link></div>
-            <div className="footer-content-heading">Home</div>
+          <Link to="/" className="link-decoration-body"><div className="footer-content-icon">
+           <HomeIcon className="home-icon" />
+           </div>
+            </Link>
             </div>
             <div className="footer-content-box" >
-            <div className="footer-content-icon"><i className="fad fa-bags-shopping" style={{color:"green",fontSize:"1.5rem"}}></i></div>
-            <div className="footer-content-heading">Orders</div>
+            <Link to="/" className="link-decoration-body"><div className="footer-content-icon">
+            <AddShoppingCartIcon/>
+            </div>
+            </Link>
             </div>
             <div className="footer-content-box" >
-            <div className="footer-content-icon"><i className="fas fa-notes-medical" style={{color:"orange",fontSize:"1.5rem"}}></i></div>
-            <div className="footer-content-heading">Membership</div>
+            <Link to="/" className="link-decoration-body">
+            <div className="footer-content-icon">
+            <FavoriteIcon className="wishlist-icon"/>
+            </div>
+            </Link>
             </div>
             <div className="footer-content-box" >
+            <Link to="/" className="link-decoration-body">
             <div className="footer-content-icon"><i className="fal fa-badge-percent" style={{color:"red",fontSize:"1.5rem"}}></i></div>
-            <div className="footer-content-heading">Offers</div>
+            </Link>
             </div>
             <div className="footer-content-box" >
-            <div className="footer-content-icon"><Link to="/loginclient"><i className="fas fa-user-circle" style={{color:"#33aeb1",fontSize:"1.5rem"}}></i></Link></div>
-            <div className="footer-content-heading">Account</div>
+            {!isAuthenticated?(<Link to="/loginclient" className="link-decoration-body"><div className="footer-content-icon">
+            <i className="fas fa-user-circle" 
+            style={{color:"#33aeb1",fontSize:"1.5rem"}}>
+            </i></div>
+            </Link>):(<Link to="/myaccount" className="link-decoration-body"><div className="footer-content-icon">
+            <i className="fas fa-user-circle" 
+            style={{color:"#33aeb1",fontSize:"1.5rem"}}>
+            </i></div>
+            </Link>)}
             </div>
     </div>);
 }
-export default Mobilefooter;
+
+const mapStateToProps = (state) => ({
+  user: state.userReducer.user,
+  isAuthenticated: state.userReducer.isAuthenticated,
+});
+export default connect(mapStateToProps)(Mobilefooter);

@@ -1,6 +1,7 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import categoryData from "../../Navbar/product.json";
+import { Link } from "react-router-dom";
 import "./Categoryslider.css";
 const responsive = {
   mobile: {
@@ -34,11 +35,11 @@ const Categoryslider=(props)=>
 {categoryData.map((item,index)=>
             {
                 return(<div className="category-slider-container" key={index}>
-                <div className="image-box"><img
+                <div className="image-box"><Link to={item.path}><img
                 src={item.navImage}
                 alt="Slides"
-              /></div>
-              <div className="text-box">{item.navTitle}</div>
+              /></Link></div>
+              <div className="text-box"><Link to={item.path} className="link-decoration-body">{item.navTitle}</Link></div>
               </div> 
               );
             })}

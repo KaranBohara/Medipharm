@@ -1,6 +1,5 @@
 import React from "react";
 import CartIcon from "../../assets/cart1.png";
-import EmptyCart from "../../assets/empty-cart.png";
 
 const Emptycart = () => {
   return <div className="empty-container">

@@ -43,14 +43,21 @@
 {
     border: none;
     outline: none;
-    background-color: #2FA3FB;
-    color: white;
-    padding: .6rem 1rem;
+    background-color: white;
+    border:2px solid #2FA3FB;
+    color: #2FA3FB;
+    padding: .5rem 1rem;
     width: fit-content;
     border-radius: .2rem;
     margin-top: 1rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
+    transition: all .5s;
+}
+.carousel-button button:hover
+{
+  background-color: #2FA3FB;
+  color: white;
 }
 .carousel-image {
   width: 65%;

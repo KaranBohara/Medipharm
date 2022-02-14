@@ -1,3 +1,15 @@
+.product-filter
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.product-section
+{
+    width: 75%;
+}
 .show-component
 {
    display: flex;
@@ -8,7 +20,7 @@
 }
 .products-wrap
 {
-    width:80vw;
+    width:100%;
     display: flex;
 }
 .side-section
@@ -21,10 +33,6 @@
 {
     width: 40vw;
 }
-.products-wrap
-{
-    width: 60vw;
-}
 }
 @media screen and (max-width:992px){
 .side-section
@@ -35,9 +43,15 @@
 {
     width: 100vw;
 }
+.product-section
+{
+    width: 100%;
+}
 .hide-component
 {
     display: flex;
+    width: 95%;
+    margin: auto;
 }
 .show-component
 {
