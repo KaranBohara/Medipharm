@@ -14,6 +14,7 @@ import MomBaby from "./MomBaby";
 import Devices from "./Devices";
 import Surgicals from "./Surgicals";
 import Treatment from "./Treatment";
+import Desktopfooter from "../../components/Desktop_footer/Desktopfooter";
 
 const ProductsRoutes = () => {
   return(<div>
@@ -37,6 +38,9 @@ const ProductsRoutes = () => {
         <Route path="/product/treatment" component={Treatment}/>
         </Switch>
         </div>
+        </div>
+        <div>
+        <Desktopfooter/>
         </div>
   </div>);
 };

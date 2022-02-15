@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 import { connect } from 'react-redux';
 import { logOutUser } from "../../redux/actions/action";
 import Navbartop from '../Navbar/Navbartop';
-import { Link,useHistory } from 'react-router-dom';
+import {useHistory } from 'react-router-dom';
 import './Account.css';
 
 const Account = ({
@@ -27,7 +27,7 @@ const Account = ({
         </div>
         <div className='account-dashboard'>
         <div className='left-section'>
-        <a className='first-list link-decoration' onClick={handleClick}>Logout</a>
+        <a href='' className='first-list link-decoration' onClick={handleClick}>Logout</a>
         </div>
         <div className='right-section'>
         </div>

@@ -7,6 +7,7 @@ import Homecarousel from "../../components/Home_slider/Homecarousel";
 import Shopbycategory from "../../components/Shop_by_category_products/Shopbycategory";
 import Navbartop from "../../components/Navbar/Navbartop";
 import Categoryslider from "../../components/Products_page/Category_multislider/Categoryslider";
+import Desktopfooter from "../../components/Desktop_footer/Desktopfooter";
 const carouseData=[
     {
         mainHeading:"FREE HOME DELIVERY",
@@ -52,6 +53,9 @@ const Homepage=()=>
         </div>
         <div>
             <Homecarousel data={carouseData[1]}/>
+        </div>
+        <div>
+             <Desktopfooter/>
         </div>
     </div>);
 }
