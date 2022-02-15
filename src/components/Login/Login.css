@@ -116,7 +116,7 @@ color: #3b999b;
   text-align: left;
   font-size: 1.1rem;
   color: #696969;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
 }
 .name-tab,
 .number-tab {
@@ -174,11 +174,9 @@ color: #3b999b;
   font-size: 1rem;
   cursor: pointer;
 }
-.forgot-box {
-  display: flex;
-  width: 50%;
-  align-items: center;
-  flex-direction: column;
+.forgotpasswordbox:hover a
+{
+  color:red;
 }
 .new-user {
   display: flex;
@@ -210,7 +208,7 @@ color: #3b999b;
 .button-login button {
   border: 2px solid #353E5B;
   width: 100%;
-  height: 3.2rem;
+  height: 3rem;
   outline: none;
   background-color: white;
   color: #353E5B;
@@ -358,5 +356,13 @@ color: #3b999b;
   .login-heading h2
   {
     font-size: 1.7rem;
+  }
+  .input-tab
+  {
+    height: 2.7rem;
+  }
+  .button-login button
+  {
+    height: 2.7rem;
   }
 }

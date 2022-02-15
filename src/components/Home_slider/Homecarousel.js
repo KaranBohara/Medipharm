@@ -14,7 +14,7 @@ const Homecarousel=(props)=>
           {props.data.subHeading}
           </div>
           <div className="carousel-button">
-              <button><Link to='/search'>{props.data.button}</Link></button>
+              <button><Link className='link-carousel' to='/search'>{props.data.button}</Link></button>
           </div>
       </div>
       <div className='carousel-image'>

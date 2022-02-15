@@ -1,60 +1,26 @@
-.link-decoration{
+.link-decoration,.link-decoration:hover,.link-decoration:visited,.link-decoration:active
+{
   color:white;
   text-decoration: none;
 }
-.link-decoration:hover
-{
-  color: white;
-  text-decoration: none;
-}
-.link-decoration:visited
-{
-  color: white;
-  text-decoration: none;
-}
-.link-decoration:active
-{
-  color: white;
-  text-decoration: none;
-}
-.link-decoration-body{
-  color:rgb(7, 7, 7);
-  text-decoration: none;
-}
-.link-decoration-body:hover
+.link-decoration-body,.link-decoration-body:hover,.link-decoration-body:visited,.link-decoration-body:active
 {
   color:rgb(7, 7, 7);
   text-decoration: none;
 }
-.link-decoration-body:visited
-{
-  color:rgb(7, 7, 7);
-  text-decoration: none;
-}
-.link-decoration-body:active
-{
-  color:rgb(7, 7, 7);
-  text-decoration: none;
-}
-.link-decoration-login
+.link-decoration-login,.link-decoration-login:hover,.link-decoration-login:visited,.link-decoration-login:active
 {
   color: #ff2323;
   text-decoration: none;
 }
-.link-decoration-login:hover
+.link-carousel,.link-carousel:active,.link-carousel:visited
 {
-  color: #ff2323;
   text-decoration: none;
+  color: #2FA3FB;
 }
-.link-decoration-login:visited
+.link-carousel:hover
 {
-  color: #ff2323;
-  text-decoration: none;
-}
-.link-decoration-login:active
-{
-  color: #ff2323;
-  text-decoration: none;
+  color:white;
 }
 .App {
   text-align: center;

@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  background-color: #fdfdfd;
+  background-color: #ffffff;
   flex-direction: row;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -41,26 +41,25 @@
 .carousel-button button
 {
     outline: none;
-    background-color: white;
+    background-color: #ffffff;
     border:2px solid #2FA3FB;
     color: #2FA3FB;
     padding: .5rem 1rem;
     width: fit-content;
     border-radius: .2rem;
     margin-top: 1rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
     transition: all .5s;
-}
-.carousel-button button a
-{
-  text-decoration: none;
-  color: #2FA3FB;
 }
 .carousel-button button:hover
 {
   background-color: #2FA3FB;
   color: white;
+}
+.carousel-button button:hover a
+{
+  color: white;
+  transition: all .5s;
 }
 .carousel-image {
   width: 65%;
