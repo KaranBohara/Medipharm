@@ -1,9 +1,7 @@
 import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
 import "./App.css";
-import Desktopfooter from "./components/Desktop_footer/Desktopfooter";
 import Mobilefooter from "./components/Phone_footer_fixed/Mobilefooter";
 import Homepage from "./pages/Homepage/Homepage";
-import Searchpage from "./components/Search_space/Searchpage";
 import Forgotpassword from "./components/Forgotpassword/Forgotpassword";
 import GenerateOTP from "./components/GenerateOTP/GenerateOTP";
 import Resetpassword from "./components/Resetpassword/Resetpassword";
@@ -55,7 +53,6 @@ const App=({
         <Route exact path="/resetpassword" component={Resetpassword}/>
         <PrivateRoute exact path="/myaccount" component={Account} />
         <Route exact path="/signupclient" component={Signuppage}/>
-        <Route exact path="/search" component={Searchpage}/>
         <Route path="/admin/dashboard" component={Dashboard}/>
         <Route exact path="/admin/login"component={AdminLogin}/>
         </Switch>

@@ -12,7 +12,6 @@ const Products = () => {
     {
      apiCollection.getProduct()
     .then(response => {
-     console.log(response.data);
      const myMed=response.data;
      setMedicines(myMed);
 });
@@ -26,15 +25,15 @@ const Products = () => {
     return (<div className="products-container">
     {loading?<div className="loading-container"><img src={LoadingImage} width="65rem" height="65rem" alt="loading"/></div>:""}
                 {medicines.map((item, index) => {
-                    bestPrice = item.Price - ((item.Discount * item.Price) / 100);
+                    bestPrice = item.price - ((item.discount * item.price) / 100);
                     return (                   
                             <div className="animate__animated animate__jackInTheBox product-box" key={index}>
-                                <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.Discount}%OFF</span></div>
+                                <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.discount}%OFF</span></div>
                                 <div className="product-image-box"><img alt="noloading" src={item.imageURL}></img></div>
-                                <div className="product-name">{item.MedicineName}</div>
-                                <div className="product-manufacturer">{item.Manufacturers}</div>
+                                <div className="product-name">{item.name}</div>
+                                <div className="product-manufacturer">{item.manufacturer}</div>
                                 <div className="product-bestprice">Rs.{bestPrice}</div>
-                                <div className="product-price">Rs.{item.Price}</div>
+                                <div className="product-price">Rs.{item.price}</div>
                                 <div className="cart-button"><button type="submit">ADD TO CART</button></div>
                             </div>
                     );

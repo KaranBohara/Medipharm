@@ -2,11 +2,11 @@ import React, { useState,useEffect} from "react";
 import { connect } from 'react-redux';
 import { logOutUser } from "../../redux/actions/action";
 import {NavLink,Link,useHistory} from "react-router-dom";
+import apiCollection from "../../api/api";
 import "./Navbartop.css";
 import "./Navbarbottom.css";
 import MediLogo from "../../assets/medicine.png";
 import productsCategorydata from "./product.json";
-import Searchpage from "../Search_space/Searchpage";
 import { DropdownButton} from "react-bootstrap";
 import LocalSeeOutlinedIcon from '@mui/icons-material/LocalSeeOutlined';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
@@ -14,25 +14,44 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
-
+let filteredItems=[];
 const Navbartop = ({
     logOutUser,
     isAuthenticated,
 }) => {
     const history=useHistory();
     const [search,setSearch]=useState('');
+    let [items,setItems]=useState([]);
     const userInfo=JSON.parse(localStorage.getItem('User'));
+    const getMedicines=()=>
+    {
+     apiCollection.getProduct()
+    .then(response => {
+     setItems(response.data)
+     filteredItems=items.filter(item=>
+            item.name.toLowerCase().includes(search.toLowerCase())
+        )
+});
+    };
     useEffect(() => {
-    }, [isAuthenticated,history]);
+        if(search.length>0)
+        {
+            getMedicines();
+        }
+    }, [isAuthenticated,history,search]);
     const handleClick= ()=> {
         logOutUser();
         history.push('/loginclient')
     }
-    // const [mobileSearch,setmobileSearch]=useState(false);
+    const [mobileSearch,setmobileSearch]=useState(true);
+    const handleInput=()=>
+    {
+        setmobileSearch(false);
+    }
 
-    return (
-        
-        <><div className="navbartop-container">
+    return (      
+        <div>
+        <div className="navbartop-container">
             <div className="brand-name" >
                 <div className="brand-image"><Link to="/" ><img src={MediLogo} alt="brandlogo"></img></Link></div>
                 <div className="brand-content">
@@ -47,10 +66,18 @@ const Navbartop = ({
                        setSearch(e.target.value)
                     }} placeholder="Search here..."></input>
                 </div>
-                <div className="searchspace-container" style={search!==''?{display:"flex"}:{display:"none"}}><Searchpage/></div>
+                <div className="searchspace-container" style={search!==''?{display:"flex"}:{display:"none"}}>
+                {filteredItems?filteredItems.map((item,index)=>
+                    {
+                        return( <div className="output-container" key={index}>
+                <div className="output-container-image"><img src={item.imageURL} alt='' width="150px" height="120px"/></div>
+                <div className="output-container-body">{item.name}</div>
+                </div>)
+                    }):"Loading"}
+                </div>
             </div>
             <div className="icons-right">
-                <div className="med-search-icon"><Link to="/search"><SearchOutlinedIcon className="search-icon"/></Link></div>
+                <div className="med-search-icon"><SearchOutlinedIcon onClick={handleInput} className="search-icon"/></div>
                  <div className="userlogin">
                  {(isAuthenticated) ? (<DropdownButton
                     title={userInfo?userInfo.name:''}
@@ -90,7 +117,23 @@ const Navbartop = ({
                     })}
                 </div>
             </div>
-        </>
+            <div className={!mobileSearch?"mobile-search-box":""}>
+            <div className="search-box">
+                    <input type="search" onChange={(e)=>{
+                       setSearch(e.target.value)
+                    }} placeholder="Search here..."></input>
+                </div>
+                <div className="searchspace-container" style={search!==''?{display:"flex"}:{display:"none"}}>
+                {filteredItems?filteredItems.map((item,index)=>
+                    {
+                        return( <div className="output-container" key={index}>
+                <div className="output-container-image"><img src={item.imageURL} alt='' width="150px" height="120px"/></div>
+                <div className="output-container-body">{item.name}</div>
+                </div>)
+                    }):"Loading"}
+                </div>
+            </div>
+        </div>
     
     );
 }
