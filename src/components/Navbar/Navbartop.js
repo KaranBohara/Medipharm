@@ -2,6 +2,7 @@ import React, { useState,useEffect} from "react";
 import { connect } from 'react-redux';
 import { logOutUser } from "../../redux/actions/action";
 import {NavLink,Link,useHistory} from "react-router-dom";
+import CloseIcon from "@material-ui/icons/Close";
 import apiCollection from "../../api/api";
 import "./Navbartop.css";
 import "./Navbarbottom.css";
@@ -12,43 +13,40 @@ import LocalSeeOutlinedIcon from '@mui/icons-material/LocalSeeOutlined';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import SearchBar from "../SearchBar/SearchBar";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
-let filteredItems=[];
+
 const Navbartop = ({
     logOutUser,
     isAuthenticated,
 }) => {
+    const [items,setItems]=useState([])
+    const [mobileSearch,setMobileSearch]=useState(false)
     const history=useHistory();
-    const [search,setSearch]=useState('');
-    let [items,setItems]=useState([]);
     const userInfo=JSON.parse(localStorage.getItem('User'));
     const getMedicines=()=>
     {
      apiCollection.getProduct()
     .then(response => {
      setItems(response.data)
-     filteredItems=items.filter(item=>
-            item.name.toLowerCase().includes(search.toLowerCase())
-        )
-});
+    });
     };
     useEffect(() => {
-        if(search.length>0)
-        {
             getMedicines();
-        }
-    }, [isAuthenticated,history,search]);
+    }, [isAuthenticated,history,items]);
     const handleClick= ()=> {
         logOutUser();
         history.push('/loginclient')
     }
-    const [mobileSearch,setmobileSearch]=useState(true);
-    const handleInput=()=>
+    const handleOpen=()=>
     {
-        setmobileSearch(false);
+      setMobileSearch(true);
     }
-
+    const handleClose=()=>
+    {
+     setMobileSearch(false);
+    }
     return (      
         <div>
         <div className="navbartop-container">
@@ -60,24 +58,10 @@ const Navbartop = ({
             </div>
             
             <div className="search-container">
-                <div className="location"><i className="fas fa-location"></i></div>
-                <div className="search-box">
-                    <input type="search" onChange={(e)=>{
-                       setSearch(e.target.value)
-                    }} placeholder="Search here..."></input>
-                </div>
-                <div className="searchspace-container" style={search!==''?{display:"flex"}:{display:"none"}}>
-                {filteredItems?filteredItems.map((item,index)=>
-                    {
-                        return( <div className="output-container" key={index}>
-                <div className="output-container-image"><img src={item.imageURL} alt='' width="150px" height="120px"/></div>
-                <div className="output-container-body">{item.name}</div>
-                </div>)
-                    }):"Loading"}
-                </div>
+               <SearchBar placeholder="Search for products" data={items}/>
             </div>
             <div className="icons-right">
-                <div className="med-search-icon"><SearchOutlinedIcon onClick={handleInput} className="search-icon"/></div>
+                <div className="med-search-icon"><SearchOutlinedIcon onClick={handleOpen} className="search-icon"/></div>
                  <div className="userlogin">
                  {(isAuthenticated) ? (<DropdownButton
                     title={userInfo?userInfo.name:''}
@@ -117,22 +101,10 @@ const Navbartop = ({
                     })}
                 </div>
             </div>
-            <div className={!mobileSearch?"mobile-search-box":""}>
-            <div className="search-box">
-                    <input type="search" onChange={(e)=>{
-                       setSearch(e.target.value)
-                    }} placeholder="Search here..."></input>
-                </div>
-                <div className="searchspace-container" style={search!==''?{display:"flex"}:{display:"none"}}>
-                {filteredItems?filteredItems.map((item,index)=>
-                    {
-                        return( <div className="output-container" key={index}>
-                <div className="output-container-image"><img src={item.imageURL} alt='' width="150px" height="120px"/></div>
-                <div className="output-container-body">{item.name}</div>
-                </div>)
-                    }):"Loading"}
-                </div>
-            </div>
+            {mobileSearch?<div className="phone-search-wrap">
+            <SearchBar placeholder="Search for products" data={items}/>
+            <CloseIcon onClick={handleClose}/>
+            </div>:""}
         </div>
     
     );
