@@ -20,7 +20,7 @@ const Mobilefooter=({
             </Link>
             </div>
             <div className="footer-content-box" >
-            <Link to="/" className="link-decoration-body"><div className="footer-content-icon">
+            <Link to="/cart" className="link-decoration-body"><div className="footer-content-icon">
             <AddShoppingCartIcon/>
             </div>
             </Link>

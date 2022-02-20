@@ -187,6 +187,12 @@ justify-content: flex-end;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
+  .phone-search-wrap .close-icon
+  {
+   position: absolute;
+   right: 5%;
+   transform: scale(.9);
+  }
   .med-search-icon
   {
     display: flex;

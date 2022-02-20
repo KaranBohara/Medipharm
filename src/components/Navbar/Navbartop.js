@@ -103,7 +103,7 @@ const Navbartop = ({
             </div>
             {mobileSearch?<div className="phone-search-wrap">
             <SearchBar placeholder="Search for products" data={items}/>
-            <CloseIcon onClick={handleClose}/>
+            <CloseIcon className="close-icon" onClick={handleClose}/>
             </div>:""}
         </div>
     
