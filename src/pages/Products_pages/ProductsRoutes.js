@@ -4,7 +4,6 @@ import {Route,Switch} from 'react-router-dom';
 import Filtertaskbar from "../../components/Products_page/Filter_component/Filtertaskbar";
 import "./Productspage.css";
 import Mobilefilter from "../../components/MobileFilter/Mobilefilter";
-import Categoryslider from "../../components/Products_page/Category_multislider/Categoryslider";
 import Navbartop from "../../components/Navbar/Navbartop";
 import CovidEssentials from "./CovidEssentials";
 import Eyewear from "./Eyewear";
@@ -15,6 +14,7 @@ import Devices from "./Devices";
 import Surgicals from "./Surgicals";
 import Treatment from "./Treatment";
 import Desktopfooter from "../../components/Desktop_footer/Desktopfooter";
+import Location from "../../components/Location/Location";
 
 const ProductsRoutes = () => {
   return(<div>
@@ -22,7 +22,8 @@ const ProductsRoutes = () => {
         <Navbartop/>
         </div>
         <div className="hide-component">
-        <Categoryslider/>
+        <Location/>
+        <Mobilefilter/>
         </div>
         <div className="product-filter">
         <Filtertaskbar/>
