@@ -25,6 +25,10 @@
     width: 100%;
     cursor: pointer;
   }
+  .filter-modal
+  {
+    margin-top: 7rem;
+  }
   .filter-icon-box .arrow-dropdown
   {
     cursor: pointer;

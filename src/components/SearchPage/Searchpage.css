@@ -21,4 +21,15 @@
       right: 1.5%;
       cursor: pointer;
   }
+  .recent-search-wrap
+  {
+    width:95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  /* .recent-search-container
+  {
+
+  } */
 }

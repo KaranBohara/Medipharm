@@ -17,7 +17,7 @@ const Mobilefilter = () => {
                 show={showfilter}
                 onHide={() => setShowfilter(false)}
                 aria-labelledby="filter-products"
-                centered
+                className="filter-modal"
             >
                 <Modal.Header closeButton={true}>
                     <Modal.Title id="filter-products">
