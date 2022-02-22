@@ -22,8 +22,8 @@ const ProductsRoutes = () => {
         <Navbartop/>
         </div>
         <div className="hide-component">
-        <Location/>
-        <Mobilefilter/>
+        <div className="sub-div1"><Location/></div>
+        <div className="sub-div2"><Mobilefilter/></div>
         </div>
         <div className="product-filter">
         <Filtertaskbar/>

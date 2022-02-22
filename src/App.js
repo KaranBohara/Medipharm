@@ -7,6 +7,7 @@ import GenerateOTP from "./components/GenerateOTP/GenerateOTP";
 import Resetpassword from "./components/Resetpassword/Resetpassword";
 import Loginpage from "./pages/LoginClient/Loginpage";
 import Signuppage from "./pages/Signupclient/Signuppage";
+import Searchpage from "./components/SearchPage/Searchpage";
 import AdminLogin from "./admin/components/AdminLogin";
 import Dashboard from "./admin/components/Dashboard";
 import ProductsRoutes from "./pages/Products_pages/ProductsRoutes";
@@ -52,6 +53,7 @@ const App=({
         <Route exact path="/OTPgenerate" component={GenerateOTP}/>
         <Route exact path="/resetpassword" component={Resetpassword}/>
         <PrivateRoute exact path="/myaccount" component={Account} />
+        <Route exact path='/searchpage' component={Searchpage}/>
         <Route exact path="/signupclient" component={Signuppage}/>
         <Route path="/admin/dashboard" component={Dashboard}/>
         <Route exact path="/admin/login"component={AdminLogin}/>

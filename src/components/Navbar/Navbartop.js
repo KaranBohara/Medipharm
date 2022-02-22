@@ -2,8 +2,8 @@ import React, { useState,useEffect} from "react";
 import { connect } from 'react-redux';
 import { logOutUser } from "../../redux/actions/action";
 import {NavLink,Link,useHistory} from "react-router-dom";
-import CloseIcon from "@material-ui/icons/Close";
 import apiCollection from "../../api/api";
+import SearchBar from "../SearchBar/SearchBar";
 import "./Navbartop.css";
 import "./Navbarbottom.css";
 import MediLogo from "../../assets/medicine.png";
@@ -13,7 +13,6 @@ import LocalSeeOutlinedIcon from '@mui/icons-material/LocalSeeOutlined';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import SearchBar from "../SearchBar/SearchBar";
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
 
@@ -22,7 +21,6 @@ const Navbartop = ({
     isAuthenticated,
 }) => {
     const [items,setItems]=useState([])
-    const [mobileSearch,setMobileSearch]=useState(false)
     const history=useHistory();
     const userInfo=JSON.parse(localStorage.getItem('User'));
     const getMedicines=()=>
@@ -39,14 +37,6 @@ const Navbartop = ({
         logOutUser();
         history.push('/loginclient')
     }
-    const handleOpen=()=>
-    {
-      setMobileSearch(true);
-    }
-    const handleClose=()=>
-    {
-     setMobileSearch(false);
-    }
     return (      
         <div>
         <div className="navbartop-container">
@@ -61,7 +51,8 @@ const Navbartop = ({
                <SearchBar placeholder="Search for products" data={items}/>
             </div>
             <div className="icons-right">
-                <div className="med-search-icon"><SearchOutlinedIcon onClick={handleOpen} className="search-icon"/></div>
+                <div className="med-search-icon"><Link to='/searchpage'><SearchOutlinedIcon className="search-icon"/></Link>
+                </div>
                  <div className="userlogin">
                  {(isAuthenticated) ? (<DropdownButton
                     title={userInfo?userInfo.name:''}
@@ -101,10 +92,6 @@ const Navbartop = ({
                     })}
                 </div>
             </div>
-            {mobileSearch?<div className="phone-search-wrap">
-            <SearchBar placeholder="Search for products" data={items}/>
-            <CloseIcon className="close-icon" onClick={handleClose}/>
-            </div>:""}
         </div>
     
     );

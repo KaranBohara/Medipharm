@@ -18,12 +18,15 @@
     font-size: 1rem;
     padding-left: .7rem;
   }
-  .icon-box {
+  .filter-icon-box {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0.5rem 0rem;
-    width: 20%;
+    width: 100%;
+    cursor: pointer;
+  }
+  .filter-icon-box .arrow-dropdown
+  {
     cursor: pointer;
   }
   .mobile-filter-box .icon-box .fa-sort-amount-up-alt,

@@ -4,11 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
 import Filtertaskbar from "../Products_page/Filter_component/Filtertaskbar";
 import Sortproducts from "../Products_page/SortBy_component/Sortproduct";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 const Mobilefilter = () => {
     const [showfilter, setShowfilter] = useState(false);
     return (
         <div className="mobile-filter-box">
-            <div className="icon-box" onClick={() => setShowfilter(true)}><span style={{ fontSize: ".8rem" }}>Filter</span></div>
+            <div className="filter-icon-box" onClick={() => setShowfilter(true)}>
+            <span>Filter</span>
+            <span><ArrowDropDownIcon className="arrow-dropdown"/></span>
+            </div>
             <Modal
                 show={showfilter}
                 onHide={() => setShowfilter(false)}
