@@ -15,16 +15,19 @@
 }
 .search-slider-container .image-box
 {
-    width: 100%;
+    width: fit-content;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .search-slider-container .image-box img
 {
- width: 80px;
+ width: 60px;
  height: auto;
+ border-radius: 50%;
 }
 .search-slider-container .text-box
 {
