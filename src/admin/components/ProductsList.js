@@ -13,7 +13,7 @@ import LoadingImage from "../assets/loading.gif";
 
 const handleDelete=(id)=>
    {
-    fetch(`http://localhost:5000/admin/product/${id}`, {
+    fetch(`http://localhost:5000/product/${id}`, {
       method: 'DELETE',
     })
       .then(res => res.json())
@@ -36,7 +36,7 @@ const ProductsList=()=> {
   }
   const handleEditClose=()=>setEditModal(false);
   useEffect(() => {
-    const url = "http://localhost:5000/admin/product";
+    const url = "http://localhost:5000/product";
     const fetchData = async () => {
       try {
         const response = await fetch(url,{
@@ -102,9 +102,19 @@ useEffect(() => {
       <EditProduct currentId={currentId}/>
       </Modal.Body>
     </Modal>
+    <div className='col-12 d-flex'>
         <div className='add-product' onClick={handleShow}>
         <AddIcon className='add-icon' />
-        <span style={{marginLeft:".5rem"}}>Add a product</span>
+        <span style={{marginLeft:".5rem"}}>Add Product</span>
+        </div>
+        <div className='add-product' onClick={handleShow}>
+        <AddIcon className='add-icon' />
+        <span style={{marginLeft:".5rem"}}>Add Category</span>
+        </div>
+        <div className='add-product' onClick={handleShow}>
+        <AddIcon className='add-icon' />
+        <span style={{marginLeft:".5rem"}}>Add Manufacturer</span>
+        </div>
         </div>
         <div className='search-products'>
         <input id="searchproduct" type="search"/>

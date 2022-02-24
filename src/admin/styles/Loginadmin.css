@@ -1,36 +1,34 @@
 .Login-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(-45deg, #4b9db6, #1968c2);
-  background-size: 400% 400%;
-  height: 100vh;
   font-family: 'Sora', sans-serif;
+  height: 100vh;
 }
 .admin-login-container {
-  width: 60%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   box-shadow: 1px 1px 5px grey;
   display: flex;
   border-radius: 0.3rem;
 }
 .admin-login-form {
-  width: 40%;
+  width: 50%;
   background-color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding-left: 5rem;
 }
 .admin-logo-login {
   display: flex;
-  width: 80%;
+  width: 85%;
   justify-content: flex-start;
-  margin-top: 5rem;
+  margin-top: 12rem;
+  margin-bottom: 1rem;
   align-items: center;
-  font-size: .9rem;
+  font-size: 1.4rem;
 }
 .admin-login-design {
-  width: 60%;
+  width: 50%;
   background: url("../assets/wall1.jpg");
   background-size: cover;
   height: 100%;
@@ -40,22 +38,23 @@
   color: white;
 }
 .admin-login-design h2 {
-  font-size: 1.8rem;
-  margin-top: 14rem;
+  font-size: 2rem;
+  margin-top: 21rem;
 }
 .admin-login-design p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-top: .5rem;
 }
 .admin-login-content {
-  margin-top: 3rem;
-  width: 85%;
+  margin-top: 1rem;
+  width: 75%;
+  display: flex;
 }
 .add-class
 {
   position: absolute;
-  top:65%;
-  left: 27%;
+  top:73%;
+  left: 65%;
   color: white;
   width:10rem;
   height: 10rem;
@@ -69,13 +68,13 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: .5rem;
+  margin: .7rem 0rem;
 }
 .admin-mobile-label p {
   width: 100%;
   text-align: left;
-  font-size: 0.9rem;
-  color: #009da0;
+  font-size: 1rem;
+  color: rgb(100, 100, 100);
   margin-bottom: 1.5rem;
 }
 .admin-name-tab {
@@ -85,12 +84,18 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.admin-name-tab input {
+.admin-name-tab input[type='email'],.admin-name-tab input[type='password'] {
   outline: none;
-  border: none;
-  height: 2.5rem;
+  border: 2px solid rgb(175, 175, 175);
+  border-radius:.2rem ;
+  height: 3rem;
   width: 100%;
   font-size: 1rem;
+  padding-left: .5rem;
+}
+.admin-name-tab input[type='email']:focus,.admin-name-tab input[type='password']:focus
+{
+  border: 2px solid #353E5B;
 }
 .admin-required-error {
   color: rgb(224, 1, 1);
@@ -99,32 +104,43 @@
 }
 .admin-button-login {
   display: flex;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   width: 100%;
 }
 .admin-button-login input[type="submit"] {
   border: none;
   width: 100%;
-  height: 2.8rem;
+  height: 3rem;
   outline: none;
-  background-color: #33aeb1;
-  color: white;
-  font-size: 1rem;
-  font-weight: 500;
+  border:2px solid #353E5B;
+  color: #353E5B;
+  background-color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
   letter-spacing: 0.1rem;
   cursor: pointer;
+  border-radius: .2rem;
+  transition: all .5s;
 }
-.input-logo {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  border: 1px solid #006d6e;
-  margin-bottom: .2rem;
-}
-.input-logo input
+.admin-button-login input[type="submit"]:hover
 {
-  padding-left: .5rem;
+  background-color: #33aeb1;
+  color: white;
+  border: none;
 }
 .login-icon {
   color: #33aeb1;
+}
+.admin-forgot-box
+{
+  margin-top: 2.5rem;
+  color:#353E5B;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all .7s;
+}
+.admin-forgot-box:hover
+{
+  color: red;
 }

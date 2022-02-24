@@ -8,7 +8,7 @@ const EditProduct = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch(
-      `https://medpharma-api.herokuapp.com/admin/product/${props.currentId}`,
+      `https://medpharma-api.herokuapp.com/product/${props.currentId}`,
       {
         method: "Get",
         headers: {
@@ -22,7 +22,7 @@ const EditProduct = (props) => {
       });
   },[]);
   const onSubmit =async () => {
-  await fetch(`http://localhost:5000/admin/product/${props.currentId}`, {
+  await fetch(`http://localhost:5000/product/${props.currentId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

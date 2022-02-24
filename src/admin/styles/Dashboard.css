@@ -21,7 +21,8 @@ background-color: #233C46;
     height: 4rem;
     font-size: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 1.8rem;
     align-items: center;
 }
 .admin-icons-list
