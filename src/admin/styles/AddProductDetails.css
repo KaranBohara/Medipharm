@@ -63,6 +63,12 @@
     display: flex;
     justify-content: space-between;
 }
+.input-add-category
+{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
 .sub-input
 {
     width: 49%;

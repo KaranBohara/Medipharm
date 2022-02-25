@@ -1,11 +1,12 @@
 import React,{useState} from "react";
-import "../styles/Loginadmin.css";
-import Medilogo from "../assets/medicine.png";
+import "../../styles/Loginadmin.css";
+import Medilogo from "../../assets/medicine.png";
 import { Form, Field } from "react-final-form";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import LoadingImage from "../assets/loading.gif";
+import LoadingImage from "../../assets/loading.gif";
+import AdminImage from '../../assets/admin.png';
 
 const AdminLogin = () => {
   const [loading, setLoading] = useState(false);
@@ -48,9 +49,10 @@ const AdminLogin = () => {
         <div className="admin-login-design">
           <h2>Welcome to the Admin Page</h2>
           <p>Login with Email-Id and secured Password.</p>
+          <img src={AdminImage} alt="" width="40%" height="auto"/>
           <p
             style={{
-              marginTop: "25rem",
+              marginTop: "8rem",
               display: "flex",
               alignItems: "center",
             }}

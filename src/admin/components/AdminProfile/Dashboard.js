@@ -1,24 +1,18 @@
 import React,{useEffect} from "react";
 import { BrowserRouter as Route, Switch } from "react-router-dom";
-import "../styles/Dashboard.css";
+import "../../styles/Dashboard.css";
 import HomeAdmin from "./HomeAdmin";
 import { Link,useHistory} from "react-router-dom";
-import Medilogo from "../assets/medicine.png";
-import {
-  Home,
-  LocalMall,
-  Phonelink,
-  Settings,
-  Person,
-} from "@material-ui/icons";
+import Medilogo from "../../assets/medicine.png";
+import {Home,LocalMall,Phonelink,Settings,Person,} from "@material-ui/icons";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import LogoutIcon from "@mui/icons-material/Logout";
-import Customers from "./Customers";
-import Orders from "./Orders";
-import Reviews from "./Reviews";
+import Customers from "../Customers";
+import Orders from "../Orders";
+import Reviews from "../Reviews";
 import AccountSettings from "./AccountSettings";
-import ProductsList from "./ProductsList";
+import ProductsList from "../Product/ProductsList";
 
 const Dashboard = () => {
     let user=JSON.parse(localStorage.getItem('userInfo'));

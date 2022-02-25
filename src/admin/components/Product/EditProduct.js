@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/AddProductDetails.css";
+import "../../styles/AddProductDetails.css";
 import { useHistory } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 

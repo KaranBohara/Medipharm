@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { Form, Field } from 'react-final-form';
-import "../styles/AddProductDetails.css";
+import "../../styles/AddProductDetails.css";
+import apiCollection from '../../api/api';
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast, Zoom } from "react-toastify";
 
 const AddProductDetails = () => {
     const history=useHistory();
-    const onSubmit = async values => {
-        await fetch("http://localhost:5000/admin/product", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(values),
-          })
+    const [status,setStatus]=useState([]);
+    const getStockStatus=()=>
+    {
+        apiCollection.getCategory()
+        .then(response=>
+         {
+           const myMed=response.data.data;
+           setStatus(myMed);
+         })
+    }
+    useEffect(() => {
+        getStockStatus();
+    }, []);
+    const onSubmit = async(values) => {
+      apiCollection.addProduct(values)
           .then((response)=>response.json())
             .then((data) => {        
               if(data.success)
@@ -48,16 +56,12 @@ const AddProductDetails = () => {
           </div>
           <div className='sub-input'>
           <label>Category</label>
-            <Field name="category" component="select">
-              <option>Category</option>
-              <option value="Aayush">Aayush</option>
-              <option value="Covid Essentials">Covid Essentials</option>
-              <option value="Eyewear">Eyewear</option>
-              <option value="Mom & Baby">Mom & Baby</option>
-              <option value="Fitness">Fitness</option>
-              <option value="Devices">Devices</option>
-              <option value="Surgicals">Surgicals</option>
-              <option value="Treatment">Treatment</option>
+          <Field name="category" component="select">
+              {status.map((item,index)=>
+                {
+                    return <option key={index}>{item.Category}</option>
+                })
+            }
             </Field>
           </div>
           </div>

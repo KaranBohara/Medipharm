@@ -39,7 +39,7 @@
 }
 .admin-login-design h2 {
   font-size: 2rem;
-  margin-top: 21rem;
+  margin-top: 16rem;
 }
 .admin-login-design p {
   font-size: 1rem;
@@ -86,8 +86,7 @@
 }
 .admin-name-tab input[type='email'],.admin-name-tab input[type='password'] {
   outline: none;
-  border: 2px solid rgb(175, 175, 175);
-  border-radius:.2rem ;
+  border-bottom: 2px solid rgb(175, 175, 175);
   height: 3rem;
   width: 100%;
   font-size: 1rem;
@@ -96,6 +95,20 @@
 .admin-name-tab input[type='email']:focus,.admin-name-tab input[type='password']:focus
 {
   border: 2px solid #353E5B;
+  background-color: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 .admin-required-error {
   color: rgb(224, 1, 1);
@@ -104,7 +117,7 @@
 }
 .admin-button-login {
   display: flex;
-  margin-top: 2rem;
+  margin-top: 3rem;
   width: 100%;
 }
 .admin-button-login input[type="submit"] {
