@@ -15,7 +15,6 @@ import MedipharmCart from "./components/MedipharmCart/MedipharmCart";
 import React, { useEffect } from "react";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/PrivateRoute";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { connect } from 'react-redux';
 import { setCurrentUser, logOutUser } from "./redux/actions/action";
@@ -35,12 +34,6 @@ const App=({
 }, [setCurrentUser, logOutUser]);
   return (
     <div className="App">
-    <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        className='message-toast'
-    />
       <Router>
       <Switch>
         <Route path="/" exact>

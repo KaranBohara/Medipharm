@@ -27,7 +27,7 @@ const Dashboard = () => {
   }
   return (
     <div className="admin-dashboard-page">
-    <ToastContainer draggable={false} position="top-center" transition={Zoom} autoClose={3000} />
+    <ToastContainer draggable={false} position="top-right" transition={Zoom} autoClose={3000} />
       <div className="admin-sidebar">
         <div className="admin-header">Admin Dashboard</div>
         <div className="admin-icons-list">
