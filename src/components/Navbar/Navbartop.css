@@ -16,7 +16,10 @@
   width:25%;
   color: white;
 }
-
+.toast-wrap
+{
+  margin-top: 8rem;
+}
 .navbartop-container a{
   text-decoration: none;
 }
@@ -52,6 +55,11 @@ justify-content: flex-end;
   height: 2.7rem;
   justify-content: center;
   align-items: center;  
+}
+.ant-dropdown
+{
+  top:3.8rem !important;
+  z-index:9999999999 !important;
 }
 .search-icon
 {

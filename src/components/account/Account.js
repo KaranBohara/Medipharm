@@ -1,19 +1,11 @@
 import React,{useEffect} from 'react';
-import { connect } from 'react-redux';
-import { logOutUser } from "../../redux/actions/action";
 import Navbartop from '../Navbar/Navbartop';
 import {useHistory } from 'react-router-dom';
 import './Account.css';
 
-const Account = ({
-    logOutUser,
-    isAuthenticated,
-}) => {
+const Account = () => {
     const history=useHistory();
-    useEffect(() => {
-    }, [isAuthenticated,history]);
     const handleClick= ()=> {
-        logOutUser();
         history.push('/loginclient')
     }
     const userInfo=JSON.parse(localStorage.getItem('User'));
@@ -35,12 +27,5 @@ const Account = ({
         </div>
     )
 }
-const mapDispatchToProps = {
-    logOutUser: logOutUser,
-};
 
-const mapStateToProps = (state) => ({
-    user: state.userReducer.user,
-    isAuthenticated: state.userReducer.isAuthenticated,
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Account);
+export default Account;

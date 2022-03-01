@@ -1,14 +1,17 @@
 import React, { useState,useEffect} from "react";
-import { connect } from 'react-redux';
-import { logOutUser } from "../../redux/actions/action";
-import {NavLink,Link,useHistory} from "react-router-dom";
+import {NavLink,Link} from "react-router-dom";
+import { Menu, Dropdown} from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { connect } from 'react-redux'
+import { logoutUserAction } from '../../actions/userActions'
 import apiCollection from "../../api/api";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Navbartop.css";
 import "./Navbarbottom.css";
+import GlobalAlert from "../shared/Alert/Alert";
 import MediLogo from "../../assets/medicine.png";
 import productsCategorydata from "./product.json";
-import { DropdownButton} from "react-bootstrap";
+import {DropdownButton} from "react-bootstrap";
 import LocalSeeOutlinedIcon from '@mui/icons-material/LocalSeeOutlined';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -16,13 +19,12 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
 
-const Navbartop = ({
-    logOutUser,
-    isAuthenticated,
-}) => {
+const Navbartop = (props) => {
+    const { user } = props;
+    const handleLogout = () => {
+        props.dispatch(logoutUserAction())
+    }
     const [items,setItems]=useState([])
-    const history=useHistory();
-    const userInfo=JSON.parse(localStorage.getItem('User'));
     const getMedicines=()=>
     {
      apiCollection.getProduct()
@@ -32,11 +34,19 @@ const Navbartop = ({
     };
     useEffect(() => {
             getMedicines();
-    }, [isAuthenticated,history,items]);
-    const handleClick= ()=> {
-        logOutUser();
-        history.push('/loginclient')
-    }
+    }, [items])
+    const menu = (
+        <Menu>
+          <Menu.Item key="0">
+            <div>1st menu item</div>
+          </Menu.Item>
+          <Menu.Item key="1">
+            <div>2nd menu item</div>
+          </Menu.Item>
+          <Menu.Divider />
+          <Menu.Item key="3" onClick={handleLogout}><div>Logout</div></Menu.Item>
+        </Menu>
+      );
     return (      
         <div>
         <div className="navbartop-container">
@@ -54,28 +64,14 @@ const Navbartop = ({
                 <div className="med-search-icon"><Link to='/searchpage'><SearchOutlinedIcon className="search-icon"/></Link>
                 </div>
                  <div className="userlogin">
-                 {(isAuthenticated) ? (<DropdownButton
-                    title={userInfo?userInfo.name:''}
-                    size="sm"
-                    className="account-container"
-                  >
-                    <div className="account-wrap">
-                    <div className="avtar">
-                    <img alt={userInfo?userInfo.avtar?userInfo.avtar:defaultAvtar:''} src={userInfo?userInfo.avtar?userInfo.avtar:defaultAvtar:''} /> 
-                    <div className="upload-container">
-                    <LocalSeeOutlinedIcon className="upload-icon"/>
-                    </div>
-                    </div>
-                    <div className="account-tab"><Link to='/myaccount' className="link-decoration-body">My Account</Link></div>
-                    
-                    <a href="" className="account-tab" onClick={handleClick}>Logout</a>
-          
-                    </div>
-                  </DropdownButton>
-                 ):
-                 (<NavLink to="/loginclient"><LockOpenOutlinedIcon className="userlogin-icon"/></NavLink>)}
-                 </div>
-                 
+              {user ? <Dropdown overlay={menu} trigger={['click']}>
+              <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                {user.name} <DownOutlined />
+              </div>
+            </Dropdown>
+                 :<NavLink to="/loginclient"><LockOpenOutlinedIcon className="userlogin-icon"/></NavLink>
+                  }
+                 </div>    
                  <div className="med-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/></Link>
                  </div>
                  <div className="med-icon"><Link to="/wishlist"><FavoriteBorderIcon className="wishlist-icon"/></Link>
@@ -92,16 +88,10 @@ const Navbartop = ({
                     })}
                 </div>
             </div>
+            <GlobalAlert/>
         </div>
-    
     );
 }
-const mapDispatchToProps = {
-    logOutUser: logOutUser,
-};
+const mapStateToProps = ({ user }) => ({ user })
 
-const mapStateToProps = (state) => ({
-    user: state.userReducer.user,
-    isAuthenticated: state.userReducer.isAuthenticated,
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Navbartop);
+export default connect(mapStateToProps)(Navbartop);

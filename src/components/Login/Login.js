@@ -1,29 +1,14 @@
 import "./Login.css";
-import React,{useState,useEffect} from "react";
-import { Link ,useHistory} from "react-router-dom";
-import { connect } from 'react-redux';
-import { loginUser } from "../../redux/actions/action";
+import React,{useState} from "react";
+import { connect } from 'react-redux'
+import { loginUserAction } from '../../actions/userActions.js'
+import { Link} from "react-router-dom";
 import Medilogo from "../../assets/medicine.png";
 import LoginImage from "../../assets/needs.png"
-import { toast } from "react-toastify";
 
-const Login = ({ 
-  loginUser, 
-  loginError,
-  isAuthenticated,
-}) => {
-  const history=useHistory();
-  // const search = useLocation().search;
-  // const name= new URLSearchParams(search).get("message");
+const Login = ({login}) => {
   const [userData, setUserData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
-  useEffect(() => {
-    if (isAuthenticated) {
-       toast.success("Login Successful")
-        history.push("/");
-      }
-}, [isAuthenticated,history]);
-
 function handleChange(event) {
     const { name, value } = event.target;
     setUserData(prevData => ({
@@ -50,7 +35,7 @@ function formIsValid() {
 function handleSave(event) {
     event.preventDefault();
     if (!formIsValid()) return;
-    loginUser(userData);
+    login(userData)
 }
 
   return (
@@ -112,9 +97,6 @@ function handleSave(event) {
                   <button type="submit"><span>SignIn</span></button>
                 </div>
               </form>
-    {(loginError) ? (
-            <p>{loginError}</p>
-        ) : (null)} 
           <div className="forgotpasswordbox">
             <Link to="/forgotpassword" className="link-decoration-body">
               Forgot Password ?
@@ -131,13 +113,13 @@ function handleSave(event) {
     </div>
   );
         };
-const mapDispatchToProps = {
-  loginUser: loginUser,
-};
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.userReducer.isAuthenticated,
-  loginError:state.userReducer.loginError
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+        const mapDispatchToProps = dispatch => {
+          return {
+              login: (creds) => {
+                  dispatch(loginUserAction(creds))
+              }
+          }
+      }
+      
+      export default connect(null, mapDispatchToProps)(Login)

@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
+import { Route,Switch,Redirect } from "react-router-dom";
 import "./App.css";
+import { connect } from "react-redux";
 import Mobilefooter from "./components/Phone_footer_fixed/Mobilefooter";
 import Homepage from "./pages/Homepage/Homepage";
 import Forgotpassword from "./components/Forgotpassword/Forgotpassword";
@@ -12,54 +13,32 @@ import AdminLogin from "./admin/components/Login/AdminLogin";
 import Dashboard from "./admin/components/AdminProfile/Dashboard";
 import ProductsRoutes from "./pages/Products_pages/ProductsRoutes";
 import MedipharmCart from "./components/MedipharmCart/MedipharmCart";
-import React, { useEffect } from "react";
-import setAuthToken from "./utils/setAuthToken";
-import PrivateRoute from "./components/PrivateRoute";
-import "react-toastify/dist/ReactToastify.css";
-import { connect } from 'react-redux';
-import { setCurrentUser, logOutUser } from "./redux/actions/action";
+import React from "react";
 import Account from "./components/account/Account";
 // https://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames?page=4&pagesize=100
 
-const App=({
-  setCurrentUser,
-  logOutUser
-})=> {
-  useEffect(() => {
-    if (localStorage.User) {
-        const token = JSON.parse(localStorage.User).accessToken;
-        setAuthToken(token);
-        setCurrentUser(token);
-    }
-}, [setCurrentUser, logOutUser]);
+const App=(props)=> {
+  const {user}=props;
   return (
     <div className="App">
-      <Router>
       <Switch>
-        <Route path="/" exact>
-          <Homepage />
-        </Route>
+        <Route path="/" exact render={() =>{return <Homepage/> }}/>
         <Route path="/product" component={ProductsRoutes}/>
         <Route exact path="/loginclient" component={Loginpage}/>
         <Route exact path='/cart' component={MedipharmCart}/>
         <Route exact path="/forgotpassword" component={Forgotpassword}/>
         <Route exact path="/OTPgenerate" component={GenerateOTP}/>
         <Route exact path="/resetpassword" component={Resetpassword}/>
-        <PrivateRoute exact path="/myaccount" component={Account} />
+        <Route exact path="/myaccount" component={Account} />
         <Route exact path='/searchpage' component={Searchpage}/>
         <Route exact path="/signupclient" component={Signuppage}/>
         <Route path="/admin/dashboard" component={Dashboard}/>
         <Route exact path="/admin/login"component={AdminLogin}/>
         </Switch>
         <Mobilefooter />
-      </Router>
     </div>
   );
 }
+const mapStateToProps = ({ user }) => ({ user })
 
-const mapDispatchToProps = {
-  logOutUser: logOutUser,
-  setCurrentUser: setCurrentUser,
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App)

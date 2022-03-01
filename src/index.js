@@ -1,34 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from "react-router-dom";
+import { Router, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import createSagaMiddleware from 'redux-saga';
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import { logger } from 'redux-logger';
-import reducer from './redux/reducers';
-import rootSaga from './redux/sagas';
-import 'animate.css';
-const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
-    reducer,
-    applyMiddleware(sagaMiddleware, logger),
-);
-sagaMiddleware.run(rootSaga);
+import store from './store'
+import history from './history'
+
 ReactDOM.render(
-  <Provider store={store}>
-  <Router>
-    <App />
-  </Router>
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={store}>
+        <Router history={history}> 
+            <Route component={App} />
+        </Router>
+    </Provider>,
+    document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+

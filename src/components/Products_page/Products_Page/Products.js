@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import React,{ useState,useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
 import apiCollection from '../../../api/api';
@@ -12,7 +12,7 @@ const Products = () => {
     {
      apiCollection.getProduct()
     .then(response => {
-     const myMed=response.data;
+     const myMed=response.data.data;
      setMedicines(myMed);
 });
     };
@@ -25,15 +25,15 @@ const Products = () => {
     return (<div className="products-container">
     {loading?<div className="loading-container"><img src={LoadingImage} width="65rem" height="65rem" alt="loading"/></div>:""}
                 {medicines.map((item, index) => {
-                    bestPrice = item.price - ((item.discount * item.price) / 100);
+                    bestPrice = item.Price - ((item.Discount * item.Price) / 100);
                     return (                   
                             <div className="animate__animated animate__jackInTheBox product-box" key={index}>
-                                <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.discount}%OFF</span></div>
-                                <div className="product-image-box"><img alt="noloading" src={item.imageURL}></img></div>
-                                <div className="product-name">{item.name}</div>
-                                <div className="product-manufacturer">{item.manufacturer}</div>
+                                <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.Discount}%OFF</span></div>
+                                <div className="product-image-box"><img alt="noloading" src={item.Image}></img></div>
+                                <div className="product-name">{item.ProductName}</div>
+                                <div className="product-manufacturer">{item.Manufacturer}</div>
                                 <div className="product-bestprice">Rs.{bestPrice}</div>
-                                <div className="product-price">Rs.{item.price}</div>
+                                <div className="product-price">Rs.{item.Price}</div>
                                 <div className="cart-button"><button type="submit">ADD TO CART</button></div>
                             </div>
                     );
