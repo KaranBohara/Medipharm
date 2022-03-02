@@ -9,9 +9,7 @@ import { useHistory } from "react-router-dom";
 import apiCollection from "../../api/api";
 import RecentSearchSlider from "../RecentSearch/RecentSearchSlider";
 
-const Searchpage=({
-    isAuthenticated,
-})=>
+const Searchpage=()=>
 {
     const history=useHistory();
     const [items,setItems]=useState([]);
@@ -24,7 +22,7 @@ const Searchpage=({
     };
     useEffect(() => {
         getMedicines();
-}, [isAuthenticated,history,items]);
+}, [items]);
     return(<div>
         <div className="phone-search-wrap">
         <ArrowBackIcon className='arrow-icon' onClick={() => history.goBack()}/>
@@ -49,8 +47,5 @@ const Searchpage=({
         </div>
     );
 }
-const mapStateToProps = (state) => ({
-    user: state.userReducer.user,
-    isAuthenticated: state.userReducer.isAuthenticated,
-});
-export default connect(mapStateToProps)(Searchpage);
+
+export default Searchpage;

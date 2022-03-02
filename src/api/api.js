@@ -1,16 +1,16 @@
 import axios from "axios";
-// const api='https://medpharma-api.herokuapp.com/';
-const api='http://localhost:5000/api/v1/';
+const baseurl='https://medpharmacy-backend-mysql.herokuapp.com/api/v1/'
+// const api='http://localhost:5000/api/v1/';
 const apiCollection={
     registerUser: function (userData) {
-        return axios.post(`${api}user/register`, userData);
+        return axios.post(`${baseurl}user/register`, userData);
     },
     loginUser:async function (userData) {
-        return axios.post(`${api}user/login`, userData)
+        return axios.post(`${baseurl}user/login`, userData)
     },
     getProduct:function ()
     {
-        return axios.get(`${api}product`);
+        return axios.get(`${baseurl}product`);
     },
     logout:function ()
     {
