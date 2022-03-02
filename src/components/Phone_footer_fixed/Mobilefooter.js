@@ -1,11 +1,13 @@
-import React,{useEffect} from "react";
+import React from "react";
 import "./Mobilefooter.css";
 import {Link,useHistory} from "react-router-dom";
+import { connect } from 'react-redux'
 import HomeIcon from '@mui/icons-material/Home';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-const Mobilefooter=()=>
+const Mobilefooter=(props)=>
 {
+  const {user}=props;
   const history=useHistory();
     return(<div className="mobile-footer-container">
           <div className="footer-content-box" >
@@ -33,12 +35,7 @@ const Mobilefooter=()=>
             </Link>
             </div>
             <div className="footer-content-box" >
-            <Link to="/loginclient" className="link-decoration-body"><div className="footer-content-icon">
-            <i className="fas fa-user-circle" 
-            style={{color:"#33aeb1",fontSize:"1.5rem"}}>
-            </i></div>
-            </Link>
-            <Link to="/myaccount" className="link-decoration-body"><div className="footer-content-icon">
+            <Link to={user?"/myaccount":"/loginclient"} className="link-decoration-body"><div className="footer-content-icon">
             <i className="fas fa-user-circle" 
             style={{color:"#33aeb1",fontSize:"1.5rem"}}>
             </i></div>
@@ -47,4 +44,6 @@ const Mobilefooter=()=>
     </div>);
 }
 
-export default Mobilefooter;
+const mapStateToProps = ({ user }) => ({ user })
+
+export default connect(mapStateToProps)(Mobilefooter);

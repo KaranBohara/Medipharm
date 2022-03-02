@@ -11,13 +11,13 @@ import "./Navbarbottom.css";
 import GlobalAlert from "../shared/Alert/Alert";
 import MediLogo from "../../assets/medicine.png";
 import productsCategorydata from "./product.json";
-import {DropdownButton} from "react-bootstrap";
-import LocalSeeOutlinedIcon from '@mui/icons-material/LocalSeeOutlined';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
+// var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
+import defaultAvtar from "../../assets/profile.jpg";
 
 const Navbartop = (props) => {
     const { user } = props;
@@ -38,13 +38,16 @@ const Navbartop = (props) => {
     const menu = (
         <Menu>
           <Menu.Item key="0">
-            <div>1st menu item</div>
+            <div><Link className="link-decoration-body" to="/myaccount">My Account</Link></div>
           </Menu.Item>
           <Menu.Item key="1">
-            <div>2nd menu item</div>
+            <div><Link className="link-decoration-body" to="/mywishlist">My WishList</Link></div>
+          </Menu.Item>
+          <Menu.Item key="3">
+          <div><Link className="link-decoration-body" to="/myorders">My Orders</Link></div>
           </Menu.Item>
           <Menu.Divider />
-          <Menu.Item key="3" onClick={handleLogout}><div>Logout</div></Menu.Item>
+          <Menu.Item key="4" onClick={handleLogout}><div>Logout</div></Menu.Item>
         </Menu>
       );
     return (      
@@ -66,7 +69,7 @@ const Navbartop = (props) => {
                  <div className="userlogin">
               {user ? <Dropdown overlay={menu} trigger={['click']}>
               <div className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                {user.name} <DownOutlined />
+               <img src={defaultAvtar} alt='' width="60px" height="60px"/> {user.name} <KeyboardArrowDownIcon/><DownOutlined />
               </div>
             </Dropdown>
                  :<NavLink to="/loginclient"><LockOpenOutlinedIcon className="userlogin-icon"/></NavLink>
