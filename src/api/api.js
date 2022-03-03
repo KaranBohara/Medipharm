@@ -5,16 +5,9 @@ const apiCollection={
     registerUser: function (userData) {
         return axios.post(`${baseurl}user/register`, userData);
     },
-    loginUser:async function (userData) {
-        return axios.post(`${baseurl}user/login`, userData)
-    },
     getProduct:function ()
     {
         return axios.get(`${baseurl}product`);
     },
-    logout:function ()
-    {
-        localStorage.removeItem("user");
-    }
 }
 export default apiCollection;

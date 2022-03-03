@@ -17,12 +17,13 @@ const Searchpage=()=>
     {
      apiCollection.getProduct()
     .then(response => {
-     setItems(response.data)
+    const myMed=response.data;
+     setItems(myMed)
     });
     };
     useEffect(() => {
         getMedicines();
-}, [items]);
+}, [getMedicines]);
     return(<div>
         <div className="phone-search-wrap">
         <ArrowBackIcon className='arrow-icon' onClick={() => history.goBack()}/>
@@ -38,7 +39,7 @@ const Searchpage=()=>
         </div>
         <div className="row">
         <div className="col-12 d-flex justify-content-flex-start">
-        <RecentSearchSlider items={items}/>
+        <RecentSearchSlider data={items} />
         </div>
         </div>
         </div>

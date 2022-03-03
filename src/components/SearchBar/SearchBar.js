@@ -6,7 +6,6 @@ import CloseIcon from "@material-ui/icons/Close";
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);

@@ -6,46 +6,45 @@ const responsive = {
   md: {
     breakpoint: { max: 992, min: 592 },
     items: 4,
-    slidesToSlide: 1 
+    slidesToSlide: 1,
   },
   sm: {
     breakpoint: { max: 592, min: 0 },
     items: 3,
-    slidesToSlide: 1 
-  }
+    slidesToSlide: 1,
+  },
 };
-const RecentSearchSlider=(props)=>
-{
-    return(
-      <div className="search-slider">
+const RecentSearchSlider = ({ data }) => {
+  const item=data.data;
+  return (
+    <div className="search-slider">
       <Carousel
-  swipeable={true}
-  arrows={false}
-  draggable={true}
-  responsive={responsive}
-  ssr={true} 
-  infinite={true}
-  autoPlaySpeed={3000}
-  keyBoardControl={true}
-  customTransition="transform 2 ease-in-out"
-  transitionDuration={200}
-  removeArrowOnDeviceType={["tablet", "mobile"]}
-  deviceType={props.deviceType}
-  dotListClass="custom-dot-list-style"
->
-{props.items.map((item,index)=>
-            {
-                return(<div className="search-slider-container" key={index}>
-                <div className="image-box"><img
-                src={item.imageURL}
-                alt="Slides"
-              /></div>
-              <div className="text-box">{item.name}</div>
-              </div> 
-              );
-            })}
-</Carousel>
-</div>
-    );
-}
+        swipeable={true}
+        arrows={false}
+        draggable={true}
+        responsive={responsive}
+        ssr={true}
+        infinite={true}
+        autoPlaySpeed={3000}
+        keyBoardControl={true}
+        customTransition="transform 2 ease-in-out"
+        transitionDuration={200}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        dotListClass="custom-dot-list-style"
+      ><div>
+       {item && item.map((val, index) => {
+          return (
+            <div className="search-slider-container" key={index}>
+              <div className="image-box">
+                <img src={val.Image} alt="Slides" />
+              </div>
+              <div className="text-box">{val.ProductName}</div>
+            </div>
+          );
+        })}
+        </div>
+      </Carousel>
+    </div>
+  );
+};
 export default RecentSearchSlider;
