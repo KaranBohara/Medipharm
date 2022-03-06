@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link,useHistory} from "react-router-dom";
 import { Form} from 'react-bootstrap';
-import apiCollection from "../../api/api";
-import { toast } from "react-toastify";
+import {connect} from "react-redux"
+import {registerUserAction} from "../../actions/userActions.js";
 import Medilogo from "../../assets/medicine.png";
 import LoginImage from "../../assets/needs.png"
-const Signup = () => {
+const Signup = ({register}) => {
   const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmPassword: "" });
   const [errors, setErrors] = useState({});
   const history=useHistory();
@@ -39,14 +39,7 @@ const Signup = () => {
       event.preventDefault();
       setUserData({ name: "", email: "", password: "", confirmPassword: "" });
       if (!formIsValid()) return;
-      apiCollection.registerUser(userData)
-          .then(() => {
-              toast.success("Register Success!!!")
-              history.push("/loginclient");
-          })
-          .catch((err) => {
-              console.log(err.response);
-          })
+      register(userData)
         }
     return (
         <div className="login-wrapper">
@@ -135,4 +128,12 @@ const Signup = () => {
         </div>
     )
 }
-export default Signup;
+const mapDispatchToProps = dispatch => {
+    return {
+        register: (inputs) => {
+            dispatch(registerUserAction(inputs))
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Signup)

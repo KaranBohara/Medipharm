@@ -1,9 +1,23 @@
 import * as types from '../actiontypes/actionTypes'
 
-export const loginUserAction = (creds) => {
+export const registerUserAction = (inputs) =>
+{
+    return{
+        type: types.REGISTER_USER,
+        inputs
+    }
+}
+export const userRegistered =(user)=>
+{
+    return{
+        type:types.USER_REGISTERED,
+        user
+    }
+}
+export const loginUserAction = (inputs) => {
     return {
         type: types.LOGIN_USER,
-        creds
+        inputs
     }
 }
 
@@ -13,7 +27,6 @@ export const userLoggedIn = (user) => {
         user
     }
 }
-
 export const logoutUserAction = () => {
     return {
         type: types.LOGOUT_USER

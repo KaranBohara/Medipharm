@@ -2,6 +2,7 @@ import { Route,Switch,Redirect } from "react-router-dom";
 import "./App.css";
 import { connect } from "react-redux";
 import Mobilefooter from "./components/Phone_footer_fixed/Mobilefooter";
+import GlobalAlert from './components/shared/Alert/Alert'
 import Homepage from "./pages/Homepage/Homepage";
 import Forgotpassword from "./components/Forgotpassword/Forgotpassword";
 import GenerateOTP from "./components/GenerateOTP/GenerateOTP";
@@ -21,17 +22,18 @@ const App=(props)=> {
   const {user}=props;
   return (
     <div className="App">
+      <GlobalAlert/>
       <Switch>
         <Route path="/" exact render={() =>{return <Homepage/> }}/>
         <Route path="/product" component={ProductsRoutes}/>
-        <Route exact path="/loginclient" component={Loginpage}/>
+        <Route exact path="/loginclient" render={()=>{return user?<Redirect to='/'/>:<Loginpage/>}}/>
         <Route exact path='/cart' component={MedipharmCart}/>
         <Route exact path="/forgotpassword" component={Forgotpassword}/>
         <Route exact path="/OTPgenerate" component={GenerateOTP}/>
         <Route exact path="/resetpassword" component={Resetpassword}/>
-        <Route exact path="/myaccount" component={Account} />
+        <Route exact path="/myaccount" render={()=>{return user?<Account/>:<Redirect to='/loginclient'/>}} />
         <Route exact path='/searchpage' component={Searchpage}/>
-        <Route exact path="/signupclient" component={Signuppage}/>
+        <Route exact path="/signupclient" render={()=>{return user?<Redirect to='/'/>:<Signuppage/>}}/>
         <Route path="/admin/dashboard" component={Dashboard}/>
         <Route exact path="/admin/login"component={AdminLogin}/>
         </Switch>

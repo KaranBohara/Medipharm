@@ -8,7 +8,6 @@ import apiCollection from "../../api/api";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Navbartop.css";
 import "./Navbarbottom.css";
-import GlobalAlert from "../shared/Alert/Alert";
 import MediLogo from "../../assets/medicine.png";
 import productsCategorydata from "./product.json";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -38,16 +37,19 @@ const Navbartop = (props) => {
     const menu = (
         <Menu>
           <Menu.Item key="0">
-            <div><Link className="link-decoration-body" to="/myaccount">My Account</Link></div>
+            <div><Link className="link-decoration-body" to="/myaccount">Your Account</Link></div>
           </Menu.Item>
           <Menu.Item key="1">
-            <div><Link className="link-decoration-body" to="/mywishlist">My WishList</Link></div>
+            <div><Link className="link-decoration-body" to="/myorders">Your Orders</Link></div>
           </Menu.Item>
           <Menu.Item key="3">
-          <div><Link className="link-decoration-body" to="/myorders">My Orders</Link></div>
+          <div><Link className="link-decoration-body" to="/myvouchers"></Link>Your Vouchers</div>
+          </Menu.Item>
+          <Menu.Item key="4">
+          <div><Link className="link-decoration-body" to="/passwordreset">Change Password</Link></div>
           </Menu.Item>
           <Menu.Divider />
-          <Menu.Item key="4" onClick={handleLogout}><div>Logout</div></Menu.Item>
+          <Menu.Item key="5" onClick={handleLogout}><div>Logout</div></Menu.Item>
         </Menu>
       );
     return (      
@@ -91,7 +93,6 @@ const Navbartop = (props) => {
                     })}
                 </div>
             </div>
-            <GlobalAlert/>
         </div>
     );
 }

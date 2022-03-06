@@ -116,8 +116,8 @@ function handleSave(event) {
 
         const mapDispatchToProps = dispatch => {
           return {
-              login: (creds) => {
-                  dispatch(loginUserAction(creds))
+              login: (inputs) => {
+                  dispatch(loginUserAction(inputs))
               }
           }
       }

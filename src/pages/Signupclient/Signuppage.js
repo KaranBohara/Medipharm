@@ -5,7 +5,7 @@ import Signup from '../../components/signup/Signup';
 function Signuppage() {
     return (
         <div>
-            <Signup/>
+        <Signup/>
         </div>
     )
 }

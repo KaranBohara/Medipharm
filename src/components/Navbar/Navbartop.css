@@ -18,7 +18,10 @@
 }
 .toast-wrap
 {
-  margin-top: 8rem;
+  z-index: 99999999999 !important;
+  margin-top: .5rem;
+  min-width:fit-content !important;
+  max-width: 30rem !important;
 }
 .navbartop-container a{
   text-decoration: none;
@@ -161,7 +164,10 @@ justify-content: flex-end;
 display: none;
 }
 @media screen and (max-width: 992px) {
-
+.toast-wrap
+{
+  margin-top: 3rem;
+}
   .med-search-icon
   {
     display: flex;
@@ -186,7 +192,7 @@ display: none;
 }
 .icons-right
 {
-  width:40%;
+  width:45%;
   padding-right: 1rem;
 }
 .search-icon

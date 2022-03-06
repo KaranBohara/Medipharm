@@ -1,16 +1,15 @@
-import { createStore, applyMiddleware } from 'redux'
-import createSagaMiddleware from 'redux-saga'
-// import logger from 'redux-logger'
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from '@redux-devtools/extension';
+import rootReducer from './reducers/rootReducer';
+import rootSaga from './sagas/rootSaga';
 
-import rootReducer from './reducers/rootReducer'
-import rootSaga from './sagas/rootSaga'
-
-import { checkUser } from './services/UserService'
-import { userLoggedIn } from './actions/userActions'
+import { checkUser } from './services/UserService';
+import { userLoggedIn } from './actions/userActions';
 
 const saga = createSagaMiddleware()
 
-const store = createStore(rootReducer, applyMiddleware(saga))
+const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(saga)) )
 
 const user = checkUser()
 if (user) {

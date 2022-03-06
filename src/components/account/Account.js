@@ -1,37 +1,30 @@
 import React,{useEffect} from 'react';
 import Navbartop from '../Navbar/Navbartop';
 import {useHistory } from 'react-router-dom';
-import { Tabs } from 'antd';
-
+import { connect } from 'react-redux'
+import { logoutUserAction } from '../../actions/userActions'
 import './Account.css';
+import defaultAvtar from "../../assets/profile.jpg";
 
-const Account = () => {
-    const { TabPane } = Tabs;
+const Account = (props) => {
+   const {user}=props;
     const history=useHistory();
-    const handleClick= ()=> {
-        history.push('/loginclient')
-    }
+    const handleLogout = () => {
+      props.dispatch(logoutUserAction())
+  }
     const userInfo=JSON.parse(localStorage.getItem('User'));
     return (
         <div>
-        <div>
-            <Navbartop/>
+        <div className='account-tabs-container'>
+        <div className='profile-container'>
+        <div className='profile-account-pic'>
+        <img src={defaultAvtar} alt=''/>
         </div>
-        <>
-        <Tabs tabPosition="left">
-          <TabPane tab="Tab 1" key="1">
-            Content of Tab 1
-          </TabPane>
-          <TabPane tab="Tab 2" key="2">
-            Content of Tab 2
-          </TabPane>
-          <TabPane tab="Tab 3" key="3">
-            Content of Tab 3
-          </TabPane>
-        </Tabs>
-        </>
+        </div>
+        </div>
         </div>
     )
 }
+const mapStateToProps = ({ user }) => ({ user })
 
-export default Account;
+export default connect(mapStateToProps)(Account);
