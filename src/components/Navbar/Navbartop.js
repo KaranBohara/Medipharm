@@ -42,14 +42,20 @@ const Navbartop = (props) => {
           <Menu.Item key="1">
             <div><Link className="link-decoration-body" to="/myorders">Your Orders</Link></div>
           </Menu.Item>
-          <Menu.Item key="3">
+          <Menu.Item key="2">
           <div><Link className="link-decoration-body" to="/myvouchers"></Link>Your Vouchers</div>
           </Menu.Item>
+          <Menu.Item key="3">
+          <div><Link className="link-decoration-body" to="/myvouchers"></Link>Saved Addresses</div>
+          </Menu.Item>
           <Menu.Item key="4">
+          <div><Link className="link-decoration-body" to="/myvouchers"></Link>Returns & Exchange</div>
+          </Menu.Item>
+          <Menu.Item key="5">
           <div><Link className="link-decoration-body" to="/passwordreset">Change Password</Link></div>
           </Menu.Item>
           <Menu.Divider />
-          <Menu.Item key="5" onClick={handleLogout}><div>Logout</div></Menu.Item>
+          <Menu.Item key="6" onClick={handleLogout}><div>Logout</div></Menu.Item>
         </Menu>
       );
     return (      

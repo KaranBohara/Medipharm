@@ -1,6 +1,6 @@
 import axios from "axios";
-// const baseurl='https://medpharmacy-backend-mysql.herokuapp.com/api/v1/user/'
-const baseurl="http://localhost:5000/api/v1/user/";
+const baseurl='https://medpharmacy-backend-mysql.herokuapp.com/api/v1/user/'
+// const baseurl="http://localhost:5000/api/v1/user/";
 
 export const register=async inputs=>
 {
