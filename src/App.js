@@ -1,4 +1,5 @@
 import { Route,Switch,Redirect } from "react-router-dom";
+import React from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import Mobilefooter from "./components/Phone_footer_fixed/Mobilefooter";
@@ -14,8 +15,8 @@ import AdminLogin from "./admin/components/Login/AdminLogin";
 import Dashboard from "./admin/components/AdminProfile/Dashboard";
 import ProductsRoutes from "./pages/Products_pages/ProductsRoutes";
 import MedipharmCart from "./components/MedipharmCart/MedipharmCart";
-import React from "react";
 import Account from "./components/account/Account";
+import Product from "./components/Products_page/Products_Page/Product";
 // https://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames?page=4&pagesize=100
 
 const App=(props)=> {
@@ -25,7 +26,7 @@ const App=(props)=> {
       <GlobalAlert/>
       <Switch>
         <Route path="/" exact render={() =>{return <Homepage/> }}/>
-        <Route path="/product" component={ProductsRoutes}/>
+        <Route path="/products" component={ProductsRoutes}/>
         <Route exact path="/loginclient" render={()=>{return user?<Redirect to='/'/>:<Loginpage/>}}/>
         <Route exact path='/cart' component={MedipharmCart}/>
         <Route exact path="/forgotpassword" component={Forgotpassword}/>
@@ -34,6 +35,7 @@ const App=(props)=> {
         <Route exact path="/myaccount" render={()=>{return user?<Account/>:<Redirect to='/loginclient'/>}} />
         <Route exact path='/searchpage' component={Searchpage}/>
         <Route exact path="/signupclient" render={()=>{return user?<Redirect to='/'/>:<Signuppage/>}}/>
+        <Route exact path="/product/:category/:product/:pid" component={Product}/>
         <Route path="/admin/dashboard" component={Dashboard}/>
         <Route exact path="/admin/login"component={AdminLogin}/>
         </Switch>

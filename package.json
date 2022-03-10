@@ -40,6 +40,7 @@
     "react-final-form": "^6.5.7",
     "react-flickity-component": "^3.6.2",
     "react-icons": "^4.3.1",
+    "react-image-magnify": "^2.7.4",
     "react-images-upload": "^1.2.8",
     "react-multi-carousel": "^2.6.5",
     "react-redux": "^7.2.6",

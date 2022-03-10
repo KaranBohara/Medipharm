@@ -29,14 +29,15 @@ const ProductsRoutes = () => {
         <Filtertaskbar/>
         <div className="product-section">
         <Switch>
-        <Route path="/product" exact component={CovidEssentials}/>
-        <Route path="/product/eyewear" component={Eyewear}/>
-        <Route path="/product/ayush" component={Ayush}/>
-        <Route path="/product/fitness" component={Fitness}/>
-        <Route path="/product/mombaby" component={MomBaby}/>
-        <Route path="/product/devices" component={Devices}/>
-        <Route path="/product/surgicals" component={Surgicals}/>
-        <Route path="/product/treatment" component={Treatment}/>
+        <Route path="/products" exact component={CovidEssentials}/>
+        <Route path="/products/covidessentials" exact component={CovidEssentials}/>
+        <Route path="/products/eyewear" exact component={Eyewear}/>
+        <Route path="/products/ayush" exact component={Ayush}/>
+        <Route path="/products/fitness"  exact component={Fitness}/>
+        <Route path="/products/mombaby"  exact component={MomBaby}/>
+        <Route path="/products/devices"  exact component={Devices}/>
+        <Route path="/products/surgicals"  exact component={Surgicals}/>
+        <Route path="/products/treatment"  exact component={Treatment}/>
         </Switch>
         </div>
         </div>

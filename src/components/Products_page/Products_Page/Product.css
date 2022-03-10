@@ -1,0 +1,25 @@
+.breadcrumbs-container
+{
+    display: flex;
+    justify-content: flex-start
+}
+.breadcrumbs-container span
+{
+    color:rgb(189, 189, 189);
+    margin-right: .15rem;
+    font-size: 1rem;
+}
+.breadcrumbs-container :last-child
+{
+    color: black;
+    margin-right: .15rem;
+    font-size: 1rem;
+}
+.product-large-image
+{
+    border: 1px solid rgb(201, 201, 201);
+}
+.product-large-image img
+{
+    width: 50%;
+}
