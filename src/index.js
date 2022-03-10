@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';

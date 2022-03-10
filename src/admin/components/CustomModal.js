@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 const CustomModal = (props) => {
     console.log(props)
   return(
-      <>
+      <div>
       <Modal
         show={props.show}
         size="lg"
@@ -28,7 +28,7 @@ const CustomModal = (props) => {
         {props.component}
         </Modal.Body>
       </Modal>
-      </>
+      </div>
   );
 };
 
