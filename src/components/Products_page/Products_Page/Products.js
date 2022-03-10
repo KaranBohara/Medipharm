@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
 import apiCollection from '../../../api/api';
 import LoadingImage from "../../../admin/assets/loading.gif";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import { Button } from 'antd';
 // import Medicines from "../Filter_component/medicines.json";
 let bestPrice = 0;
 const Products = () => {
@@ -35,6 +36,7 @@ const Products = () => {
                                 <div className="product-manufacturer">{item.Manufacturer}</div>
                                 <div className="product-bestprice">Rs.{bestPrice}</div>
                                 <div className="product-price">Rs.{item.Price}</div>
+                                <Button type="primary" className="cart-btn">ADD TO CART</Button>
                             </div>
                             </Link>
                     );

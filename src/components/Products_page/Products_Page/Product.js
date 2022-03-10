@@ -22,15 +22,15 @@ const Product = () => {
   return (
       <div>
       <div><Navbartop/></div>
-      <div className='container-fluid mt-5'>
+      <div className='container-fluid product-background'>
       <div className='row'>
       <div className='col-lg-10 mx-auto py-2 breadcrumbs-container'>
       <span>Home /</span><span>{params.category} /</span><span>{params.product}</span>
       </div>
       </div>
       <div className='row'>
-      <div className='col-lg-10 mx-auto py-2 breadcrumbs-container'>
-      <div className='col-4 product-large-image'>
+      <div className='col-lg-10 mx-auto py-2 product-body-container'>
+      <div className='col-lg-5 col-md-8 col-sm-8 product-large-image'>
       {medicine.map((item,index)=>{
         const props = {width: 400, height: 250, zoomWidth: 500, img:item.Image};
         return( <ReactImageMagnify
@@ -45,13 +45,20 @@ const Product = () => {
             largeImage: {
               alt: "",
               src: item.Image,
-              width: 700,
-              height: 700
+              width: 900,
+              height:900
             },
+            shouldUsePositiveSpaceLens: true,
             isHintEnabled: true
           }}
         />)
       })}
+      </div>
+      <div className='col-lg-7'>
+      {medicine.map((item,index)=>
+        {
+          return(<div className='col-12 individual-product-name' key={index}>{item.ProductName}</div>)
+        })}
       </div>
       </div>
       </div>
