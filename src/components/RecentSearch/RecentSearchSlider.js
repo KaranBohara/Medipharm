@@ -17,7 +17,7 @@ const responsive = {
 const RecentSearchSlider = ({ data }) => {
   const item=data.data;
   return (
-    <div className="search-slider">
+    <div className="col-12 border border-dark">
       <Carousel
         swipeable={true}
         arrows={false}
@@ -34,7 +34,7 @@ const RecentSearchSlider = ({ data }) => {
       ><div>
        {item && item.map((val, index) => {
           return (
-            <div className="search-slider-container" key={index}>
+            <div className="search-slider-container col-12 border border-dark" key={index}>
               <div className="image-box">
                 <img src={val.Image} alt="Slides" />
               </div>

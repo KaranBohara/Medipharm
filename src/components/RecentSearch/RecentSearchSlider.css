@@ -9,10 +9,11 @@
 {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     background-color: white;
     border-radius: .3rem;
+    border: 2px solid red;
 }
 .search-slider-container .image-box
 {
