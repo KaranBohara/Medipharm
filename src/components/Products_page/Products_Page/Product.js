@@ -2,12 +2,17 @@ import React,{useEffect,useState} from 'react';
 import apiCollection from '../../../api/api.js';
 import Navbartop from "../../Navbar/Navbartop.js";
 import ReactImageMagnify from "react-image-magnify";
+import "./StarRating.css";
+// import Slider from 'react-slick';
 import "./Product.css";
 import { useParams } from "react-router-dom";
 
 const Product = () => {
   const params=useParams();
   const [medicine, setMedicine] = useState([]);
+  const starsTotal = 5;
+  const starPercentage = (3.5 / starsTotal) * 100;
+  const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
   const getMedicines=()=>
   {
    apiCollection.getProductById(params.pid)
@@ -33,7 +38,9 @@ const Product = () => {
       <div className='col-lg-5 col-md-8 col-sm-8 product-large-image'>
       {medicine.map((item,index)=>{
         const props = {width: 400, height: 250, zoomWidth: 500, img:item.Image};
-        return( <ReactImageMagnify
+        return( 
+          <ReactImageMagnify
+          key={index}
           {...{
             smallImage: {
               alt: "Wristwatch by Ted Baker London",
@@ -49,15 +56,33 @@ const Product = () => {
               height:900
             },
             shouldUsePositiveSpaceLens: true,
-            isHintEnabled: true
+            isHintEnabled: true,
+            enlargedImagePosition:"over",
           }}
-        />)
+        />
+       )
       })}
       </div>
       <div className='col-lg-7'>
       {medicine.map((item,index)=>
         {
-          return(<div className='col-12 individual-product-name' key={index}>{item.ProductName}</div>)
+          return(
+            <div className='row px-2'>
+            <div className='col-12 individual-image'><img src={item.Image} alt="" width="100%"/></div>
+            <div className='col-12 individual-product-name' key={index}>{item.ProductName}</div>
+            <div className='col-12 individual-product-category'>{item.Category}</div>
+            <div className='individual-product-rating'>
+            <div className='individual-rating-star'>
+            <div className="seller-rating">
+            <div className="rating-outerstar">
+            <div className="rating-innerstar" style={{ width: starPercentageRounded }}></div>
+            </div>
+            </div>
+            </div>
+            <div className='col-4 individual-review'>1 Rating & 2 Reviews</div>
+            </div>
+            </div>
+          )
         })}
       </div>
       </div>
