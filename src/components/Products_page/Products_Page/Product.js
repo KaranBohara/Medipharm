@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import apiCollection from '../../../api/api.js';
 import Navbartop from "../../Navbar/Navbartop.js";
 import ReactImageMagnify from "react-image-magnify";
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import "./StarRating.css";
 // import Slider from 'react-slick';
 import "./Product.css";
@@ -29,33 +30,31 @@ const Product = () => {
       <div><Navbartop/></div>
       <div className='container-fluid product-background'>
       <div className='row'>
-      <div className='col-lg-10 mx-auto py-2 breadcrumbs-container'>
+      <div className='col-lg-10 col-md-12 mx-auto py-2 breadcrumbs-container'>
       <span>Home /</span><span>{params.category} /</span><span>{params.product}</span>
       </div>
       </div>
       <div className='row'>
-      <div className='col-lg-10 mx-auto py-2 product-body-container'>
-      <div className='col-lg-5 col-md-8 col-sm-8 product-large-image'>
+      <div className='col-lg-10 mx-auto product-body-container'>
+      <div className=' product-large-image'>
       {medicine.map((item,index)=>{
-        const props = {width: 400, height: 250, zoomWidth: 500, img:item.Image};
         return( 
           <ReactImageMagnify
           key={index}
           {...{
             smallImage: {
-              alt: "Wristwatch by Ted Baker London",
+              alt: item.ProductName,
               isFluidWidth: true,
               src: item.Image,
-              sizes:
-                "(min-width: 800px) 33.5vw, (min-width: 415px) 50vw, 100vw"
+              width:100,
+              height:200,
             },
             largeImage: {
-              alt: "",
+              alt: item.ProductName,
               src: item.Image,
               width: 900,
               height:900
             },
-            shouldUsePositiveSpaceLens: true,
             isHintEnabled: true,
             enlargedImagePosition:"over",
           }}
@@ -63,15 +62,16 @@ const Product = () => {
        )
       })}
       </div>
-      <div className='col-lg-7'>
+      <div className='product-right-wrap'>
       {medicine.map((item,index)=>
         {
+         const bestPrice = item.Price - ((item.Discount * item.Price) / 100);
           return(
             <div className='row px-2'>
-            <div className='col-12 individual-image'><img src={item.Image} alt="" width="100%"/></div>
+            <div className='col-10 mx-auto individual-image'><img src={item.Image} alt="" width="100%"/></div>
             <div className='col-12 individual-product-name' key={index}>{item.ProductName}</div>
             <div className='col-12 individual-product-category'>{item.Category}</div>
-            <div className='individual-product-rating'>
+            <div className='col-12 individual-product-rating'>
             <div className='individual-rating-star'>
             <div className="seller-rating">
             <div className="rating-outerstar">
@@ -79,8 +79,10 @@ const Product = () => {
             </div>
             </div>
             </div>
-            <div className='col-4 individual-review'>1 Rating & 2 Reviews</div>
+            <div className='individual-review'>1 Rating & 2 Reviews</div>
             </div>
+            <div className='individual-best-price'><span style={{fontSize:"1rem",color:"black",marginRight:".5rem"}}>Best Price- </span><CurrencyRupeeIcon/>{bestPrice}</div>
+            <div className="individual-product-manufacturer"><span style={{marginRight:".5rem"}}>Manufacturer -</span>{item.Manufacturer}</div>
             </div>
           )
         })}
