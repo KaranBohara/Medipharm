@@ -18,26 +18,26 @@ const Product = () => {
   const starsTotal = 5;
   const starPercentage = (3.5 / starsTotal) * 100;
   const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-  const getMedicine=()=>
+  const getMedicine=React.useCallback(()=>
   {
    apiCollection.getProductById(params.pid)
   .then(response => {
    const myMed=response.data.data;
    setMedicine(myMed);
 });
-  };
-  const getMedicines=()=>
+  },[params.pid])
+  const getMedicines=React.useCallback(()=>
     {
       apiCollection.getProduct()
     .then(response => {
     const myMed=response.data;
      setItems(myMed)
 });
-    };
+    },[])
   useEffect(() => {
     getMedicine();
     getMedicines();
-}, [medicine,items]);
+}, [getMedicine,getMedicines,medicine,items]);
   return (
       <div>
       <div><Navbartop/></div>

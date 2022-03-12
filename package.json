@@ -34,7 +34,7 @@
     "mui": "0.0.1",
     "muicss": "^0.10.3",
     "prop-types": "^15.8.1",
-    "react": "^16.13.1",
+    "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",
     "react-bootstrap-carousel": "^4.1.1",
     "react-dom": "^16.13.1",

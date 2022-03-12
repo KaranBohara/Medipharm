@@ -7,13 +7,17 @@ import "./MedipharmCart.css";
 
 const MedipharmCart = () => {
     const [cart,setCart]=useState(true)
+    const handleCart=()=>
+    {
+      setCart(false)
+    }
   return <div>
       <div>
         <Navbartop/>
         </div>
         <div className='container-fluid p-0 mt-1 d-flex'>
             {cart?
-            <div className='cart-background'>
+            <div onClick={handleCart} className='cart-background'>
              <Emptycart/>
             </div>:
             <div className='cart-container'>

@@ -52,7 +52,7 @@ const MultiCarousel = () => {
       items: 1,
       partialVisibilityGutter: 30
     },
-    tablet: {
+    ltablet: {
       breakpoint: {
         max: 992,
         min: 786
@@ -60,7 +60,7 @@ const MultiCarousel = () => {
       items: 3,
       partialVisibilityGutter: 30
     },
-    tablet: {
+    mtablet: {
         breakpoint: {
           max: 786,
           min: 592
@@ -68,7 +68,7 @@ const MultiCarousel = () => {
         items: 2,
         partialVisibilityGutter: 30
       },
-      tablet: {
+      stablet: {
         breakpoint: {
           max: 592,
           min: 412

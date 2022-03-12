@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import "./Searchpage.css";
 import SearchBar from "../SearchBar/SearchBar";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -13,14 +13,14 @@ const Searchpage=()=>
 {
     const history=useHistory();
     const [items,setItems]=useState([]);
-    const getMedicines=()=>
+    const getMedicines=React.useCallback(()=>
     {
      apiCollection.getProduct()
     .then(response => {
     const myMed=response.data;
      setItems(myMed)
     });
-    };
+    },[])
     useEffect(() => {
         getMedicines();
 }, [getMedicines]);

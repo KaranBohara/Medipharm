@@ -20,7 +20,7 @@ const EditProduct = (props) => {
       .then((val) => {
         setData(val);
       });
-  },[]);
+  },[props.currentId]);
   const onSubmit =async () => {
   await fetch(`http://localhost:5000/product/${props.currentId}`, {
       method: "PUT",

@@ -3,11 +3,11 @@ import "../Login/Login.css";
 import Medilogo from "../../assets/medicine.png";
 import {Link} from "react-router-dom";
 import LoginImage from "../../assets/needs.png"
-const onSubmit = async (values) => {
-  console.log(values);
+// const onSubmit = async (values) => {
+//   console.log(values);
 
-}
-const required=(value)=>(value?undefined:"Required")
+// }
+// const required=(value)=>(value?undefined:"Required")
 const Forgotpassword=()=>
 {
   function handleSave(event) {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link,useHistory} from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Form} from 'react-bootstrap';
 import {connect} from "react-redux"
 import {registerUserAction} from "../../actions/userActions.js";
@@ -8,7 +8,6 @@ import LoginImage from "../../assets/needs.png"
 const Signup = ({register}) => {
   const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmPassword: "" });
   const [errors, setErrors] = useState({});
-  const history=useHistory();
   function handleChange(event) {
       const { name, value } = event.target;
       setUserData(prevData => ({

@@ -1,6 +1,5 @@
-import React,{useEffect} from 'react';
-import Navbartop from '../Navbar/Navbartop';
-import {useHistory } from 'react-router-dom';
+import React from 'react';
+// import {useHistory } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { logoutUserAction } from '../../actions/userActions';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -9,11 +8,11 @@ import defaultAvtar from "../../assets/profile.jpg";
 
 const Account = (props) => {
    const {user}=props;
-    const history=useHistory();
+    // const history=useHistory();
     const handleLogout = () => {
       props.dispatch(logoutUserAction())
   }
-    const userInfo=JSON.parse(localStorage.getItem('User'));
+    // const userInfo=JSON.parse(localStorage.getItem('User'));
     return (
         <div>
         <div className='account-tabs-container'>
