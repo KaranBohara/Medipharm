@@ -1,10 +1,9 @@
-import React, { useState,useEffect} from "react";
+import React from "react";
 import {NavLink,Link} from "react-router-dom";
 import { Menu, Dropdown} from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux'
 import { logoutUserAction } from '../../actions/userActions'
-import apiCollection from "../../api/api";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Navbartop.css";
 import "./Navbarbottom.css";
@@ -23,17 +22,6 @@ const Navbartop = (props) => {
     const handleLogout = () => {
         props.dispatch(logoutUserAction())
     }
-    const [items,setItems]=useState([])
-    const getMedicines=()=>
-    {
-     apiCollection.getProduct()
-    .then(response => {
-     setItems(response.data)
-    });
-    };
-    useEffect(() => {
-            getMedicines();
-    }, [items])
     const menu = (
         <Menu>
           <Menu.Item key="0">
@@ -69,7 +57,7 @@ const Navbartop = (props) => {
             </div>
             
             <div className="search-container">
-               <SearchBar placeholder="Search for products" data={items}/>
+               <SearchBar placeholder="Search for products"/>
             </div>
             <div className="icons-right">
                 <div className="med-search-icon"><Link to='/searchpage'><SearchOutlinedIcon className="search-icon"/></Link>

@@ -1,31 +1,32 @@
-import React,{ useState,useEffect } from "react";
+import React,{ useState,useEffect,useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
 import apiCollection from '../../../api/api';
-import LoadingImage from "../../../admin/assets/loading.gif";
 import {Link} from "react-router-dom";
 import { Button } from 'antd';
 // import Medicines from "../Filter_component/medicines.json";
 let bestPrice = 0;
 const Products = () => {
     const [medicines, setMedicines] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const getMedicines=()=>
-    {
-     apiCollection.getProduct()
-    .then(response => {
-     const myMed=response.data.data;
-     setMedicines(myMed);
-});
-    };
+    const [loading, setLoading] = useState(false);
+    const componentMounted = useRef(true)
     useEffect(() => {
-        getMedicines();
-        if (medicines.length > 0) {
+      setLoading(true);
+      if (componentMounted.current){
+        apiCollection.getProduct()
+        .then((res)=>
+        {
+          const myMed=res.data.data;
+          setMedicines(myMed);
             setLoading(false);
-          }
+            console.log(loading);
+        })
+      }
+      return () => { 
+        componentMounted.current = false; 
+    }
     }, [medicines]);
     return (<div className="products-container">
-    {loading?<div className="loading-container"><img src={LoadingImage} width="65rem" height="65rem" alt="loading"/></div>:""}
                 {medicines.map((item, index) => {
                     bestPrice = item.Price - ((item.Discount * item.Price) / 100);
                     return (      <Link to={`/product/${item.Category}/${item.ProductName}/${item.PId}`} className="link-decoration-body" key={index}>             

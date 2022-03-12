@@ -2,13 +2,14 @@ import axios from "axios";
 const baseurl='https://medpharmacy-backend-mysql.herokuapp.com/api/v1/'
 // const baseurl='http://localhost:5000/api/v1/';
 const apiCollection={
-    getProduct:function ()
+    getProduct:async function ()
     {
-        return axios.get(`${baseurl}product`);
+        const product= await axios.get(`${baseurl}product`);
+        return product;
     },
-    getProductById:function (pid)
+    getProductById:async function (pid)
     {
-        return axios.get(`${baseurl}product/${pid}`)
+        return await axios.get(`${baseurl}product/${pid}`)
     }
 }
 export default apiCollection;

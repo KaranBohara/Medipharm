@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,useRef} from 'react';
 import apiCollection from '../../../api/api.js';
 import Navbartop from "../../Navbar/Navbartop.js";
 import ReactImageMagnify from "react-image-magnify";
@@ -14,30 +14,35 @@ import MultiCarousel from '../../Multi-Carousel/MultiCarousel.js';
 const Product = () => {
   const params=useParams();
   const [medicine, setMedicine] = useState([]);
-  const [items,setItems]=useState([]);
+  const [medicines,setMedicines]=useState([]);
+  const [loading, setLoading] = useState(false);
+  const componentMounted = useRef(true)
   const starsTotal = 5;
   const starPercentage = (3.5 / starsTotal) * 100;
   const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-  const getMedicine=React.useCallback(()=>
-  {
-   apiCollection.getProductById(params.pid)
-  .then(response => {
-   const myMed=response.data.data;
-   setMedicine(myMed);
-});
-  },[params.pid])
-  const getMedicines=React.useCallback(()=>
-    {
-      apiCollection.getProduct()
-    .then(response => {
-    const myMed=response.data;
-     setItems(myMed)
-});
-    },[])
   useEffect(() => {
-    getMedicine();
-    getMedicines();
-}, [getMedicine,getMedicines,medicine,items]);
+  setLoading(true);
+  if (componentMounted.current){
+    apiCollection.getProduct()
+    .then((res)=>
+    {
+      const myMed=res.data.data;
+      setMedicines(myMed);
+      setLoading(false);
+      console.log(loading);
+    })
+    apiCollection.getProductById(params.pid)
+    .then(response => {
+     const myMed=response.data.data;
+     setMedicine(myMed);
+     setLoading(false);
+     console.log(loading);
+  });
+  }
+  return () => { 
+    componentMounted.current = false; 
+}
+}, [medicines]);
   return (
       <div>
       <div><Navbartop/></div>

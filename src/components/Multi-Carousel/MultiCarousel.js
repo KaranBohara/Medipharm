@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from "react";
+import React,{useState,useEffect,useRef} from "react";
 import apiCollection from "../../api/api";
 import Carousel from 'react-multi-carousel';
 import {Link} from "react-router-dom";
@@ -6,16 +6,23 @@ import { Button } from 'antd';
 
 const MultiCarousel = () => {
     const [medicines, setMedicines] = useState([]);
-    const getMedicines=()=>
-    {
-     apiCollection.getProduct()
-    .then(response => {
-     const myMed=response.data.data;
-     setMedicines(myMed);
-});
-    };
+    const [loading, setLoading] = useState(false);
+    const componentMounted = useRef(true)
     useEffect(() => {
-        getMedicines();
+      setLoading(true);
+      if (componentMounted.current){
+        apiCollection.getProduct()
+        .then((res)=>
+        {
+          const myMed=res.data.data;
+          setMedicines(myMed);
+          setLoading(false);
+          console.log(loading);
+        })
+      }
+      return () => { 
+        componentMounted.current = false; 
+    }
     }, [medicines]);
   return (
     <div className="col-12">
@@ -46,7 +53,7 @@ const MultiCarousel = () => {
     },
     mobile: {
       breakpoint: {
-        max: 412,
+        max: 592,
         min: 0
       },
       items: 1,
@@ -68,14 +75,6 @@ const MultiCarousel = () => {
         items: 2,
         partialVisibilityGutter: 30
       },
-      stablet: {
-        breakpoint: {
-          max: 592,
-          min: 412
-        },
-        items: 2,
-        partialVisibilityGutter: 30
-      }
   }}
   showDots={false}
   sliderClass=""
