@@ -28,7 +28,7 @@ const MultiCarousel = () => {
     <div className="col-12">
     <Carousel
   additionalTransfrom={0}
-  arrows
+  arrows={false}
   autoPlay={false}
   centerMode={false}
   className=""
@@ -57,7 +57,9 @@ const MultiCarousel = () => {
         min: 0
       },
       items: 1,
-      partialVisibilityGutter: 30
+      partialVisibilityGutter: 30,
+      arrows:false,
+      autoPlay:false
     },
     ltablet: {
       breakpoint: {
@@ -84,7 +86,7 @@ const MultiCarousel = () => {
 {medicines.map((item, index) => {
     const bestPrice = item.Price - ((item.Discount * item.Price) / 100);
     return (      <Link to={`/product/${item.Category}/${item.ProductName}/${item.PId}`} className="link-decoration-body" key={index}>             
-            <div className="animate__animated animate__jackInTheBox product-box" style={{marginRight:"1rem"}}>
+            <div className="animate__animated animate__jackInTheBox product-box">
                 <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.Discount}%OFF</span></div>
                 <div className="product-image-box"><img alt="product" src={item.Image}></img></div>
                 <div className="product-name">{item.ProductName}</div>

@@ -9,14 +9,14 @@
   }
   .phone-search-wrap .arrow-icon {
     position: absolute;
-    top:2.5%;
+    top:1.7%;
     left: 1%;
     cursor: pointer;
   }
   .phone-search-wrap .microphone-icon
   {
       position: absolute;
-      top:2.5%;
+      top:1.7%;
       right: 1.5%;
       cursor: pointer;
   }

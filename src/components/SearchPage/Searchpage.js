@@ -27,7 +27,7 @@ const Searchpage=()=>
     return(<div>
         <div className="phone-search-wrap">
         <ArrowBackIcon className='arrow-icon' onClick={() => history.goBack()}/>
-        <SearchBar placeholder="Search for products" data={items}/>
+        <SearchBar placeholder="Search for products"/>
         <KeyboardVoiceIcon className="microphone-icon"/>
         </div>
         <div className="hide-component">

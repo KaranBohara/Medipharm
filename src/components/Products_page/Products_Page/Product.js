@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect} from 'react';
 import { connect } from 'react-redux';
 import {getProductRequest } from '../../../actions/productActions.js';
 import Navbartop from "../../Navbar/Navbartop.js";
@@ -14,7 +14,6 @@ import MultiCarousel from '../../Multi-Carousel/MultiCarousel.js';
 
 const Product = (props) => {
   const {getProductRequest,product}=props;
-  console.log(product);
   const params=useParams();
   useEffect(() => {
     getProductRequest(params.pid);
@@ -64,8 +63,8 @@ const Product = (props) => {
         {
          const bestPrice = item.Price - ((item.Discount * item.Price) / 100);
           return(
-            <div className='row px-2' key={index}>
-            <div className='col-10 mx-auto individual-image'><img src={item.Image} alt="" width="100%"/></div>
+            <div className='row ' key={index}>
+            <div className='col-10 mx-auto individual-image'><img src={item.Image} alt="" width="80%" height="auto"/></div>
             <div className='col-12 individual-product-name'>{item.ProductName}</div>
             <div className='col-12 individual-product-category'>{item.Category}</div>
             <div className='col-12 individual-product-rating'>
@@ -80,7 +79,7 @@ const Product = (props) => {
             </div>
             <div className='col-12 individual-best-price'><span style={{fontSize:"1rem",color:"black",marginRight:".5rem"}}>Best Price- </span><CurrencyRupeeIcon/>{bestPrice}</div>
             <div className="col-12 individual-product-manufacturer"><span style={{marginRight:".5rem"}}>Manufacturer -</span>{item.Manufacturer}</div>
-            <Button type="primary" className="col-12 individual-cart-button">ADD TO CART</Button>
+            <div className='col-12'><Button type="primary" className="col-12 individual-cart-button">ADD TO CART</Button></div>
             <div className='col-12 individual-description'>
             <div className='col-12 desc-tag'>Description :</div>
             <div className='col-lg-8 col-sm-12 desc-body'>{item.Description}</div>
@@ -96,7 +95,7 @@ const Product = (props) => {
       <div className='col-lg-10 mx-auto mt-3 head-label '>Similar Products</div>
       </div>
       <div className='row'>
-      <div className='col-lg-10 mx-auto col-11 mt-3 px-0 carousel-area'>
+      <div className='col-lg-10 col-12 mx-auto col-12 mt-3 carousel-area'>
       <MultiCarousel/>
       </div>
       </div>
