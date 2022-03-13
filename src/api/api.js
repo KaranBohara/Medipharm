@@ -9,7 +9,8 @@ const apiCollection={
     },
     getProductById:async function (pid)
     {
-        return await axios.get(`${baseurl}product/${pid}`)
+        const product= await axios.get(`${baseurl}product/${pid}`);
+        return product;
     }
 }
 export default apiCollection;

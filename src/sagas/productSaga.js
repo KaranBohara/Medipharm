@@ -1,4 +1,4 @@
-import { takeEvery, call, put, fork, all } from 'redux-saga/effects';
+import { takeEvery, call, put, all } from 'redux-saga/effects';
 import * as actions from '../actions/productActions';
 import apiCollection from '../api/api';
 
@@ -10,11 +10,22 @@ function* getProducts() {
     console.error(error);
   }
 }
-
+function* getProductById({id}) {
+try{
+  const result= yield call(apiCollection.getProductById,id);
+  yield put(actions.getProductSuccess(result.data.data));
+}
+catch(err){
+  console.log(err);
+}
+}
 function* watchGetProductsRequest() {
   yield takeEvery(actions.Types.GET_PRODUCTS_REQUEST, getProducts);
 }
+function* watchGetProductRequest() {
+  yield takeEvery(actions.Types.GET_PRODUCTBYID_REQUEST, getProductById);
+}
 export function* productSaga()
 {
-  yield all([watchGetProductsRequest()]);
+  yield all([watchGetProductsRequest(),watchGetProductRequest()]);
 }

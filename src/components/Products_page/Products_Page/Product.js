@@ -1,48 +1,27 @@
-import React,{useEffect,useState,useRef} from 'react';
-import apiCollection from '../../../api/api.js';
+import React,{useEffect,useState} from 'react';
+import { connect } from 'react-redux';
+import {getProductRequest } from '../../../actions/productActions.js';
 import Navbartop from "../../Navbar/Navbartop.js";
+import loadingImage from "../../../assets/loading.gif"
 import ReactImageMagnify from "react-image-magnify";
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import Desktopfooter from '../../Desktop_footer/Desktopfooter.js';
 import { Button } from 'antd';
 import "./StarRating.css";
-// import Slider from 'react-slick';
 import "./Product.css";
 import { useParams } from "react-router-dom";
 import MultiCarousel from '../../Multi-Carousel/MultiCarousel.js';
 
-const Product = () => {
+const Product = (props) => {
+  const {getProductRequest,product}=props;
+  console.log(product);
   const params=useParams();
-  const [medicine, setMedicine] = useState([]);
-  const [medicines,setMedicines]=useState([]);
-  const [loading, setLoading] = useState(false);
-  const componentMounted = useRef(true)
+  useEffect(() => {
+    getProductRequest(params.pid);
+}, [getProductRequest]);
   const starsTotal = 5;
   const starPercentage = (3.5 / starsTotal) * 100;
   const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-  useEffect(() => {
-  setLoading(true);
-  if (componentMounted.current){
-    apiCollection.getProduct()
-    .then((res)=>
-    {
-      const myMed=res.data.data;
-      setMedicines(myMed);
-      setLoading(false);
-      console.log(loading);
-    })
-    apiCollection.getProductById(params.pid)
-    .then(response => {
-     const myMed=response.data.data;
-     setMedicine(myMed);
-     setLoading(false);
-     console.log(loading);
-  });
-  }
-  return () => { 
-    componentMounted.current = false; 
-}
-}, []);
   return (
       <div>
       <div><Navbartop/></div>
@@ -53,9 +32,9 @@ const Product = () => {
       </div>
       </div>
       <div className='row'>
-      {!loading?<div className='col-lg-10 mx-auto product-body-container'>
+      {product.items.length>0?<div className='col-lg-10 mx-auto product-body-container'>
       <div className=' product-large-image'>
-      {medicine.map((item,index)=>{
+    {product.items.map((item,index)=>{
         return( 
           <ReactImageMagnify
           key={index}
@@ -81,7 +60,7 @@ const Product = () => {
       })}
       </div>
       <div className='product-right-wrap'>
-      {medicine.map((item,index)=>
+      {product.items.map((item,index)=>
         {
          const bestPrice = item.Price - ((item.Discount * item.Price) / 100);
           return(
@@ -108,10 +87,10 @@ const Product = () => {
             </div>
             </div>
           )
-        })}
+        })} 
       </div>
       </div>
-      :<h3>Loading...</h3>}
+      :(<div className="col-10 loading-class"><img src={loadingImage} width="70%"/></div>)}
       </div>
       <div className='row'>
       <div className='col-lg-10 mx-auto mt-3 head-label '>Similar Products</div>
@@ -129,5 +108,9 @@ const Product = () => {
     
   )
 }
-
-export default Product
+export default connect(
+  ({product }) => ({product }),
+  {
+    getProductRequest,
+  }
+)(Product);

@@ -1,4 +1,4 @@
-import React,{ useState,useEffect} from "react";
+import React,{useEffect} from "react";
 import loadingImage from "../../../assets/loading.gif"
 import {connect} from "react-redux";
 import { getProductsRequest } from "../../../actions/productActions";
