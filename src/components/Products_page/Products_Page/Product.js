@@ -42,7 +42,7 @@ const Product = () => {
   return () => { 
     componentMounted.current = false; 
 }
-}, [medicines]);
+}, []);
   return (
       <div>
       <div><Navbartop/></div>
@@ -53,7 +53,7 @@ const Product = () => {
       </div>
       </div>
       <div className='row'>
-      <div className='col-lg-10 mx-auto product-body-container'>
+      {!loading?<div className='col-lg-10 mx-auto product-body-container'>
       <div className=' product-large-image'>
       {medicine.map((item,index)=>{
         return( 
@@ -111,6 +111,7 @@ const Product = () => {
         })}
       </div>
       </div>
+      :<h3>Loading...</h3>}
       </div>
       <div className='row'>
       <div className='col-lg-10 mx-auto mt-3 head-label '>Similar Products</div>
