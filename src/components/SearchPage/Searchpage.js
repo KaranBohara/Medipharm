@@ -7,7 +7,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import { useHistory } from "react-router-dom";
 import apiCollection from "../../api/api";
-import RecentSearchSlider from "../RecentSearch/RecentSearchSlider";
+// import RecentSearchSlider from "../RecentSearch/RecentSearchSlider";
+import MultiCarousel from "../Multi-Carousel/MultiCarousel";
 
 const Searchpage=()=>
 {
@@ -39,7 +40,7 @@ const Searchpage=()=>
         </div>
         <div className="row">
         <div className="col-12 d-flex justify-content-flex-start">
-        <RecentSearchSlider data={items} />
+        <MultiCarousel/>
         </div>
         </div>
         </div>

@@ -6,7 +6,7 @@ import Cart from './Cart';
 import "./MedipharmCart.css";
 
 const MedipharmCart = () => {
-    const [cart,setCart]=useState(true)
+    const [cart,setCart]=useState(false)
     const handleCart=()=>
     {
       setCart(false)
@@ -20,12 +20,12 @@ const MedipharmCart = () => {
             <div onClick={handleCart} className='cart-background'>
              <Emptycart/>
             </div>:
-            <div className='cart-container'>
+            <div className='col-12'>
                 <Cart/>
             </div>
 }
         </div>
-  </div>;
+  </div>
 };
 
 export default MedipharmCart;

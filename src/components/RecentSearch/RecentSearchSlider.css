@@ -1,16 +1,9 @@
 .search-slider
 {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
     margin-top: .5rem;
 }
 .search-slider-container
 {
-    width: 100%;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
     background-color: white;
     border-radius: .3rem;
     border: 2px solid red;

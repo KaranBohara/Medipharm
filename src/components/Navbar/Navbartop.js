@@ -18,10 +18,11 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import defaultAvtar from "../../assets/profile.jpg";
 
 const Navbartop = (props) => {
-    const { user } = props;
+    const { user,cart } = props;
     const handleLogout = () => {
         props.dispatch(logoutUserAction())
     }
+  const getCart=JSON.parse(localStorage.getItem('cartItem'));
     const menu = (
         <Menu>
           <Menu.Item key="0">
@@ -71,7 +72,8 @@ const Navbartop = (props) => {
                  :<NavLink to="/loginclient"><LockOpenOutlinedIcon className="userlogin-icon"/></NavLink>
                   }
                  </div>    
-                 <div className="med-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/></Link>
+                 <div className="med-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/><div className="cart-number">
+                 {cart.items.length>getCart.length?cart.items.length:getCart.length}</div></Link>
                  </div>
                  <div className="med-icon"><Link to="/wishlist"><FavoriteBorderIcon className="wishlist-icon"/></Link>
                  </div>
@@ -90,6 +92,5 @@ const Navbartop = (props) => {
         </div>
     );
 }
-const mapStateToProps = ({ user }) => ({ user })
-
+const mapStateToProps = ({ user,cart }) => ({ user,cart })
 export default connect(mapStateToProps)(Navbartop);

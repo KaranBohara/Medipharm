@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react';
 import { connect } from 'react-redux';
+import { addToCart } from "../../../actions/cartActions";
 import {getProductRequest } from '../../../actions/productActions.js';
 import Navbartop from "../../Navbar/Navbartop.js";
 import loadingImage from "../../../assets/loading.gif"
@@ -13,7 +14,7 @@ import { useParams } from "react-router-dom";
 import MultiCarousel from '../../Multi-Carousel/MultiCarousel.js';
 
 const Product = (props) => {
-  const {getProductRequest,product}=props;
+  const {getProductRequest,product,addToCart}=props;
   const params=useParams();
   useEffect(() => {
     getProductRequest(params.pid);
@@ -22,6 +23,8 @@ const Product = (props) => {
   const starPercentage = (3.5 / starsTotal) * 100;
   const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
   return (
+    <div>
+    {product.items.length>0?
       <div>
       <div><Navbartop/></div>
       <div className='container-fluid product-background'>
@@ -31,7 +34,7 @@ const Product = (props) => {
       </div>
       </div>
       <div className='row'>
-      {product.items.length>0?<div className='col-lg-10 mx-auto product-body-container'>
+      <div className='col-lg-10 mx-auto product-body-container'>
       <div className=' product-large-image'>
     {product.items.map((item,index)=>{
         return( 
@@ -79,7 +82,7 @@ const Product = (props) => {
             </div>
             <div className='col-12 individual-best-price'><span style={{fontSize:"1rem",color:"black",marginRight:".5rem"}}>Best Price- </span><CurrencyRupeeIcon/>{bestPrice}</div>
             <div className="col-12 individual-product-manufacturer"><span style={{marginRight:".5rem"}}>Manufacturer -</span>{item.Manufacturer}</div>
-            <div className='col-12'><Button type="primary" className="col-12 individual-cart-button">ADD TO CART</Button></div>
+            <div className='col-12'><Button type="primary" className="col-12 individual-cart-button" onClick={()=>addToCart(item.PId)}>ADD TO CART</Button></div>
             <div className='col-12 individual-description'>
             <div className='col-12 desc-tag'>Description :</div>
             <div className='col-lg-8 col-sm-12 desc-body'>{item.Description}</div>
@@ -89,7 +92,6 @@ const Product = (props) => {
         })} 
       </div>
       </div>
-      :(<div className="col-10 loading-class"><img src={loadingImage} width="70%"/></div>)}
       </div>
       <div className='row'>
       <div className='col-lg-10 mx-auto mt-3 head-label '>Similar Products</div>
@@ -103,13 +105,15 @@ const Product = (props) => {
       <div>
              <Desktopfooter/>
         </div>
+        </div>:<div className="col-10 loading-class"><img src={loadingImage} width="70%"/></div>}
       </div>
-    
+      
   )
 }
 export default connect(
   ({product }) => ({product }),
   {
     getProductRequest,
+    addToCart,
   }
 )(Product);
