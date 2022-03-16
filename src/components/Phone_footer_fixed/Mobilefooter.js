@@ -7,7 +7,8 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 const Mobilefooter=(props)=>
 {
-  const {user}=props;
+  const {user,cart}=props;
+  const getCart=JSON.parse(localStorage.getItem('cartItem'));
   // const history=useHistory();
     return(<div className="mobile-footer-container">
           <div className="footer-content-box" >
@@ -18,7 +19,7 @@ const Mobilefooter=(props)=>
             </div>
             <div className="footer-content-box" >
             <Link to="/cart" className="link-decoration-body"><div className="footer-content-icon">
-            <AddShoppingCartIcon/>
+            <AddShoppingCartIcon/>  {cart.items.length>getCart.length?cart.items.length:getCart.length}
             </div>
             </Link>
             </div>
@@ -44,6 +45,6 @@ const Mobilefooter=(props)=>
     </div>);
 }
 
-const mapStateToProps = ({ user }) => ({ user })
+const mapStateToProps = ({ user,cart }) => ({ user,cart })
 
 export default connect(mapStateToProps)(Mobilefooter);
