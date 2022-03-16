@@ -8,8 +8,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const Mobilefooter=(props)=>
 {
   const {user,cart}=props;
+  console.log(cart);
   const getCart=JSON.parse(localStorage.getItem('cartItem'));
-  // const history=useHistory();
     return(<div className="mobile-footer-container">
           <div className="footer-content-box" >
           <Link to="/" className="link-decoration-body"><div className="footer-content-icon">
@@ -19,7 +19,7 @@ const Mobilefooter=(props)=>
             </div>
             <div className="footer-content-box" >
             <Link to="/cart" className="link-decoration-body"><div className="footer-content-icon">
-            <AddShoppingCartIcon/>  {cart.items.length>getCart.length?cart.items.length:getCart.length}
+            <AddShoppingCartIcon/>{cart.items===''?cart.items.length>getCart.length?cart.items.length:getCart.length:""}
             </div>
             </Link>
             </div>

@@ -73,7 +73,7 @@ const Navbartop = (props) => {
                   }
                  </div>    
                  <div className="med-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/><div className="cart-number">
-                 {cart.items.length>getCart.length?cart.items.length:getCart.length}</div></Link>
+                 {cart.items===''?cart.items.length>getCart.length?cart.items.length:getCart.length:""}</div></Link>
                  </div>
                  <div className="med-icon"><Link to="/wishlist"><FavoriteBorderIcon className="wishlist-icon"/></Link>
                  </div>
