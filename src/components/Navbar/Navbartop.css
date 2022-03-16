@@ -144,7 +144,7 @@ justify-content: flex-end;
   width:10rem; 
   margin-top: .2rem;
 }
-.anticon svg
+.userlogin .anticon svg
 {
 display: none;
 }

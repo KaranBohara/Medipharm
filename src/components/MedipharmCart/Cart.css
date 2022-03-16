@@ -1,0 +1,67 @@
+.cart-image-box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.cart-image-box img{
+    width: 50%;
+    height: 100%;
+}
+.cart-item-box
+{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: auto;
+    font-family: Lato;
+    line-height: 24px;
+    letter-spacing: .15px;
+    font-style: normal;
+}
+.cart-product-name
+{
+    font-weight: 500;
+    font-size: 1.2rem;  
+    color: #151b39;
+    text-align: left;  
+    margin-top: .8rem;
+}
+.cart-product-quantity
+{
+    font-size: .85rem;
+    text-align: left;  
+    font-weight: 500;
+    color: #f50c04;
+    margin-top: .2rem;
+}
+.cart-product-price
+{
+    font-size: 1.2rem;
+    color: rgb(78,174,177);
+    text-align: left;
+    font-weight: 500;
+    margin-top: .5rem;
+}
+.cart-original-price
+{
+    font-size: 1rem;
+    margin-left: 1rem;
+    text-decoration: line-through;
+    color: #151b39;
+    font-weight: 400;
+}
+.cart-quantity
+{
+    text-align: left;
+    margin: 1rem 0rem;
+}
+.cart-qty
+{
+    width: 15%;
+}
+.ant-input-number-group-addon
+{
+    font-size: .85rem ;
+}
