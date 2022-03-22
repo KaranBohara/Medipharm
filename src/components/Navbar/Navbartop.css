@@ -74,6 +74,7 @@ justify-content: flex-end;
   width:25%;
   align-items: center;
   justify-content: flex-end;
+  height: 100%;
 }
 .account-container
 {
@@ -92,9 +93,41 @@ justify-content: flex-end;
   cursor: pointer;
   transform: scale(1.1);
 }
+.med-cart-icon{
+  position: relative;
+  display: flex;
+  min-width: 3rem;
+  align-items: center;
+  width:fit-content;
+  padding: 0rem .4rem;
+  height: 100%;
+  overflow: hidden;
+}
 .cart-icon
 {
   position: relative;
+    z-index: 1;
+    font-size: 24px;
+    color: white;
+}
+.cart-number
+{
+    position: absolute;
+    top: 22px;
+    right: 10px;
+    z-index: 2;
+    font-size: .85rem;
+    border-radius: 50%;
+    background: #F4A43A;
+    width: 20px;
+    height: 20px;
+    line-height:16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 .med-search-icon
 {
@@ -148,22 +181,6 @@ justify-content: flex-end;
 {
 display: none;
 }
-.cart-number
-{
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  right: 12.8%;
-  top:27.3%;
-  background-color: #F4A43A;
-  color:#ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  font-size: .8rem;
-}
 @media screen and (max-width: 992px) {
 .toast-wrap
 {
@@ -212,7 +229,7 @@ display: none;
   {
     height:4.2rem;
   }
-  .userlogin,.med-icon
+  .userlogin,.med-icon,.med-cart-icon
   {
     display: none;
   }

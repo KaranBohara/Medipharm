@@ -74,7 +74,7 @@ const Navbartop = (props) => {
                  :<NavLink to="/loginclient"><LockOpenOutlinedIcon className="userlogin-icon"/></NavLink>
                   }
                  </div>    
-                 <div className="med-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/>{getCart!=undefined?<div 
+                 <div className="med-cart-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/>{getCart!=undefined?<div 
                   className="cart-number">{cart.items.length>getCart.length?cart.items.length:getCart.length}</div>:""}</Link>
                  </div>
                  <div className="med-icon"><Link to="/wishlist"><FavoriteBorderIcon className="wishlist-icon"/></Link>
