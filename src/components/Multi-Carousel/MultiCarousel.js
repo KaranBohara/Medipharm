@@ -93,7 +93,6 @@ const MultiCarousel = () => {
                 <div className="product-manufacturer">{item.Manufacturer}</div>
                 <div className="product-bestprice">Rs.{bestPrice}</div>
                 <div className="product-price">Rs.{item.Price}</div>
-                <Button type="primary" className="cart-btn">ADD TO CART</Button>
             </div>
             </Link>
     );

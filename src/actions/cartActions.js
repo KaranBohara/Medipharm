@@ -12,7 +12,7 @@ export const addToCart=(PId) =>({
     type: Types.ADD_TO_CART,
     PId
   });
-
+  
 export const fetchCart=(items)=>({
   type:Types.CART_FETCH_SUCCESS,
   payload:{items}

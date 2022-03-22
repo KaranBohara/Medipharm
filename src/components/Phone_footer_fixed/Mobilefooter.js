@@ -5,11 +5,14 @@ import { connect } from 'react-redux'
 import HomeIcon from '@mui/icons-material/Home';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+let getCart
+
 const Mobilefooter=(props)=>
 {
   const {user,cart}=props;
-  console.log(cart);
-  const getCart=JSON.parse(localStorage.getItem('cartItem'));
+  if(cart.items.length>0)
+  getCart=JSON.parse(localStorage.getItem('cartItem'));
+  console.log(getCart);
     return(<div className="mobile-footer-container">
           <div className="footer-content-box" >
           <Link to="/" className="link-decoration-body"><div className="footer-content-icon">
@@ -19,7 +22,7 @@ const Mobilefooter=(props)=>
             </div>
             <div className="footer-content-box" >
             <Link to="/cart" className="link-decoration-body"><div className="footer-content-icon">
-            <AddShoppingCartIcon/>{cart.items===''?cart.items.length>getCart.length?cart.items.length:getCart.length:""}
+            <AddShoppingCartIcon/>{getCart!=undefined?cart.items.length>getCart.length?cart.items.length:getCart.length:""}
             </div>
             </Link>
             </div>

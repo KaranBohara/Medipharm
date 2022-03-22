@@ -20,7 +20,9 @@ import Product from "./components/Products_page/Products_Page/Product";
 // https://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames?page=4&pagesize=100
 
 const App=(props)=> {
-  const {user}=props;
+  const {user,cart}=props;
+  if(cart.items.length>0)
+  localStorage.setItem('cartItem',JSON.stringify(cart.items))
   return (
     <div className="App">
       <GlobalAlert/>
@@ -43,6 +45,6 @@ const App=(props)=> {
     </div>
   );
 }
-const mapStateToProps = ({ user }) => ({ user })
+const mapStateToProps = ({ user,cart }) => ({ user,cart })
 
 export default connect(mapStateToProps)(App)

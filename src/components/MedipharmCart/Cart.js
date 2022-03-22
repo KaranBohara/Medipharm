@@ -5,6 +5,8 @@ import 'antd/dist/antd.css';
 import { InputNumber } from 'antd';
 import AddIcon from '@mui/icons-material/Add';
 import Checkout from './Checkout';
+import { Button } from 'antd';
+let getCart;
 
 
 const Cart = (props) => {
@@ -13,8 +15,8 @@ const Cart = (props) => {
     console.log('changed', value);
   }
   if(cart.items.length>0)
-  localStorage.setItem('cartItem',JSON.stringify(cart.items))
-  const getCart=JSON.parse(localStorage.getItem('cartItem'));
+  getCart=JSON.parse(localStorage.getItem('cartItem'));
+  console.log(getCart);
   return <div className='container-fluid'>
   <div className='row'>
   <div className='col-lg-10 col-12 mt-3 mb-2 mx-auto head-label'>Shopping Cart</div>
@@ -30,7 +32,9 @@ const Cart = (props) => {
     <div className='cart-product-name'>{item[0].ProductName}</div>
     <div className='cart-product-quantity'>Only {item[0].Quantity} items left in stock.</div>
     <div className='cart-product-price'>Rs.{bestPrice} <span className='cart-original-price'>Rs.{item[0].Price}</span></div>
-    <div className='cart-quantity'><InputNumber addonBefore="QTY" min={1} max={10} defaultValue={1} className="cart-qty" onChange={onChange} /></div>
+    <div className='cart-quantity'><InputNumber addonBefore="QTY" min={1} max={10} defaultValue={1} className="cart-qty" onChange={onChange} />
+    <Button className='remove-cart' type="primary" danger>Remove From Cart</Button>
+    </div>
     </div>
     </div>
     <hr></hr>

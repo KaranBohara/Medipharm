@@ -16,13 +16,15 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 // var defaultAvtar='https://www.linkpicture.com/q/avtar.png';
 import defaultAvtar from "../../assets/profile.jpg";
+let getCart
 
 const Navbartop = (props) => {
     const { user,cart } = props;
     const handleLogout = () => {
         props.dispatch(logoutUserAction())
     }
-  const getCart=JSON.parse(localStorage.getItem('cartItem'));
+    if(cart.items.length>0)
+   getCart=JSON.parse(localStorage.getItem('cartItem'));
     const menu = (
         <Menu>
           <Menu.Item key="0">
@@ -72,8 +74,8 @@ const Navbartop = (props) => {
                  :<NavLink to="/loginclient"><LockOpenOutlinedIcon className="userlogin-icon"/></NavLink>
                   }
                  </div>    
-                 <div className="med-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/><div className="cart-number">
-                 {cart.items===''?cart.items.length>getCart.length?cart.items.length:getCart.length:""}</div></Link>
+                 <div className="med-icon"><Link to="/cart"><ShoppingCartOutlinedIcon className="cart-icon"/>{getCart!=undefined?<div 
+                  className="cart-number">{cart.items.length>getCart.length?cart.items.length:getCart.length}</div>:""}</Link>
                  </div>
                  <div className="med-icon"><Link to="/wishlist"><FavoriteBorderIcon className="wishlist-icon"/></Link>
                  </div>
