@@ -41,3 +41,9 @@
 {
     cursor: pointer;
 }
+@media screen and (max-width: 992px) {
+.checkout-box
+{
+    width: 100%;
+}
+}
