@@ -4,14 +4,9 @@ import Navbartop from "../Navbar/Navbartop";
 import Emptycart from './Emptycart';
 import Cart from './Cart';
 import "./MedipharmCart.css";
-let getCart;
+let getCart=false;
 
-const MedipharmCart = (props) => {
-  const {cart}=props;
-  if(cart.items.length>0)
-   getCart=JSON.parse(localStorage.getItem('cartItem'));
-   console.log(getCart);
-
+const MedipharmCart = () => {
   return <div>
       <div>
         <Navbartop/>
@@ -29,6 +24,5 @@ const MedipharmCart = (props) => {
   </div>
 };
 
-const mapStateToProps = ({ cart }) => ({ cart })
 
-export default connect(mapStateToProps)(MedipharmCart) ;
+export default MedipharmCart ;

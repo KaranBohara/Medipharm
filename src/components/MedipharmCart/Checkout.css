@@ -1,5 +1,43 @@
-.checkout-box
+.checkout-box {
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  height: 20rem;
+  width: 95%;
+}
+.small-head {
+  text-align: left;
+  font-family: LatoBold;
+  font-size: 16px;
+  color: rgba(21, 27, 57, 0.6);
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.promocode-head {
+  cursor: pointer;
+  text-align: left;
+  font-family: LatoBold;
+  font-size: 16px;
+  color: rgba(21, 27, 57, 0.6);
+  display: inline-block;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.price-head {
+  background: 0 0;
+  font-family: Lato;
+  font-size: 16px;
+  color: #151b39;
+  line-height: 24px;
+  margin: 0;
+  float: left;
+  text-align: left;
+}
+.amount-head {
+  text-align: right;
+}
+.carret-down-icon
 {
-    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-    height: 20rem;
+    cursor: pointer;
 }

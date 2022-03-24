@@ -1,5 +1,6 @@
 import { takeEvery, call, put, all } from 'redux-saga/effects';
 import * as actions from '../actions/productActions';
+import { GET_PRODUCTS_REQUEST,GET_PRODUCTBYID_REQUEST } from '../actiontypes/actionTypes';
 import apiCollection from '../api/api';
 
 function* getProducts() {
@@ -20,10 +21,10 @@ catch(err){
 }
 }
 function* watchGetProductsRequest() {
-  yield takeEvery(actions.Types.GET_PRODUCTS_REQUEST, getProducts);
+  yield takeEvery(GET_PRODUCTS_REQUEST, getProducts);
 }
 function* watchGetProductRequest() {
-  yield takeEvery(actions.Types.GET_PRODUCTBYID_REQUEST, getProductById);
+  yield takeEvery(GET_PRODUCTBYID_REQUEST, getProductById);
 }
 export function* productSaga()
 {

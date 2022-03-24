@@ -1,25 +1,49 @@
-export const Types = {
-    GET_PRODUCTS_REQUEST: 'GET_PRODUCTS_REQUEST',
-    GET_PRODUCTS_SUCCESS: 'GET_PRODUCTS_SUCCESS',
-    GET_PRODUCTBYID_REQUEST: 'GET_PRODUCTBYID_REQUEST',
-    GET_PRODUCTBYID_SUCCESS: 'GET_PRODUCTBYID_SUCCESS',
-  };
-  
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY} from '../actiontypes/actionTypes'
+import { GET_PRODUCTS_REQUEST,GET_PRODUCTBYID_SUCCESS,GET_PRODUCTBYID_REQUEST,GET_PRODUCTS_SUCCESS } from '../actiontypes/actionTypes';
   export const getProductsRequest = () => ({
-    type: Types.GET_PRODUCTS_REQUEST
+    type: GET_PRODUCTS_REQUEST
   });
   
   export const getProductsSuccess = items => ({
-    type: Types.GET_PRODUCTS_SUCCESS,
+    type: GET_PRODUCTS_SUCCESS,
     payload: { items }
   });
 
   export const getProductRequest = (id) => ({
-    type: Types.GET_PRODUCTBYID_REQUEST,
+    type: GET_PRODUCTBYID_REQUEST,
     id,
   });
   
   export const getProductSuccess = items => ({
-    type: Types.GET_PRODUCTBYID_SUCCESS,
+    type: GET_PRODUCTBYID_SUCCESS,
     payload: { items }
   });
+
+  //add cart action
+  export const addToCart= (id)=>{
+      return{
+          type: ADD_TO_CART,
+          id
+      }
+  }
+  //remove item action
+  export const removeItem=(id)=>{
+      return{
+          type: REMOVE_ITEM,
+          id
+      }
+  }
+  //subtract qt action
+  export const subtractQuantity=(id)=>{
+      return{
+          type: SUB_QUANTITY,
+          id
+      }
+  }
+  //add qt action
+  export const addQuantity=(id)=>{
+      return{
+          type: ADD_QUANTITY,
+          id
+      }
+  }

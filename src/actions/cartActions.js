@@ -1,45 +1,30 @@
-export const Types={
-  ADD_TO_CART : 'ADD_TO_CART',
-  CART_FETCH_SUCCESS:'CART_FETCH_SUCCESS'
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY} from '../actiontypes/actionTypes'
+
+//add cart action
+export const addToCart= (id)=>{
+    return{
+        type: ADD_TO_CART,
+        id
+    }
 }
-// export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
-
-// export const CHECKOUT_REQUEST = 'CHECKOUT_REQUEST';
-// export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS';
-// export const CHECKOUT_FAILURE = 'CHECKOUT_FAILURE';
-
-export const addToCart=(PId) =>({
-    type: Types.ADD_TO_CART,
-    PId
-  });
-  
-export const fetchCart=(items)=>({
-  type:Types.CART_FETCH_SUCCESS,
-  payload:{items}
-})
-// export const removeFromCart=(productId)=> {
-//   return {
-//     type: REMOVE_FROM_CART,
-//     productId
-//   };
-// }
-
-// export const checkout=() => {
-//   return {
-//     type: CHECKOUT_REQUEST
-//   };
-// }
-
-// export const checkoutSuccess=(cart) => {
-//   return {
-//     type: CHECKOUT_SUCCESS,
-//     cart
-//   };
-// }
-
-// export const checkoutFailure=(error)=>  {
-//   return {
-//     type: CHECKOUT_FAILURE,
-//     error
-//   };
-// }
+//remove item action
+export const removeItem=(id)=>{
+    return{
+        type: REMOVE_ITEM,
+        id
+    }
+}
+//subtract qt action
+export const subtractQuantity=(id)=>{
+    return{
+        type: SUB_QUANTITY,
+        id
+    }
+}
+//add qt action
+export const addQuantity=(id)=>{
+    return{
+        type: ADD_QUANTITY,
+        id
+    }
+}
