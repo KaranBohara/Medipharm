@@ -10,8 +10,8 @@ const Checkout = (props) => {
   const shippingCharges=50;
   return (
     <div className='checkout-box'>
-    <div className='col-12 px-3 small-head mb-2 mt-2'>Payment Details</div>
-    <div className='col-12 px-3'>
+    <div className='col-11 mx-auto small-head mb-2 mt-2'>Payment Details</div>
+    <div className='col-11 mx-auto'>
     <div className='row mb-2'>
     <div className='col-7 price-head'>Subtotal</div>
     <div className='col-5 amount-head'>Rs.{subtotal}</div>
@@ -29,13 +29,13 @@ const Checkout = (props) => {
     <div className='col-5 amount-head'><b>Rs.{subtotal+gst+shippingCharges}</b></div>
     </div>
     </div>
-    <div className='col-12 px-3 mb-3 mt-3'>
+    <div className='col-11 mx-auto mb-3 mt-3'>
     <div className='row'>
     <div className='col-6 text-primary promocode-head'>Apply Promocode</div>
     <div className='col-6 amount-head'><DownOutlined className='carret-down-icon' /></div>
     </div>
     </div>
-    <div className='col-12 px-3'> <Button type="primary" block>
+    <div className='col-11 mx-auto'> <Button type="primary" block>
     Apply Promocode
     </Button></div>
     </div>

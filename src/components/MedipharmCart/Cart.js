@@ -14,7 +14,7 @@ const Cart = (props) => {
   }
   return <div className='container-fluid'>
   <div className='row'>
-  <div className='col-lg-10 col-12 mt-3 mb-4 mx-auto head-label'>Shopping Cart</div>
+  <div className='col-lg-10 col-11 mx-auto cart-label-head'>Shopping Cart</div>
   </div>
   <div className='row d-flex justify-content-center'>
   <div className='col-lg-7 col-12 px-0 cart-container'>
@@ -28,7 +28,7 @@ const Cart = (props) => {
     <div className='cart-product-quantity'>Only {item.Quantity} items left in stock.</div>
     <div className='cart-product-price'>Rs.{bestPrice} <span className='cart-original-price'>Rs.{item.Price}</span></div>
     <div className='cart-quantity'><InputNumber addonBefore="QTY" min={1} max={10} value={item.quant} className="cart-qty" onChange={onChange} />
-    <Button className='remove-cart' type="primary" danger>Remove From Cart</Button>
+    <Button className='remove-cart' type="primary">Remove From Cart</Button>
     </div>
     </div>
     </div>

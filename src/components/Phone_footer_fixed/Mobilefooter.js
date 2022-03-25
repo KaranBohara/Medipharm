@@ -5,46 +5,40 @@ import { connect } from 'react-redux'
 import HomeIcon from '@mui/icons-material/Home';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-let getCart
 
 const Mobilefooter=(props)=>
 {
-  const {user}=props;
+  const {user,product}=props;
     return(<div className="mobile-footer-container">
           <div className="footer-content-box" >
-          <Link to="/" className="link-decoration-body"><div className="footer-content-icon">
-           <HomeIcon className="home-icon" />
+          <div className="footer-content-icon">
+           <Link to="/"><HomeIcon className="home-icon" /></Link>
            </div>
-            </Link>
             </div>
             <div className="footer-content-box" >
-            <Link to="/cart" className="link-decoration-body"><div className="footer-content-icon">
-            <AddShoppingCartIcon/>
+           <div className="footer-content-icon">
+           <Link to="/cart"><AddShoppingCartIcon className="mobile-cart-icon"/></Link>
+            <span className={product.addedItems.length>0?"cart-mobile-counter":''}>{product.addedItems.length?product.addedItems.length:''}</span>
             </div>
-            </Link>
             </div>
             <div className="footer-content-box" >
-            <Link to="/" className="link-decoration-body">
             <div className="footer-content-icon">
-            <FavoriteIcon className="wishlist-icon"/>
+            <Link to="/"><FavoriteIcon className="wishlist-icon"/></Link>
             </div>
-            </Link>
-            </div>
-            <div className="footer-content-box" >
-            <Link to="/" className="link-decoration-body">
-            <div className="footer-content-icon"><i className="fal fa-badge-percent" style={{color:"red",fontSize:"1.5rem"}}></i></div>
-            </Link>
             </div>
             <div className="footer-content-box" >
-            <Link to={user?"/myaccount":"/loginclient"} className="link-decoration-body"><div className="footer-content-icon">
-            <i className="fas fa-user-circle" 
+            <div className="footer-content-icon">
+            <Link to="/"><i className="fal fa-badge-percent" style={{color:"red",fontSize:"1.5rem"}}></i> </Link></div>
+            </div>
+            <div className="footer-content-box" >
+            <div className="footer-content-icon">
+            <Link to={user?"/myaccount":"/loginclient"}><i className="fas fa-user-circle" 
             style={{color:"#33aeb1",fontSize:"1.5rem"}}>
-            </i></div>
-            </Link>
+            </i></Link></div>
             </div>
     </div>);
 }
 
-const mapStateToProps = ({ user,cart }) => ({ user,cart })
+const mapStateToProps = ({ user,product }) => ({ user,product })
 
 export default connect(mapStateToProps)(Mobilefooter);
