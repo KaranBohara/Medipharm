@@ -21,7 +21,7 @@ export const productsReducer = (state = initialState, action) => {
       }
     }
     if(action.type === ADD_TO_CART){
-        let addedItem = state.items.find(item=> item.PId === action.id)
+        let addedItem = state.items.find(item=> item.PId === action.id);
         let discountedPrice=(addedItem.Price-((addedItem.Price*addedItem.Discount)/100));
        let existed_item= state.addedItems.find(item=> action.id === item.PId)
        if(existed_item)
@@ -52,7 +52,7 @@ export const productsReducer = (state = initialState, action) => {
       return{
           ...state,
           addedItems: new_items,
-          total: newTotal
+          total: newTotal,
       }
   }
   if(action.type=== ADD_QUANTITY){

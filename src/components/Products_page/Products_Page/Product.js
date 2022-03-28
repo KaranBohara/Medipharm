@@ -11,6 +11,7 @@ import "./StarRating.css";
 import "./Product.css";
 import { useParams } from "react-router-dom";
 import MultiCarousel from '../../Multi-Carousel/MultiCarousel.js';
+import { ToastContainer,toast,Slide } from "react-toastify";
 
 const Product = (props) => {
   const {getProductRequest,product,addToCart}=props;
@@ -18,11 +19,17 @@ const Product = (props) => {
   useEffect(() => {
     getProductRequest(params.pid);
 }, [getProductRequest,params.pid]);
+    const handleCart=(pid)=>
+    {
+     addToCart(pid);
+     toast.success("Product Added to Cart")
+    }
   const starsTotal = 5;
   const starPercentage = (3.5 / starsTotal) * 100;
   const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
   return (
     <div>
+    <ToastContainer className="toast-wrap" hideProgressBar draggable={false} position="top-right" transition={Slide} autoClose={1000} />
     {product.items.length>0?
       <div>
       <div><Navbartop/></div>
@@ -81,7 +88,7 @@ const Product = (props) => {
             </div>
             <div className='col-12 individual-best-price'><span style={{fontSize:"1rem",color:"black",marginRight:".5rem"}}>Best Price- </span><CurrencyRupeeIcon/>{bestPrice}</div>
             <div className="col-12 individual-product-manufacturer"><span style={{marginRight:".5rem"}}>Manufacturer -</span>{item.Manufacturer}</div>
-            <div className='col-12'><Button type="primary" className="col-12 individual-cart-button" onClick={()=>addToCart(item.PId)}>ADD TO CART</Button></div>
+            <div className='col-12'><Button type="primary" className="col-12 individual-cart-button" onClick={()=>handleCart(item.PId)}>ADD TO CART</Button></div>
             <div className='col-12 individual-description'>
             <div className='col-12 desc-tag'>Description :</div>
             <div className='col-lg-8 col-sm-12 desc-body'>{item.Description}</div>

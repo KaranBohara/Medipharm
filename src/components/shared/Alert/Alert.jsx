@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { ToastContainer,toast,Slide } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { resetAlertAction } from '../../../actions/alertActions';
 
 const GlobalAlert = props => {

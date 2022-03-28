@@ -4,6 +4,7 @@ import { Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-multi-carousel/lib/styles.css';
+import "react-toastify/dist/ReactToastify.css";
 import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';
