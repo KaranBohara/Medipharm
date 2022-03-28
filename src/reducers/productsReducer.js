@@ -57,7 +57,6 @@ export const productsReducer = (state = initialState, action) => {
   }
   if(action.type=== ADD_QUANTITY){
       let addedItem = state.addedItems.find(item=> item.PId === action.id);
-      console.log(addedItem);
       let discountedPrice=(addedItem.Price-((addedItem.Price*addedItem.Discount)/100));
         addedItem.quant += 1 
         let newTotal = state.total + Math.round(discountedPrice);
@@ -68,7 +67,6 @@ export const productsReducer = (state = initialState, action) => {
   }
   if(action.type=== SUB_QUANTITY){  
       let addedItem = state.addedItems.find(item=> item.PId === action.id) 
-      console.log(addedItem);
       let discountedPrice=(addedItem.Price-((addedItem.Price*addedItem.Discount)/100));
       if(addedItem.quant === 1){
           let new_items = state.addedItems.filter(item=>item.PId !== action.id)

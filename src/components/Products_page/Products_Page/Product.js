@@ -17,7 +17,7 @@ const Product = (props) => {
   const params=useParams();
   useEffect(() => {
     getProductRequest(params.pid);
-}, [getProductRequest]);
+}, [getProductRequest,params.pid]);
   const starsTotal = 5;
   const starPercentage = (3.5 / starsTotal) * 100;
   const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
@@ -104,7 +104,7 @@ const Product = (props) => {
       <div>
              <Desktopfooter/>
         </div>
-        </div>:<div className="col-10 loading-class"><img src={loadingImage} width="70%"/></div>}
+        </div>:<div className="col-10 loading-class"><img alt="loading" src={loadingImage} width="70%"/></div>}
       </div>
       
   )

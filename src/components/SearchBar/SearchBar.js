@@ -1,4 +1,4 @@
-import React, { useRef,useState,useEffect} from "react";
+import React, {useState,useEffect} from "react";
 import apiCollection from "../../api/api";
 import "./SearchBar.css";
 import SearchIcon from "@material-ui/icons/Search";
@@ -6,23 +6,13 @@ import CloseIcon from "@material-ui/icons/Close";
 
 function SearchBar({ placeholder}) {
   const [items,setItems]= useState([])
-  const [loading, setLoading] = useState(false);
-  const componentMounted = useRef(true)
   useEffect(() => {
-    setLoading(true);
-    if (componentMounted.current){
       apiCollection.getProduct()
       .then((res)=>
       {
         const myMed=res.data.data;
         setItems(myMed);
-        setLoading(false);
-        console.log(loading);
       })
-    }
-    return () => { 
-      componentMounted.current = false; 
-  }
   }, [items]);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");

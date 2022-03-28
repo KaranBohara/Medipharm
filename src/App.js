@@ -37,7 +37,7 @@ const App=(props)=> {
         <Route exact path="/signupclient" render={()=>{return user?<Redirect to='/'/>:<Signuppage/>}}/>
         <Route exact path="/product/:category/:product/:pid" component={Product}/>
         <Route path="/admin/dashboard" component={Dashboard}/>
-        <Route exact path="/admin/login"component={AdminLogin}/>
+        <Route exact path="/admin/login" component={AdminLogin}/>
         </Switch>
         <Mobilefooter />
     </div>

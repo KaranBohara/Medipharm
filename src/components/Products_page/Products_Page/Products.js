@@ -5,7 +5,6 @@ import { getProductsRequest } from "../../../actions/productActions";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
 import {Link} from "react-router-dom";
-import { Button } from 'antd';
 let bestPrice = 0;
 const Products = (props) => {
   const {getProductsRequest,product}=props;
@@ -27,7 +26,7 @@ const Products = (props) => {
                             </Link>
                     );
                 })}
-            </div>):(<div className="loading-class"><img src={loadingImage} width="70%"/></div>)}
+            </div>):(<div className="loading-class"><img alt="loading" src={loadingImage} width="70%"/></div>)}
             </div>);
 }
 export default connect(

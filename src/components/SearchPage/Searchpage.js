@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { connect } from 'react-redux';
 import "./Searchpage.css";
@@ -6,25 +6,12 @@ import SearchBar from "../SearchBar/SearchBar";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import { useHistory } from "react-router-dom";
-import apiCollection from "../../api/api";
 // import RecentSearchSlider from "../RecentSearch/RecentSearchSlider";
 import MultiCarousel from "../Multi-Carousel/MultiCarousel";
 
 const Searchpage=()=>
 {
     const history=useHistory();
-    const [items,setItems]=useState([]);
-    const getMedicines=React.useCallback(()=>
-    {
-     apiCollection.getProduct()
-    .then(response => {
-    const myMed=response.data;
-     setItems(myMed)
-    });
-    },[])
-    useEffect(() => {
-        getMedicines();
-}, [getMedicines]);
     return(<div>
         <div className="phone-search-wrap">
         <ArrowBackIcon className='arrow-icon' onClick={() => history.goBack()}/>

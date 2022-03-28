@@ -38,10 +38,12 @@ const Cart = (props) => {
     <div className='cart-product-name'>{item.ProductName}</div>
     <div className='cart-product-quantity'>Only {item.Quantity} items left in stock.</div>
     <div className='cart-product-price'>Rs.{bestPrice*item.quant} <span className='cart-original-price'>Rs.{Math.round(item.Price)}</span></div>
+    <div className='cart-quantity-wrap'>
     <div className='cart-quantity'>
     <div className='decrement'><RemoveIcon onClick={()=>handleDecrease(item.PId)}/></div>
     <Input value={item.quant} className="cart-qty" onChange={onChange} />
     <div className='increment'><AddIcon onClick={()=>{handleIncrease(item.PId)}}/></div>
+    </div>
     <Button className='remove-cart' type="primary" onClick={()=>removeItem(item.PId)}>Remove From Cart</Button>
     </div>
     </div>
