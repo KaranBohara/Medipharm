@@ -2,13 +2,16 @@ import React from 'react';
 import {connect} from "react-redux";
 import "./Cart.css";
 import 'antd/dist/antd.css';
-import { InputNumber } from 'antd';
+import { Input} from 'antd';
 import AddIcon from '@mui/icons-material/Add';
+import { removeItem,increaseQuantity,decreaseQuantity } from '../../actions/productActions';
 import Checkout from './Checkout';
 import { Button } from 'antd';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const Cart = (props) => {
-  const cartItem=props.product.addedItems
+  const {removeItem,increaseQuantity,decreaseQuantity}=props;
+  const cartItem=props.product.addedItems;
   const onChange=(value) =>{
     console.log('changed', value);
   }
@@ -19,16 +22,19 @@ const Cart = (props) => {
   <div className='row d-flex justify-content-center'>
   <div className='col-lg-7 col-12 px-0 cart-container'>
   {cartItem && cartItem.map((item,index)=>{
-    const bestPrice = item.Price - ((item.Discount * item.Price) / 100);
+    const bestPrice = Math.round(item.Price - ((item.Discount * item.Price) / 100));
     return(<div className='col-lg-12 col-11 mx-auto px-0' key={index}>
     <div className='row'>
     <div className='col-lg-3 col-12 cart-image-box'><img alt={item.ProductName} src={item.Image}/></div>
     <div className='col-lg-9 col-12 cart-item-box'>
     <div className='cart-product-name'>{item.ProductName}</div>
     <div className='cart-product-quantity'>Only {item.Quantity} items left in stock.</div>
-    <div className='cart-product-price'>Rs.{bestPrice} <span className='cart-original-price'>Rs.{item.Price}</span></div>
-    <div className='cart-quantity'><InputNumber addonBefore="QTY" min={1} max={10} value={item.quant} className="cart-qty" onChange={onChange} />
-    <Button className='remove-cart' type="primary">Remove From Cart</Button>
+    <div className='cart-product-price'>Rs.{bestPrice*item.quant} <span className='cart-original-price'>Rs.{Math.round(item.Price)}</span></div>
+    <div className='cart-quantity'>
+    <div className='decrement'><RemoveIcon onClick={()=>decreaseQuantity(item.PId)}/></div>
+    <Input value={item.quant} className="cart-qty" onChange={onChange} />
+    <div className='increment'><AddIcon onClick={()=>{increaseQuantity(item.PId)}}/></div>
+    <Button className='remove-cart' type="primary" onClick={()=>removeItem(item.PId)}>Remove From Cart</Button>
     </div>
     </div>
     </div>
@@ -44,5 +50,10 @@ const Cart = (props) => {
 };
 
 export default connect(
-  ({product }) => ({product })
+  ({product }) => ({product }),
+  {
+    removeItem,
+    increaseQuantity,
+    decreaseQuantity,
+  }
 )(Cart);

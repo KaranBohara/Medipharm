@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 
 const Checkout = (props) => {
   const subtotal=props.product.total;
-  const gst=(5*subtotal)/100;
+  const gst=Math.round((5*subtotal)/100);
   const shippingCharges=50;
   return (
     <div className='checkout-box'>

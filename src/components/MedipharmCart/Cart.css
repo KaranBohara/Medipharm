@@ -84,13 +84,16 @@ border: none;
 }
 .cart-qty
 {
-    width: 15%;
+    width: 4rem;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 0;
+    border: 1.5px solid #33aeb1;
 }
 .ant-input-number-group-addon
 {
     font-size: .85rem ;
 }
-
 .cart-container hr
 {
     width: 90%;
@@ -118,6 +121,16 @@ border: none;
    box-sizing: border-box;
    display: flex;
    justify-content: flex-end;
+}
+.increment,.decrement
+{
+    background-color: #33aeb1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    color: white;
+    cursor: pointer;
 }
 @media screen and (max-width: 992px) {
 .cart-container

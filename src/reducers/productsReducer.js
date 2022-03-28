@@ -22,21 +22,19 @@ export const productsReducer = (state = initialState, action) => {
     }
     if(action.type === ADD_TO_CART){
         let addedItem = state.items.find(item=> item.PId === action.id)
-        //check if the action id exists in the addedItems
+        let discountedPrice=(addedItem.Price-((addedItem.Price*addedItem.Discount)/100));
        let existed_item= state.addedItems.find(item=> action.id === item.PId)
        if(existed_item)
        {
         addedItem.quant += 1 
            return{
               ...state,
-               total: state.total + addedItem.Price
+               total: state.total + Math.round(discountedPrice),
                 }
       }
        else{
         addedItem.quant = 1;
-          //calculating the total
-          let newTotal = state.total + addedItem.Price 
-          
+          let newTotal = state.total + Math.round(discountedPrice);
           return{
               ...state,
               addedItems: [...state.addedItems, addedItem],
@@ -46,34 +44,34 @@ export const productsReducer = (state = initialState, action) => {
       }
   }
   if(action.type === REMOVE_ITEM){
-      let itemToRemove= state.addedItems.find(item=> action.id === item.id)
-      let new_items = state.addedItems.filter(item=> action.id !== item.id)
-      
-      //calculating the total
-      let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity )
-      console.log(itemToRemove)
+      let itemToRemove= state.addedItems.find(item=> action.id === item.PId)
+      let new_items = state.addedItems.filter(item=> action.id !== item.PId)
+      let discountedPrice=(itemToRemove.Price-((itemToRemove.Price*itemToRemove.Discount)/100));
+      let newTotal = state.total - (Math.round(discountedPrice) * itemToRemove.quant)
       return{
           ...state,
           addedItems: new_items,
           total: newTotal
       }
   }
-  //INSIDE CART COMPONENT
   if(action.type=== ADD_QUANTITY){
-      let addedItem = state.items.find(item=> item.id === action.id)
-        addedItem.quantity += 1 
-        let newTotal = state.total + addedItem.price
+      let addedItem = state.items.find(item=> item.PId === action.id);
+      console.log(addedItem);
+      let discountedPrice=(addedItem.Price-((addedItem.Price*addedItem.Discount)/100));
+        addedItem.quant += 1 
+        let newTotal = state.total + Math.round(discountedPrice);
         return{
             ...state,
             total: newTotal
         }
   }
   if(action.type=== SUB_QUANTITY){  
-      let addedItem = state.items.find(item=> item.id === action.id) 
-      //if the qt == 0 then it should be removed
-      if(addedItem.quantity === 1){
-          let new_items = state.addedItems.filter(item=>item.id !== action.id)
-          let newTotal = state.total - addedItem.price
+      let addedItem = state.items.find(item=> item.PId === action.id) 
+      console.log(addedItem);
+      let discountedPrice=(addedItem.Price-((addedItem.Price*addedItem.Discount)/100));
+      if(addedItem.quant === 1){
+          let new_items = state.addedItems.filter(item=>item.PId !== action.id)
+          let newTotal = state.total -Math.round(discountedPrice);
           return{
               ...state,
               addedItems: new_items,
@@ -81,8 +79,8 @@ export const productsReducer = (state = initialState, action) => {
           }
       }
       else {
-          addedItem.quantity -= 1
-          let newTotal = state.total - addedItem.price
+          addedItem.quant -= 1
+          let newTotal = state.total - Math.round(discountedPrice);
           return{
               ...state,
               total: newTotal

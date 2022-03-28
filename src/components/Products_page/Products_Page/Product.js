@@ -1,7 +1,6 @@
 import React,{useEffect} from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from "../../../actions/cartActions";
-import {getProductRequest } from '../../../actions/productActions.js';
+import {getProductRequest,addToCart } from '../../../actions/productActions.js';
 import Navbartop from "../../Navbar/Navbartop.js";
 import loadingImage from "../../../assets/loading.gif"
 import ReactImageMagnify from "react-image-magnify";
@@ -64,7 +63,7 @@ const Product = (props) => {
       <div className='product-right-wrap'>
       {product.items.map((item,index)=>
         {
-         const bestPrice = item.Price - ((item.Discount * item.Price) / 100);
+         const bestPrice = Math.round(item.Price - ((item.Discount * item.Price) / 100));
           return(
             <div className='row ' key={index}>
             <div className='col-10 mx-auto individual-image'><img src={item.Image} alt="" width="80%" height="auto"/></div>

@@ -14,7 +14,7 @@ const Products = (props) => {
     }, [getProductsRequest]);
     return (<div className="col-12">{product.items.length>0?(<div className="products-container">
                 {product.items.map((item, index) => {
-                    bestPrice = item.Price - ((item.Discount * item.Price) / 100);
+                    bestPrice = Math.round(item.Price - ((item.Discount * item.Price) / 100));
                     return (      <Link to={`/product/${item.Category}/${item.ProductName}/${item.PId}`} className="link-decoration-body" key={index}>             
                             <div className="animate__animated animate__jackInTheBox product-box">
                                 <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.Discount}%OFF</span></div>
@@ -22,7 +22,7 @@ const Products = (props) => {
                                 <div className="product-name">{item.ProductName}</div>
                                 <div className="product-manufacturer">{item.Manufacturer}</div>
                                 <div className="product-bestprice">Rs.{bestPrice}</div>
-                                <div className="product-price">Rs.{item.Price}</div>
+                                <div className="product-price">Rs.{Math.round(item.Price)}</div>
                             </div>
                             </Link>
                     );
