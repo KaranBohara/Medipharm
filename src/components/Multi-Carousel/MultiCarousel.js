@@ -6,13 +6,16 @@ import {Link} from "react-router-dom";
 const MultiCarousel = () => {
     const [medicines, setMedicines] = useState([]);
     useEffect(() => {
+      let cancel=false;
         apiCollection.getProduct()
         .then((res)=>
         {
           const myMed=res.data.data;
+          if (cancel) return ;
           setMedicines(myMed);
         })
-    }, [medicines]);
+        return () => {cancel=true;}
+    }, []);
   return (
     <div className="col-12">
     <Carousel

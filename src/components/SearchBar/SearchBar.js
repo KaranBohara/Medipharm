@@ -7,13 +7,16 @@ import CloseIcon from "@material-ui/icons/Close";
 function SearchBar({ placeholder}) {
   const [items,setItems]= useState([])
   useEffect(() => {
+    let cancel=false;
       apiCollection.getProduct()
       .then((res)=>
       {
         const myMed=res.data.data;
+        if (cancel) return ;
         setItems(myMed);
       })
-  }, [items]);
+      return () => {cancel=true;}
+  }, []);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const handleFilter = (event) => {
