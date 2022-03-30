@@ -1,7 +1,7 @@
 import React from "react";
 import {Route,Switch} from 'react-router-dom';
 // import Categoriessidebar from "../../components/Products_page/Categories_component/Categoriessidebar";
-import Filtertaskbar from "../../components/Products_page/Filter_component/Filtertaskbar";
+import FilterTaskbar from "../../components/Products_page/Filter_component/Filtertaskbar";
 import "./Productspage.css";
 import Mobilefilter from "../../components/MobileFilter/Mobilefilter";
 import Navbartop from "../../components/Navbar/Navbartop";
@@ -26,7 +26,7 @@ const ProductsRoutes = () => {
         <div className="sub-div2"><Mobilefilter/></div>
         </div>
         <div className="product-filter">
-        <Filtertaskbar/>
+        <FilterTaskbar/>
         <div className="product-section">
         <Switch>
         <Route path="/products" exact component={CovidEssentials}/>

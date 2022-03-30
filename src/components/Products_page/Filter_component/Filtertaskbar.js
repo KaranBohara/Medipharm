@@ -1,109 +1,70 @@
 import React from "react";
-import { Form, Field } from 'react-final-form';
+import apiCollection from "../../../admin/api/api";
+import {connect} from "react-redux";
+import { getProductsRequest } from "../../../actions/productActions";
 import "./Filtertaskbar.css";
-// import categoryDataFilter from "./medicines.json";
-// import productsCategorydata from "../../Navbar/product.json"
+import { Checkbox } from 'antd';
+const CheckboxGroup = Checkbox.Group;
 
-const onSubmit = async (values) => {
-    console.log(values);
-
-}
-const Categoriestaskbar = () => {
+const FilterTaskbar = (props) => {
+    const {getProductsRequest,product}=props;
+    const [checkedList, setCheckedList] = React.useState([]);
+    const [stock,setStock]=React.useState([]);
+    const [brand,setBrand]=React.useState([]);
+    const getStockStatus=()=>
+    {
+        apiCollection.getStatus()
+        .then(response=>
+         {
+           let status=[];
+           const myMed=response.data.data;
+           myMed.forEach(element => {
+               status.push(element.Status);
+           });
+           setStock(status);
+         })
+    }
+    const getManufacturers=()=>
+    {
+        let manufacturer=[];
+        product.items.forEach(element=>
+            {
+                manufacturer.push(element.Manufacturer);
+            })
+            setBrand(manufacturer);
+    }
+    React.useEffect(() => {
+        getStockStatus();
+        getProductsRequest();
+        getManufacturers();
+    }, [stock]);
+    const onChange=(list)=>
+    {
+        setCheckedList(list)
+        console.log(checkedList);
+    }
     return (
         <div className="filter-container">
-            <div className="wrapper-container">
-            <div className="filter-header">Filters</div>
-            <Form onSubmit={onSubmit}
-                render={({ handleSubmit, form, submitting, pristine, values }) => (
-                    <form onSubmit={handleSubmit}>
-                        <div className="filter-heading-box">Availability</div>
-                        <div className="filter-content-box">
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                        </div>
-                        <div className="filter-heading-box">Categories</div>
-                        <div className="filter-content-box">
-                            <Field name="searchbar" component="input" type="search" placeholder="Search Category" />
-                        </div>
-                        <div className="filter-content-box">
-                            <div className="filter-checkboxes">
-                                <Field name="category" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                        </div>
-                        <div className="filter-heading-box">Manufacturers</div>
-                        <div className="filter-content-box">
-                            <Field name="searchbar" component="input" type="search" placeholder="Search Manufacturer" />
-                        </div>
-                        <div className="filter-content-box">
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                        </div>
-                        <div className="filter-heading-box">Brand</div>
-                        <div className="filter-content-box">
-                            <Field name="searchbar" component="input" type="search" placeholder="Search Brand" />
-                        </div>
-                        <div className="filter-content-box">
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                            <div className="filter-checkboxes">
-                                <Field name="availability" component="input" type="checkbox" />
-                                <label style={{ paddingLeft: ".5rem", fontSize: ".8rem" }}>Exclude out of stock</label>
-                            </div>
-                        </div>
-                        <div className="filter-heading-box">Price</div>
-                        <div className="filter-content-box">
-                            <div className="filter-checkboxes">
-                                <Field name="price" component="input" type="range" min="10" max="100" value="50" />
-                            </div>
-                        </div>
-                        <div className="filter-heading-box">Discount</div>
-                        <div className="filter-content-box">
-                            <div className="filter-checkboxes">
-                                <Field name="discount" component="input" type="range" min="75" max="1000" value="50" />
-                            </div>
-                        </div>
-                    </form>
-                )} />
+        <div className="col-12 ">
+        <div className="col-12 filter-header">Filters</div>
+        <div className="col-12 filter-heading-box">Manufacturers</div>
+        <div className="col-12 filter-content-box" style={{height:"4rem"}}>
+        <CheckboxGroup options={brand} value={checkedList} onChange={onChange} />
         </div>
+        <div className="col-12 filter-heading-box">Availability</div>
+        <div className="col-12 filter-content-box" style={{height:"3rem"}}>
+        <CheckboxGroup options={stock} value={checkedList} onChange={onChange} />
+        </div>
+        <div className="col-12 filter-heading-box">Availability</div>
+        <div className="col-12 filter-content-box">
+        <CheckboxGroup options={stock} value={checkedList} onChange={onChange} />
+        </div>
+        </div> 
         </div>);
 }
-export default Categoriestaskbar;
+export default connect(
+    ({ product }) => ({ product }),
+    {
+      getProductsRequest,
+    }
+  )(FilterTaskbar);

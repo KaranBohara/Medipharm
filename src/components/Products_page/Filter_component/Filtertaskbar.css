@@ -15,32 +15,27 @@
 }
 .filter-header {
   display: flex;
-  align-items: center;
-  font-weight: 700;
-  border-bottom: 1px solid rgb(216, 216, 216);
-  margin:1rem 0rem;
+  font-weight: 600;
+  margin:.5rem 0rem;
+  padding: 0rem 1rem;
 }
 .filter-heading-box {
   display: flex;
-  font-weight: 600;
-  height: 1.5rem;
-  align-items: center;
+  font-weight: 500;
   font-size: .9rem;
+  margin:0rem 0rem 0.3rem 0rem;
+  padding: 0rem 1rem;
+}
+.ant-checkbox-group
+{
+  display: flex !important;
+  flex-direction: column !important;
+  font-size: .8rem !important;
 }
 .filter-content-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 3rem;
+  padding: 0rem 1rem;
   overflow-y: auto;
-}
-.filter-content-box input[type="search"] {
-  background-color: rgb(238, 238, 238);
-  height: 1.8rem;
-  width: 95%;
-  border-radius: .3rem;
-  padding-left: .5rem;
+  margin-bottom: 1rem;
 }
 .filter-checkboxes {
   display: flex;

@@ -42,10 +42,11 @@
 .product-name {
   display: flex;
   font-size: 0.8rem;
-  height: 3rem;
+  height: fit-content;
   font-weight: bold;
   text-align: left;
   margin-top: 0.3rem;
+  padding: .5rem 0rem;
   width: 90%;
 }
 .product-manufacturer {
@@ -65,7 +66,7 @@
 .product-price {
   display: flex;
   font-size: 0.8rem;
-  margin-top: 0.3rem;
+  margin: 0.3rem 0rem;
   text-decoration: line-through;
   width: 90%;
 }

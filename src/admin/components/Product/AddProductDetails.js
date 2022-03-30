@@ -7,10 +7,20 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 
 const AddProductDetails = () => {
     const history=useHistory();
+    const [category,setCategory]=useState([]);
     const [status,setStatus]=useState([]);
-    const getStockStatus=()=>
+    const getCategory=()=>
     {
         apiCollection.getCategory()
+        .then(response=>
+         {
+           const myMed=response.data.data;
+           setCategory(myMed);
+         })
+    }
+    const getStockStatus=()=>
+    {
+        apiCollection.getStatus()
         .then(response=>
          {
            const myMed=response.data.data;
@@ -18,6 +28,7 @@ const AddProductDetails = () => {
          })
     }
     useEffect(() => {
+        getCategory();
         getStockStatus();
     }, []);
     const onSubmit = async(values) => {
@@ -57,7 +68,7 @@ const AddProductDetails = () => {
           <div className='sub-input'>
           <label>Category</label>
           <Field name="category" component="select">
-              {status.map((item,index)=>
+              {category.map((item,index)=>
                 {
                     return <option key={index}>{item.Category}</option>
                 })
@@ -87,6 +98,12 @@ const AddProductDetails = () => {
           <div className='sub-input'>
           <label>Availability</label>
             <Field name="stock" component="select">
+            {
+              status.map((item,index)=>
+                {
+                    return <option key={index}>{item.Status}</option>
+                })
+            }
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </Field>
