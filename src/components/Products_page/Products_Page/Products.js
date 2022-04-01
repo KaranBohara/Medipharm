@@ -1,6 +1,7 @@
 import React,{useEffect} from "react";
 import loadingImage from "../../../assets/loading.gif"
 import {connect} from "react-redux";
+import { Tag} from 'antd';
 import { getProductsRequest } from "../../../actions/productActions";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Products.css";
@@ -16,7 +17,7 @@ const Products = (props) => {
                     bestPrice = Math.round(item.Price - ((item.Discount * item.Price) / 100));
                     return (      <Link to={`/product/${item.Category}/${item.ProductName}/${item.PId}`} className="link-decoration-body" key={index}>             
                             <div className="animate__animated animate__jackInTheBox product-box">
-                                <div className="discount-tab"><span style={{backgroundColor:"green",padding:".2rem",borderRadius:".2rem"}}>{item.Discount}%OFF</span></div>
+                                <div className="discount-tab"><Tag color="#f50">{item.Discount}%OFF</Tag></div>
                                 <div className="product-image-box"><img alt="product" src={item.Image}></img></div>
                                 <div className="product-name">{item.ProductName}</div>
                                 <div className="product-manufacturer">{item.Manufacturer}</div>

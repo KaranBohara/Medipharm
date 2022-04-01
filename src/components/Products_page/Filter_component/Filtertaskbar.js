@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import { getProductsRequest } from "../../../actions/productActions";
 import "./Filtertaskbar.css";
 import { Checkbox } from 'antd';
+import { Slider} from 'antd';
 const CheckboxGroup = Checkbox.Group;
 
 const FilterTaskbar = (props) => {
@@ -43,6 +44,14 @@ const FilterTaskbar = (props) => {
         setCheckedList(list)
         console.log(checkedList);
     }
+    const handleMin=(value)=>
+    {
+        console.log(value);
+    }
+    const handleMax=(value)=>
+    {
+        console.log(value);
+    }
     return (
         <div className="filter-container">
         <div className="col-12 ">
@@ -55,9 +64,13 @@ const FilterTaskbar = (props) => {
         <div className="col-12 filter-content-box" style={{height:"3rem"}}>
         <CheckboxGroup options={stock} value={checkedList} onChange={onChange} />
         </div>
-        <div className="col-12 filter-heading-box">Availability</div>
+        <div className="col-12 filter-heading-box">Price</div>
         <div className="col-12 filter-content-box">
-        <CheckboxGroup options={stock} value={checkedList} onChange={onChange} />
+        <Slider range defaultValue={[1, 50000]} min={1} max={50000} onChange={handleMin} onAfterChange={handleMax}/>
+        </div>
+        <div className="col-12 filter-heading-box">Discount</div>
+        <div className="col-12 filter-content-box">
+        <Slider range defaultValue={[1, 70]} min={1} max={70} onChange={handleMin} onAfterChange={handleMax}/>
         </div>
         </div> 
         </div>);

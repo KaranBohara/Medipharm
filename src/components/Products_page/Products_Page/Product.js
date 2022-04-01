@@ -12,6 +12,7 @@ import "./Product.css";
 import { useParams } from "react-router-dom";
 import MultiCarousel from '../../Multi-Carousel/MultiCarousel.js';
 import { ToastContainer,toast,Slide } from "react-toastify";
+import CustomerReviews from '../CustomerReviews/CustomerReviews.js';
 
 const Product = (props) => {
   const {getProductRequest,product,addToCart}=props;
@@ -103,15 +104,23 @@ const Product = (props) => {
       <div className='col-lg-10 mx-auto mt-3 head-label '>Similar Products</div>
       </div>
       <div className='row'>
-      <div className='col-lg-10 col-12 mx-auto col-12 mt-3 carousel-area'>
+      <div className='col-lg-10 col-12 mx-auto mt-3 carousel-area'>
       <MultiCarousel/>
+      </div>
+      </div>
+      <div className='row'>
+      <div className='col-lg-10 mx-auto mt-3 head-label py-1'>Customer Reviews</div>
+      </div>
+      <div className='row'>
+      <div className='col-lg-10 mx-auto col-12 review-area'>
+      <CustomerReviews/>
       </div>
       </div>
       </div>
       <div>
-             <Desktopfooter/>
-        </div>
-        </div>:<div className="col-10 loading-class"><img alt="loading" src={loadingImage} width="70%"/></div>}
+      <Desktopfooter/>
+      </div>
+      </div>:<div className="col-10 loading-class"><img alt="loading" src={loadingImage} width="70%"/></div>}
       </div>
       
   )
