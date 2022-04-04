@@ -14,6 +14,7 @@
   margin-bottom: 1rem;
   padding: 0rem 0rem;
   background-color: white;
+  display: flex;
 }
 .product-background
 {
@@ -148,6 +149,12 @@ align-items: flex-start;
   font-size: .9rem;
   line-height: 24px;
   margin-top: .3rem;
+}
+@media screen and (max-width: 1200px) {
+  .review-area
+  {
+    flex-direction: column;
+  }
 }
 @media screen and (max-width: 992px) {
   .individual-review

@@ -11,11 +11,9 @@ const ProgressBar =  ({width, percent, bg}) => {
     });
   
     return (
-      <div>
-        <div className="progress-div col-lg-6 col-12">
-          <div className="progress" style={{ width: `${value}px`,height:"24px",backgroundColor:`#${bg}`}}/>
+        <div className="progress-div">
+          <div className="progress" style={{ width: `${value}%`,height:"16px",backgroundColor:`#${bg}`}}/>
         </div>
-      </div>
     );
   };
 
