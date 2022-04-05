@@ -12,6 +12,7 @@ import "./Product.css";
 import { useParams } from "react-router-dom";
 import MultiCarousel from '../../Multi-Carousel/MultiCarousel.js';
 import { ToastContainer,toast,Slide } from "react-toastify";
+import CustomerRatings from '../CustomerReviews/CustomerRatings.js';
 import CustomerReviews from '../CustomerReviews/CustomerReviews.js';
 import NewReview from '../CustomerReviews/NewReview.js';
 
@@ -114,8 +115,11 @@ const Product = (props) => {
       </div>
       <div className='row'>
       <div className='col-lg-10 mx-auto d-flex col-12 review-area'>
-      <div className='col-xl-7 col-12'><CustomerReviews/></div>
+      <div className='col-xl-6 col-12'><CustomerRatings/></div>
       <div className='col-xl-5 col-12'><NewReview/></div>
+      </div>
+      <div className='col-lg-10 mx-auto d-flex col-12 review-area'>
+      <CustomerReviews/>
       </div>
       </div>
       </div>

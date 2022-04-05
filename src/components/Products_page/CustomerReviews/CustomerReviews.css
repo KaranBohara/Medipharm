@@ -23,14 +23,14 @@
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   color: #ccc;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 .customer-rating-innerstar::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   color: rgb(247, 164, 31);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .rating-info {
@@ -76,29 +76,11 @@
   display: flex;
   align-items: center;
 }
-.five-star
+.progress-star
 {
 color:#F4A23A;
-}
-.four-star
-{
-  color:#55AB6F;
-}
-.three-star
-{
-  color:#2496F3;
-}
-.two-star
-{
-  color:#52BDD5;
-}
-.one-star
-{
-  color:#EB453D;
-}
-.five-star,.four-star,.three-star,.two-star,.one-star 
-{
-  margin: 0rem .5rem;
+margin: 0rem .5rem;
+box-sizing: border-box;
 }
 .rate-review-icon
 {
@@ -112,22 +94,85 @@ color:#F4A23A;
   color:#2496F3;
   margin: 0rem 1rem;
   padding-top: .25rem;
-}
-.border-right-div
-{
-  border-right: 2px solid rgb(241, 241, 241);
+  cursor: pointer;
+  box-sizing: border-box;
 }
 .review-wrap
 {
 margin-left: 2rem;
+box-sizing: border-box;
 }
+.review-user-pic
+{
+  width: 12%;
+  border: 2px solid red;
+}
+.review-user-info
+{
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid red;
+}
+.reviews-content
+{
+  width: 78%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+}
+.review-user-pic img{
+  height: 80px;
+  width: 80px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 50%;
+  }
+  .review-time
+  {
+    font-size: .8rem;
+    color: rgb(119, 119, 119);
+  }
+  .review-user-name
+  {
+    font-size: .9rem;
+    font-weight: 500;
+  }
+  .reviews-text
+  {
+    font-size: .9rem;
+    text-align: left;
+    margin:.3rem 0rem;
+  }
 @media screen and (max-width: 1200px) {
 .review-wrap
 {
   margin:1rem 0rem;
 }
-.border-right-div
+.review-user-pic
 {
-  border: 0px;
+  width:15%;
+}
+.review-user-info
+{
+width: 15%;
+}
+.reviews-content
+{
+width: 70%;
 }
 }
+@media screen and (max-width: 786px) {
+  .review-user-pic
+  {
+    width:20%;
+  }
+  .review-user-info
+  {
+  width: 20%;
+  }
+  .reviews-content
+  {
+  width: 60%;
+  }
+  }
