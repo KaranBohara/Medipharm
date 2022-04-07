@@ -92,6 +92,7 @@ const Product = (props) => {
             <div className='col-12 individual-best-price'><span style={{fontSize:"1rem",color:"black",marginRight:".5rem"}}>Best Price- </span><CurrencyRupeeIcon/>{bestPrice}</div>
             <div className="col-12 individual-product-manufacturer"><span style={{marginRight:".5rem"}}>Manufacturer -</span>{item.Manufacturer}</div>
             <div className='col-12'><Button type="primary" className="col-12 individual-cart-button" onClick={()=>handleCart(item.PId)}>ADD TO CART</Button></div>
+            <div className='col-12'><Button type="danger" className="col-12 individual-wishlist-button" onClick={()=>handleCart(item.PId)}>ADD TO WISHLIST</Button></div>
             <div className='col-12 individual-description'>
             <div className='col-12 desc-tag'>Description :</div>
             <div className='col-lg-8 col-sm-12 desc-body'>{item.Description}</div>

@@ -28,6 +28,7 @@
   font-size: 0.7rem;
   color: white;
   margin-top: 0.3rem;
+  justify-content: space-between;
 }
 .product-image-box {
   display: flex;
@@ -82,6 +83,16 @@
   align-items: center;
   margin-top: 3rem;
   width: 100%;
+}
+.wishlist-product-icon
+{
+  font-size: 1rem;
+  cursor: pointer;
+  color:rgb(206, 206, 206);
+}
+.wishlist-product-icon-after
+{
+  color: #F1903B;
 }
 @media screen and (max-width: 1296px) {
   .products-container {
