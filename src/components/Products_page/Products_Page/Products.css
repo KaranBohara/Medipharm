@@ -47,14 +47,14 @@
   font-weight: bold;
   text-align: left;
   margin-top: 0.3rem;
-  padding: .5rem 0rem;
-  width: 90%;
+  padding: .5rem 1rem;
+  width: 100%;
 }
 .product-manufacturer {
   display: flex;
   font-size: 0.8rem;
-  margin-top: 0.3rem;
-  width: 90%;
+  width: 100%;
+  padding: 0rem 1rem;
 }
 .product-bestprice {
   display: flex;
@@ -62,14 +62,16 @@
   font-size: 0.8rem;
   color: rgb(78,174,177);
   margin-top: 0.3rem;
-  width: 90%;
+  width: 100%;
+  padding: 0rem 1rem;
 }
 .product-price {
   display: flex;
   font-size: 0.8rem;
   margin: 0.3rem 0rem;
   text-decoration: line-through;
-  width: 90%;
+  width: 100%;
+  padding: 0rem 1rem;
 }
 .cart-btn {
   width: 100%;

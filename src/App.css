@@ -7,6 +7,7 @@
 {
   color:rgb(7, 7, 7);
   text-decoration: none;
+  width: 100%;
 }
 .link-decoration-login,.link-decoration-login:hover,.link-decoration-login:visited,.link-decoration-login:active
 {

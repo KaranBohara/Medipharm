@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import { connect } from 'react-redux';
-import {getProductRequest,addToCart } from '../../../actions/productActions.js';
+import {getProductRequest,addToCart,addToWishlist} from '../../../actions/productActions.js';
 import Navbartop from "../../Navbar/Navbartop.js";
 import loadingImage from "../../../assets/loading.gif"
 import ReactImageMagnify from "react-image-magnify";
@@ -17,7 +17,7 @@ import CustomerReviews from '../CustomerReviews/CustomerReviews.js';
 import NewReview from '../CustomerReviews/NewReview.js';
 
 const Product = (props) => {
-  const {getProductRequest,product,addToCart}=props;
+  const {getProductRequest,product,addToCart,addToWishlist}=props;
   const params=useParams();
   useEffect(() => {
     getProductRequest(params.pid);
@@ -26,6 +26,10 @@ const Product = (props) => {
     {
      addToCart(pid);
      toast.success("Product Added to Cart")
+    }
+    const handleWishList=(pid)=>
+    {
+     addToWishlist(pid);
     }
   const starsTotal = 5;
   const starPercentage = (3.5 / starsTotal) * 100;
@@ -92,7 +96,7 @@ const Product = (props) => {
             <div className='col-12 individual-best-price'><span style={{fontSize:"1rem",color:"black",marginRight:".5rem"}}>Best Price- </span><CurrencyRupeeIcon/>{bestPrice}</div>
             <div className="col-12 individual-product-manufacturer"><span style={{marginRight:".5rem"}}>Manufacturer -</span>{item.Manufacturer}</div>
             <div className='col-12'><Button type="primary" className="col-12 individual-cart-button" onClick={()=>handleCart(item.PId)}>ADD TO CART</Button></div>
-            <div className='col-12'><Button type="danger" className="col-12 individual-wishlist-button" onClick={()=>handleCart(item.PId)}>ADD TO WISHLIST</Button></div>
+            <div className='col-12'><Button type="danger" className="col-12 individual-wishlist-button" onClick={()=>handleWishList(item.PId)}>ADD TO WISHLIST</Button></div>
             <div className='col-12 individual-description'>
             <div className='col-12 desc-tag'>Description :</div>
             <div className='col-lg-8 col-sm-12 desc-body'>{item.Description}</div>
@@ -137,5 +141,6 @@ export default connect(
   {
     getProductRequest,
     addToCart,
+    addToWishlist,
   }
 )(Product);

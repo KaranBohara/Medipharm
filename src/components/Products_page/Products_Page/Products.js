@@ -25,7 +25,7 @@ const Products = (props) => {
                 {product.items.map((item, index) => {
                     bestPrice = Math.round(item.Price - ((item.Discount * item.Price) / 100));
                     return (                   
-                            <div className="animate__animated animate__jackInTheBox product-box">
+                            <div className="animate__animated animate__jackInTheBox product-box" key={index}>
                                 <div className="discount-tab"><Tag color="#f50">{item.Discount}%OFF</Tag>
                                 <FavoriteIcon className={`wishlist-product-icon ${wishlist?"wishlist-product-icon-after":""}`} onClick={handleWishlist}/>
                                 </div>

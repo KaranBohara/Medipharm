@@ -1,5 +1,5 @@
 import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY} from '../actiontypes/actionTypes'
-import { GET_PRODUCTS_REQUEST,GET_PRODUCTBYID_SUCCESS,GET_PRODUCTBYID_REQUEST,GET_PRODUCTS_SUCCESS } from '../actiontypes/actionTypes';
+import { GET_PRODUCTS_REQUEST,GET_PRODUCTBYID_SUCCESS,GET_PRODUCTBYID_REQUEST,GET_PRODUCTS_SUCCESS,ADD_TO_WISHLIST,REMOVE_FROM_WISHLIST } from '../actiontypes/actionTypes';
   export const getProductsRequest = () => ({
     type: GET_PRODUCTS_REQUEST
   });
@@ -45,4 +45,18 @@ import { GET_PRODUCTS_REQUEST,GET_PRODUCTBYID_SUCCESS,GET_PRODUCTBYID_REQUEST,GE
           type: ADD_QUANTITY,
           id
       }
+  }
+
+  export const addToWishlist=(id)=>{
+    return{
+      type:ADD_TO_WISHLIST,
+      id
+    }
+  }
+  
+  export const removeFromWishlist=(id)=>{
+    return{
+      type:REMOVE_FROM_WISHLIST,
+      id
+    }
   }

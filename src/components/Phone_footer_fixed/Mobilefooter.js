@@ -23,7 +23,7 @@ const Mobilefooter=(props)=>
             </div>
             <div className="footer-content-box" >
             <div className="footer-content-icon">
-            <Link to="/"><FavoriteIcon className="wishlist-icon"/></Link>
+            <Link to="/wishlist"><FavoriteIcon className="wishlist-icon"/></Link>
             </div>
             </div>
             <div className="footer-content-box" >

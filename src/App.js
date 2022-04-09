@@ -17,6 +17,7 @@ import ProductsRoutes from "./pages/Products_pages/ProductsRoutes";
 import MedipharmCart from "./components/MedipharmCart/MedipharmCart";
 import Account from "./components/account/Account";
 import Product from "./components/Products_page/Products_Page/Product";
+import MedipharmWishList from "./components/WishList/MedipharmWishList";
 // https://dailymed.nlm.nih.gov/dailymed/services/v2/drugnames?page=4&pagesize=100
 
 const App=(props)=> {
@@ -38,6 +39,7 @@ const App=(props)=> {
         <Route exact path="/product/:category/:product/:pid" component={Product}/>
         <Route path="/admin/dashboard" component={Dashboard}/>
         <Route exact path="/admin/login" component={AdminLogin}/>
+        <Route exact path="/wishlist" component={MedipharmWishList}/>
         </Switch>
         <Mobilefooter />
     </div>
